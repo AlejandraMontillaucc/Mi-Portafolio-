@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "role": "",
+    "greeting": "Hi, I'm",
+    "name": "YOUR NAME HERE",
+    "description": "YOUR DESCRIPTION HERE",
+    "btnProjects": "View Projects",
+    "btnContact": "Contact"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "about": {
+  "title": "About me",
+  "subtitle": "Creating solutions that matter",
+  "p1": "I'm a Software Engineering student with a deep passion for web development and intuitive interface design.",
+  "p2": "My approach combines analytical thinking with creativity, always looking for innovative solutions that not only work well, but also look beautiful.",
+  "p3": "When I'm not coding, you'll find me reading about the latest tech trends or designing in Figma.",
+  "years": "Years of experience",
+  "projects": "Completed projects"
+},
+"experience": {
+  "title": "Professional Experience",
+  "job1title": "Full Stack Developer",
+  "job1desc": "Development of scalable web applications using React, Node.js and PostgreSQL. Leadership in implementing new features and performance improvements.",
+  "job2title": "Frontend Developer",
+  "job2desc": "Creation of responsive and accessible user interfaces. Close collaboration with the design team to implement impactful visual experiences.",
+  "job3title": "Junior Developer",
+  "job3desc": "Development of reusable components and codebase maintenance. Continuous learning of best practices and agile methodologies.",
+  "job4title": "Intern Developer",
+  "job4desc": "Participation in hands-on learning projects. Development of fundamental skills in web programming and teamwork."
+},
+"testimonials": {
+  "title": "What they say about me",
+  "t1": "Sofía delivered an exceptional product that exceeded our expectations. Her attention to detail and ability to understand our needs was impressive.",
+  "t2": "Working with Sofía was an incredible experience. Her professionalism and technical skills are top notch. I would definitely recommend her.",
+  "t3": "A talented developer with an exceptional eye for design. Sofía transformed our vision into a beautiful and functional reality."
+},
+"contact": {
+  "title": "Let's Work Together",
+  "subtitle": "Have a project in mind? I'd love to hear your idea and see how I can help.",
+  "connect": "Let's Connect",
+  "connectDesc": "I'm always open to new opportunities and interesting projects. Feel free to reach out.",
+  "name": "Name",
+  "namePlaceholder": "Your name",
+  "email": "Email",
+  "emailPlaceholder": "you@email.com",
+  "message": "Message",
+  "messagePlaceholder": "Tell me about your project...",
+  "send": "Send Message",
+  "successMsg": "Thanks for your message! I'll get back to you soon."
+},
+"footer": {
+  "tagline": "Creating digital experiences with passion",
+  "madeWith": "Made with",
+  "by": "by YOUR NAME",
+  "rights": "All rights reserved",
+  "home": "Home",
+  "projects": "Projects",
+  "contact": "Contact"
+}
+}

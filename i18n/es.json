@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "role": "",
+    "greeting": "Hola, soy",
+    "name": "Maria Alejandra Montilla Diaz",
+    "description": "Estudiante de Ingeniería de Software, apasionada por el diseño y la creatividad.",
+    "btnProjects": "Ver Proyectos",
+    "btnContact": "Contactar"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Creando soluciones que importan",
+    "p1": "Soy estudiante de Ingeniería de Software con una profunda pasión por el desarrollo web y el diseño de interfaces intuitivas.",
+    "p2": "Mi enfoque combina pensamiento analítico con creatividad, siempre buscando soluciones innovadoras que no solo funcionen bien, sino que también se vean hermosas.",
+    "p3": "Cuando no estoy programando, me encontrarás leyendo sobre las últimas tendencias en tecnología o diseñando en Figma.",
+    "years": "Años de experiencia",
+    "projects": "Proyectos completados"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "p1": "Plataforma de comercio electrónico moderna con carrito de compras, pasarela de pagos y panel de administración.",
+    "p2": "Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real y sincronización en la nube.",
+    "p3": "Sistema de gestión de contenidos personalizado para portafolios creativos con editor visual drag-and-drop.",
+    "p4": "Aplicación móvil para seguimiento de actividad física, nutrición y objetivos de salud personalizados.",
+    "p5": "Herramienta que genera contenido de blog optimizado para SEO utilizando inteligencia artificial.",
+    "p6": "Plataforma de búsqueda de propiedades con filtros avanzados, mapas interactivos y tours virtuales."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "job1title": "Full Stack Developer",
+    "job1desc": "Desarrollo de aplicaciones web escalables utilizando React, Node.js y PostgreSQL. Liderazgo en la implementación de nuevas funcionalidades y mejoras de rendimiento.",
+    "job2title": "Frontend Developer",
+    "job2desc": "Creación de interfaces de usuario responsivas y accesibles. Colaboración estrecha con el equipo de diseño para implementar experiencias visuales impactantes.",
+    "job3title": "Junior Developer",
+    "job3desc": "Desarrollo de componentes reutilizables y mantenimiento de código base. Aprendizaje continuo de mejores prácticas y metodologías ágiles.",
+    "job4title": "Intern Developer",
+    "job4desc": "Participación en proyectos de aprendizaje práctico. Desarrollo de habilidades fundamentales en programación web y trabajo en equipo."
+  },
+  "testimonials": {
+    "title": "Lo que dicen de mí",
+    "t1": "Sofía entregó un producto excepcional que superó nuestras expectativas. Su atención al detalle y capacidad para entender nuestras necesidades fue impresionante.",
+    "t2": "Trabajar con Sofía fue una experiencia increíble. Su profesionalismo y habilidades técnicas son de primer nivel. Definitivamente la recomendaría.",
+    "t3": "Una desarrolladora talentosa con un ojo excepcional para el diseño. Sofía transformó nuestra visión en una realidad hermosa y funcional."
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "¿Tienes un proyecto en mente? Me encantaría escuchar tu idea y ver cómo puedo ayudarte.",
+    "connect": "Conectemos",
+    "connectDesc": "Estoy siempre abierta a nuevas oportunidades y proyectos interesantes. No dudes en contactarme.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+    "send": "Enviar Mensaje",
+    "successMsg": "¡Gracias por tu mensaje! Te responderé pronto."
+  },
+  "footer": {
+    "tagline": "Creando experiencias digitales con pasión",
+    "madeWith": "Hecho con",
+    "by": "por TU NOMBRE",
+    "rights": "Todos los derechos reservados",
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  }
+}

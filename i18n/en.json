@@ -61,15 +61,15 @@
   "projects": "Projects",
   "contact": "Contact"
 },
-"projects": {
-  "title": "Featured Projects",
-  "p1": "Modern e-commerce platform with shopping cart, payment gateway and admin panel.",
-  "p2": "Task management application with real-time collaboration and cloud sync features.",
-  "p3": "Custom CMS for creative portfolios with visual drag-and-drop editor.",
-  "p4": "Mobile application for fitness tracking, nutrition and personalized health goals.",
-  "p5": "Tool that generates SEO-optimized blog content using artificial intelligence.",
-  "p6": "Real estate search platform with advanced filters, interactive maps and virtual tours."
-},
+  "projects": {
+    "title": "Featured Projects"
+  },
+  "nails": {
+    "title": "My Creative Side",
+    "description": "Besides development, I also dedicate myself to nail design, where I express my creativity and attention to detail.",
+    "instagram": "View more on Instagram",
+    "view": "View"
+  },
 "skills": {
   "title": "Skills & Technologies",
   "s1": "Frontend Development",

@@ -37,8 +37,11 @@ export default function Navbar() {
   ];
 
   const handleLanguageChange = (newLocale: string) => {
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
-    window.location.reload();
+    if (typeof window !== 'undefined') {
+      // eslint-disable-next-line react-hooks/immutability
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
+      window.location.reload();
+    }
   };
 
   return (

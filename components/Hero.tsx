@@ -2,7 +2,6 @@
 
 import { ArrowDown, FileDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
 
 export default function Hero() {
   const t = useTranslations('hero');

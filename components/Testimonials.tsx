@@ -44,7 +44,7 @@ export default function Testimonials() {
             >
               <Quote className="h-10 w-10 text-primary/20" />
               <blockquote className="text-lg leading-relaxed text-foreground/70">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </blockquote>
               <div className="flex items-center gap-4">
                 <img

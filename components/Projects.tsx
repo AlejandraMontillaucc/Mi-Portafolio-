@@ -4,60 +4,34 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  github: string;
+  demo: string;
+}
 
 export default function Projects() {
   const t = useTranslations('projects');
 
-  const projects = [
+  /**
+   * AQUÍ PUEDES AGREGAR TUS PROYECTOS REALES
+   * Solo añade objetos a este array siguiendo la estructura de la interfaz Project.
+   */
+  const projects: Project[] = [
+    /* 
     {
-      title: 'E-Commerce Platform',
-      description: t('p1'),
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: '#',
-      demo: '#',
+      title: 'LegalConnect',
+      description: 'Asistente inteligente para análisis de contratos',
+      image: 'URL de la imagen o path en /public',
+      tags: ['React', 'Tailwind', 'Next.js'],
+      github: 'https://github.com/tu-usuario/tu-repo',
+      demo: 'https://tu-demo.com',
     },
-    {
-      title: 'Task Management App',
-      description: t('p2'),
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop',
-      tags: ['TypeScript', 'Firebase', 'Tailwind CSS'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Portfolio CMS',
-      description: t('p3'),
-      image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=600&fit=crop',
-      tags: ['Next.js', 'PostgreSQL', 'Prisma'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Health & Fitness Tracker',
-      description: t('p4'),
-      image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
-      tags: ['React Native', 'Express', 'Chart.js'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'AI Blog Generator',
-      description: t('p5'),
-      image: 'https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=800&h=600&fit=crop',
-      tags: ['Python', 'OpenAI API', 'Flask'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Real Estate Platform',
-      description: t('p6'),
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
-      tags: ['Vue.js', 'Mapbox', 'Supabase'],
-      github: '#',
-      demo: '#',
-    },
+    */
   ];
 
   return (
@@ -68,51 +42,68 @@ export default function Projects() {
         <SectionTitle number="02" title={t('title')} />
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <article
-              key={index}
-              className="group relative overflow-hidden rounded-2xl border border-transparent bg-background shadow-sm transition-all duration-300 hover:border-primary hover:shadow-lg"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 flex items-end justify-center gap-4 bg-gradient-to-t from-background/80 to-transparent pb-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <a
-                    href={project.github}
-                    className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
-                    aria-label="Ver en GitHub"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
-                    aria-label="Ver demo"
-                  >
-                    <ExternalLink className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="space-y-4 p-6">
-                <h3 className="font-serif text-2xl">{project.title}</h3>
-                <p className="text-foreground/70">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-secondary/30 px-3 py-1 text-xs text-primary"
+          {projects.length > 0 ? (
+            projects.map((project, index) => (
+              <article
+                key={index}
+                className="group relative overflow-hidden rounded-2xl border border-transparent bg-background shadow-sm transition-all duration-300 hover:border-primary hover:shadow-lg"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 flex items-end justify-center gap-4 bg-gradient-to-t from-background/80 to-transparent pb-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
+                      aria-label="Ver en GitHub"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <Github className="h-5 w-5" />
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
+                      aria-label="Ver demo"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  </div>
                 </div>
+
+                <div className="space-y-4 p-6">
+                  <h3 className="font-serif text-2xl">{project.title}</h3>
+                  <p className="text-foreground/70">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-secondary/30 px-3 py-1 text-xs text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))
+          ) : (
+            /* Card de ejemplo estructural vacía (se muestra cuando no hay proyectos) */
+            <div className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-12 text-center">
+              <div className="mb-4 rounded-full bg-primary/10 p-4">
+                <ExternalLink className="h-8 w-8 text-primary/40" />
               </div>
-            </article>
-          ))}
+              <p className="text-lg text-foreground/50">
+                Aún no hay proyectos para mostrar. <br /> 
+                Agrega tus proyectos en el código de <code className="rounded bg-muted px-1">Projects.tsx</code>.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

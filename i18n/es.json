@@ -22,13 +22,13 @@
     "p3": "Me gusta que las cosas se vean bien, pero también que funcionen bien, y siento que esa mezcla entre lo visual y lo técnico es lo que más me representa. Soy una persona tranquila, responsable y comprometida, y aunque sigo aprendiendo, siempre trato de dar lo mejor de mí en todo lo que hago."
   },
   "projects": {
-    "title": "Proyectos Destacados",
-    "p1": "Plataforma de comercio electrónico moderna con carrito de compras, pasarela de pagos y panel de administración.",
-    "p2": "Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real y sincronización en la nube.",
-    "p3": "Sistema de gestión de contenidos personalizado para portafolios creativos con editor visual drag-and-drop.",
-    "p4": "Aplicación móvil para seguimiento de actividad física, nutrición y objetivos de salud personalizados.",
-    "p5": "Herramienta que genera contenido de blog optimizado para SEO utilizando inteligencia artificial.",
-    "p6": "Plataforma de búsqueda de propiedades con filtros avanzados, mapas interactivos y tours virtuales."
+    "title": "Proyectos Destacados"
+  },
+  "nails": {
+    "title": "Mi lado creativo",
+    "description": "Además del desarrollo, también me dedico al diseño de uñas, donde expreso mi creatividad y atención al detalle.",
+    "instagram": "Ver más en Instagram",
+    "view": "Ver"
   },
   "experience": {
     "title": "Experiencia Profesional",

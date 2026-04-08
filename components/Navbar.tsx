@@ -48,11 +48,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled 
-          ? 'top-0 py-4 bg-background/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(194,138,130,0.08)]' 
-          : 'top-6 py-6 bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 py-4 bg-background/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(194,138,130,0.08)] transition-all duration-300 border-none"
     >
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14">
         <div className="flex items-center justify-between gap-10">
@@ -96,19 +92,36 @@ export default function Navbar() {
                 </button>
 
                 {showLanguageMenu && (
-                  <div className="absolute top-full mt-4 right-0 bg-background/95 backdrop-blur-2xl border border-[#C28A82]/15 rounded-[24px] shadow-[0_25px_60px_rgba(194,138,130,0.18)] overflow-hidden min-w-[190px] animate-in fade-in slide-in-from-top-2 duration-300 z-50">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLanguageChange(lang.code as 'es' | 'en')}
-                        className={`flex items-center gap-4 w-full px-6 py-4 text-[13px] text-left hover:bg-[#C28A82]/5 transition-colors ${
-                          language === lang.code ? 'text-[#C28A82] font-black bg-[#C28A82]/5' : 'text-foreground/50'
-                        }`}
-                      >
-                        <span className="text-xl">{lang.flag}</span>
-                        <span className="font-bold">{lang.name}</span>
-                      </button>
-                    ))}
+                  <div className="absolute top-full mt-4 right-0 bg-background/95 backdrop-blur-2xl border border-[#C28A82]/20 rounded-[32px] shadow-[0_20px_50px_-15px_rgba(194,138,130,0.3)] p-5 w-[260px] animate-in fade-in slide-in-from-top-2 duration-300 z-[100]">
+                    <div className="flex flex-col gap-2">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => handleLanguageChange(lang.code as 'es' | 'en')}
+                          className={`flex items-center gap-4 w-full px-4 py-3 rounded-[20px] transition-all duration-300 group/item relative ${
+                            language === lang.code 
+                              ? 'bg-[#C28A82]/10 text-[#C28A82]' 
+                              : 'text-foreground/50 hover:bg-[#C28A82]/5 hover:text-[#C28A82]/80'
+                          }`}
+                        >
+                          {/* Flag Icon - Small and centered in the airy box */}
+                          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-background border border-[#C28A82]/10 text-base shadow-sm flex-shrink-0 transition-transform group-hover/item:scale-105 select-none overflow-hidden font-normal">
+                            {lang.flag}
+                          </div>
+                          
+                          <div className="flex flex-col items-start">
+                            <span className="text-[13px] font-bold tracking-tight leading-none">{lang.name}</span>
+                            <span className="text-[8px] uppercase tracking-[0.1em] opacity-30 font-black mt-1">{lang.code}</span>
+                          </div>
+
+                          {language === lang.code && (
+                            <div className="ml-auto flex items-center justify-center pr-1">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#C28A82] opacity-60 shadow-[0_0_8px_rgba(194,138,130,0.4)]"></div>
+                            </div>
+                          )}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>

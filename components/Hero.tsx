@@ -1,57 +1,77 @@
-'use client'
-import { ArrowDown } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+"use client";
+
+import { ArrowDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { cn } from '@/lib/utils';
 
 export default function Hero() {
-  const t = useTranslations('hero')
+  const t = useTranslations('hero');
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-24 px-6 overflow-hidden bg-background">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.02] dark:opacity-[0.04] z-0">
-        <span className="font-serif text-[40rem] leading-none text-[#C28A82]">A</span>
+    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:pt-32">
+      {/* Background Decorative Letter */}
+      <div className="pointer-events-none absolute right-0 top-1/2 z-0 select-none opacity-[0.02] dark:opacity-[0.04] -translate-y-1/2">
+        <span className="font-serif text-[40rem] leading-none text-primary">
+          A
+        </span>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col justify-center space-y-10 text-center md:text-left h-full">
-            <div className="space-y-6">
-              <span className="text-[#C28A82] text-xs font-bold tracking-[0.2em] uppercase block mb-4">
-                Software Engineer
-              </span>
-              <h1 className="text-5xl md:text-7xl font-light text-foreground/90 leading-tight">
-                {t('greeting')}, soy <span className="font-serif italic text-[#C28A82] font-medium">{t('name')}</span>
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          {/* Content */}
+          <div className="flex flex-col gap-8">
+            <div className="space-y-4">
+              <p className="tracking-widest text-primary uppercase">{t('role')}</p>
+              <h1 className="font-serif text-5xl md:text-7xl">
+                {t('greeting')}{' '}
+                <span className="text-primary">{t('name')}</span>
               </h1>
-              <p className="text-lg md:text-xl text-foreground/60 leading-relaxed max-w-lg mx-auto md:mx-0 font-light">
+              <p className="text-xl leading-relaxed text-foreground/70">
                 {t('description')}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-5 justify-center md:justify-start pt-4">
-              <a href="#proyectos" className="px-10 py-4 bg-[#C28A82] text-white rounded-xl hover:opacity-90 hover:shadow-xl transition-all duration-300 text-sm font-bold tracking-wide">
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#proyectos"
+                className="rounded-lg bg-primary px-8 py-3 text-primary-foreground transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+              >
                 {t('btnProjects')}
               </a>
-              <a href="#contacto" className="px-10 py-4 border border-[#C28A82]/30 text-[#C28A82] rounded-xl hover:bg-[#C28A82]/5 transition-all duration-300 text-sm font-bold tracking-wide">
+              <a
+                href="#contacto"
+                className="rounded-lg border border-primary px-8 py-3 text-primary transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
+              >
                 {t('btnContact')}
               </a>
             </div>
           </div>
 
+          {/* Image */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative group">
-              <div className="w-80 h-[450px] md:w-[450px] md:h-[600px] bg-secondary rounded-[40px] overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                <img src="/yo.jpg" alt={t('name')} className="w-full h-full object-cover" />
+            <div className="relative">
+              <div className="relative z-10 h-96 w-80 overflow-hidden rounded-3xl border-2 border-primary/20 bg-accent shadow-lg md:h-[500px] md:w-96">
+                <img
+                  src="/me.jpg"
+                  alt={t('name')}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
-              <div className="absolute -z-10 top-6 -right-6 w-full h-full border border-[#C28A82]/20 rounded-[40px] transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+              {/* Decorative Frame */}
+              <div className="absolute -right-8 top-8 -z-0 h-96 w-80 rounded-3xl border-2 border-primary/20 opacity-50 md:h-[500px] md:w-96" />
             </div>
           </div>
-
         </div>
 
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce cursor-pointer">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-foreground/40 font-bold">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-[#C28A82] to-transparent"></div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <a href="#sobre-mi" className="flex flex-col items-center gap-2 text-foreground/50 transition-colors duration-200 hover:text-primary">
+            <span className="text-sm">Scroll</span>
+            <ArrowDown className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>
   );
 }
+

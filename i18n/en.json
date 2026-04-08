@@ -1,9 +1,9 @@
 {
   "hero": {
-    "role": "",
+    "role": "Software Engineer",
     "greeting": "Hi, I'm",
-    "name": "YOUR NAME HERE",
-    "description": "YOUR DESCRIPTION HERE",
+    "name": "Maria Alejandra Montilla Diaz",
+    "description": "Software Engineering student passionate about creating elegant and functional digital experiences that generate real impact.",
     "btnProjects": "View Projects",
     "btnContact": "Contact"
   },
@@ -62,5 +62,29 @@
   "home": "Home",
   "projects": "Projects",
   "contact": "Contact"
+},
+"projects": {
+  "title": "Featured Projects",
+  "p1": "Modern e-commerce platform with shopping cart, payment gateway and admin panel.",
+  "p2": "Task management application with real-time collaboration and cloud sync features.",
+  "p3": "Custom CMS for creative portfolios with visual drag-and-drop editor.",
+  "p4": "Mobile application for fitness tracking, nutrition and personalized health goals.",
+  "p5": "Tool that generates SEO-optimized blog content using artificial intelligence.",
+  "p6": "Real estate search platform with advanced filters, interactive maps and virtual tours."
+},
+"skills": {
+  "title": "Skills & Technologies",
+  "s1": "Frontend Development",
+  "s1desc": "React, Vue, TypeScript, Next.js, Tailwind CSS",
+  "s2": "Backend Development",
+  "s2desc": "Node.js, Python, PostgreSQL, MongoDB, REST APIs",
+  "s3": "UI/UX Design",
+  "s3desc": "Figma, Adobe XD, Responsive Design, Wireframing",
+  "s4": "Mobile Development",
+  "s4desc": "React Native, Flutter, iOS & Android",
+  "s5": "Cloud & DevOps",
+  "s5desc": "AWS, Docker, CI/CD, Vercel, Firebase",
+  "s6": "Version Control",
+  "s6desc": "Git, GitHub, GitLab, Team collaboration"
 }
 }

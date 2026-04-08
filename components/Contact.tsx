@@ -1,98 +1,146 @@
-'use client'
-import { Mail, Send } from 'lucide-react'
-import { GitBranch } from 'lucide-react'
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+"use client";
+
+import React, { useState } from 'react';
+import { Mail, Linkedin, Github, Send } from 'lucide-react';
+import SectionTitle from './SectionTitle';
+import { useTranslations } from 'next-intl';
+import { cn } from '@/lib/utils';
+
+interface ContactLinkProps {
+  href: string;
+  icon: React.ElementType;
+  label: string;
+}
+
+const ContactLink = ({ href, icon: Icon, label }: ContactLinkProps) => (
+  <a
+    href={href}
+    target={href.startsWith('http') ? '_blank' : undefined}
+    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+    className="group flex items-center gap-4 text-foreground/70 transition-colors hover:text-primary"
+  >
+    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-all group-hover:bg-primary group-hover:text-primary-foreground">
+      <Icon className="h-5 w-5" />
+    </div>
+    <span>{label}</span>
+  </a>
+);
 
 export default function Contact() {
-  const t = useTranslations('contact')
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const t = useTranslations('contact');
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    alert(t('successMsg'))
-    setFormData({ name: '', email: '', message: '' })
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    console.log(formData);
+    alert(t('successMsg'));
+    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
 
   return (
-    <section id="contacto" className="py-32 px-6 bg-muted relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border"></div>
+    <section id="contacto" className="relative px-6 py-32">
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
-          <span className="text-primary text-sm tracking-widest uppercase">06</span>
-          <h2 className="text-4xl md:text-5xl font-serif mt-2">{t('title')}</h2>
-          <p className="text-foreground/60 mt-4 max-w-xl mx-auto">{t('subtitle')}</p>
-        </div>
+      <div className="mx-auto max-w-7xl">
+        <SectionTitle number="06" title={t('title')} />
 
-        <div className="grid md:grid-cols-2 gap-12">
-
-          {/* Info contacto */}
+        <div className="grid gap-16 md:grid-cols-2">
+          {/* Contact Info */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-serif mb-6">{t('connect')}</h3>
-              <p className="text-foreground/70 mb-8">{t('connectDesc')}</p>
-            </div>
+            <h3 className="font-serif text-3xl">{t('subtitle')}</h3>
+            <p className="text-lg leading-relaxed text-foreground/70">
+              {t('connectDesc')}
+            </p>
 
-            <div className="space-y-4">
-              <a href="mailto:tu@email.com" className="flex items-center gap-4 p-4 bg-background rounded-xl hover:shadow-md transition-shadow duration-200">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">Email</div>
-                  <div className="text-foreground/60 text-sm">tu@email.com</div>
-                </div>
-              </a>
-
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl hover:shadow-md transition-shadow duration-200">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <GitBranch className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">GitHub</div>
-                  <div className="text-foreground/60 text-sm">@tuusuario</div>
-                </div>
-              </a>
+            <div className="space-y-6">
+              <ContactLink 
+                href="mailto:tu@email.com" 
+                icon={Mail} 
+                label="tu@email.com" 
+              />
+              <ContactLink 
+                href="https://linkedin.com/in/tu-perfil" 
+                icon={Linkedin} 
+                label="LinkedIn Profile" 
+              />
+              <ContactLink 
+                href="https://github.com/tu-usuario" 
+                icon={Github} 
+                label="GitHub Profile" 
+              />
             </div>
           </div>
 
-          {/* Formulario */}
-          <div className="bg-background p-8 rounded-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium">{t('name')}</label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required
-                  className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder={t('namePlaceholder')} />
-              </div>
+          {/* Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">{t('name')}</label>
+              <input
+                type="text"
+                id="name"
+                required
+                autoComplete="name"
+                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                placeholder={t('namePlaceholder')}
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium">{t('email')}</label>
+              <input
+                type="email"
+                id="email"
+                required
+                autoComplete="email"
+                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                placeholder={t('emailPlaceholder')}
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
 
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium">{t('email')}</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required
-                  className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  placeholder={t('emailPlaceholder')} />
-              </div>
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-sm font-medium">{t('message')}</label>
+              <textarea
+                id="message"
+                required
+                rows={5}
+                className="w-full resize-none rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                placeholder={t('messagePlaceholder')}
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
 
-              <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-medium">{t('message')}</label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5}
-                  className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                  placeholder={t('messagePlaceholder')} />
-              </div>
-
-              <button type="submit" className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2">
-                {t('send')}
-                <Send className="w-4 h-4" />
-              </button>
-            </form>
-          </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={cn(
+                "flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 font-medium text-primary-foreground transition-all hover:opacity-90 hover:shadow-lg disabled:opacity-50",
+                isSubmitting && "cursor-not-allowed"
+              )}
+            >
+              <Send className={cn("h-5 w-5", isSubmitting && "animate-pulse")} />
+              {isSubmitting ? 'Enviando...' : t('send')}
+            </button>
+          </form>
         </div>
       </div>
     </section>
-  )
+  );
 }
+

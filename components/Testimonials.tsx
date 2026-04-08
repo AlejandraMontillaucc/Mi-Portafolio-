@@ -1,50 +1,58 @@
-'use client'
-import { Quote } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+"use client";
 
-const testimonials = [
-  {
-    name: 'Carlos Rodríguez',
-    role: 'CEO, TechStart',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop',
-    contentKey: 't1',
-  },
-  {
-    name: 'María Fernández',
-    role: 'Product Manager, InnovateLab',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop',
-    contentKey: 't2',
-  },
-  {
-    name: 'Juan Pérez',
-    role: 'CTO, DesignHub',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop',
-    contentKey: 't3',
-  },
-]
+import React from 'react';
+import { Quote } from 'lucide-react';
+import SectionTitle from './SectionTitle';
+import { useTranslations } from 'next-intl';
 
 export default function Testimonials() {
-  const t = useTranslations('testimonials')
+  const t = useTranslations('testimonials');
+
+  const testimonials = [
+    {
+      name: 'Carlos Rodríguez',
+      role: 'CEO, TechStart',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop',
+      content: t('t1'),
+    },
+    {
+      name: 'María Fernández',
+      role: 'Product Manager, InnovateLab',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop',
+      content: t('t2'),
+    },
+    {
+      name: 'Juan Pérez',
+      role: 'CTO, DesignHub',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop',
+      content: t('t3'),
+    },
+  ];
 
   return (
-    <section className="py-32 px-6 bg-muted relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border"></div>
-      <div className="max-w-7xl mx-auto">
+    <section className="relative bg-muted px-6 py-32">
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
-        <div className="mb-12">
-          <span className="text-primary text-sm tracking-widest uppercase">04</span>
-          <h2 className="text-4xl md:text-5xl font-serif mt-2">{t('title')}</h2>
-        </div>
+      <div className="mx-auto max-w-7xl">
+        <SectionTitle number="04" title={t('title')} />
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-background p-8 rounded-2xl space-y-6 hover:shadow-lg transition-shadow duration-300 border border-transparent">
-              <Quote className="w-10 h-10 text-primary/30" />
-              <p className="text-foreground/70 text-lg leading-relaxed">
-                "{t(testimonial.contentKey)}"
-              </p>
+            <div
+              key={index}
+              className="space-y-6 rounded-2xl bg-background p-8 transition-shadow duration-300 hover:shadow-lg"
+            >
+              <Quote className="h-10 w-10 text-primary/20" />
+              <blockquote className="text-lg leading-relaxed text-foreground/70">
+                "{testimonial.content}"
+              </blockquote>
               <div className="flex items-center gap-4">
-                <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover" />
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="h-14 w-14 rounded-full object-cover"
+                  loading="lazy"
+                />
                 <div>
                   <div className="font-semibold">{testimonial.name}</div>
                   <div className="text-sm text-foreground/60">{testimonial.role}</div>
@@ -55,5 +63,6 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }
+

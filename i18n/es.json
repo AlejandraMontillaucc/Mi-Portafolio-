@@ -1,9 +1,9 @@
 {
   "hero": {
-    "role": "",
+    "role": "Software Engineer",
     "greeting": "Hola, soy",
     "name": "Maria Alejandra Montilla Diaz",
-    "description": "Estudiante de Ingeniería de Software, apasionada por el diseño y la creatividad.",
+    "description": "Estudiante de Ingeniería de Software apasionada por crear experiencias digitales elegantes y funcionales que generen un impacto real.",
     "btnProjects": "Ver Proyectos",
     "btnContact": "Contactar"
   },
@@ -71,5 +71,20 @@
     "home": "Inicio",
     "projects": "Proyectos",
     "contact": "Contacto"
+  },
+  "skills": {
+    "title": "Habilidades & Tecnologías",
+    "s1": "Desarrollo Frontend",
+    "s1desc": "React, Vue, TypeScript, Next.js, Tailwind CSS",
+    "s2": "Desarrollo Backend",
+    "s2desc": "Node.js, Python, PostgreSQL, MongoDB, REST APIs",
+    "s3": "Diseño UI/UX",
+    "s3desc": "Figma, Adobe XD, Diseño Responsivo, Wireframing",
+    "s4": "Desarrollo Móvil",
+    "s4desc": "React Native, Flutter, iOS & Android",
+    "s5": "Cloud & DevOps",
+    "s5desc": "AWS, Docker, CI/CD, Vercel, Firebase",
+    "s6": "Control de Versiones",
+    "s6desc": "Git, GitHub, GitLab, Colaboración en equipo"
   }
 }

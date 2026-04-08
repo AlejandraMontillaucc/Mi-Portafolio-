@@ -94,14 +94,10 @@ export default function Projects() {
             ))
           ) : (
             /* Card de ejemplo estructural vacía (se muestra cuando no hay proyectos) */
-            <div className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-12 text-center">
-              <div className="mb-4 rounded-full bg-primary/10 p-4">
-                <ExternalLink className="h-8 w-8 text-primary/40" />
+            <div className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-24 text-center">
+              <div className="rounded-full bg-primary/5 p-6 animate-pulse">
+                <ExternalLink className="h-10 w-10 text-primary/20" />
               </div>
-              <p className="text-lg text-foreground/50">
-                Aún no hay proyectos para mostrar. <br /> 
-                Agrega tus proyectos en el código de <code className="rounded bg-muted px-1">Projects.tsx</code>.
-              </p>
             </div>
           )}
         </div>

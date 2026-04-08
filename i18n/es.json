@@ -72,17 +72,8 @@
   },
   "skills": {
     "title": "Habilidades & Tecnologías",
-    "s1": "Desarrollo Frontend",
-    "s1desc": "React, Vue, TypeScript, Next.js, Tailwind CSS",
-    "s2": "Desarrollo Backend",
-    "s2desc": "Node.js, Python, PostgreSQL, MongoDB, REST APIs",
-    "s3": "Diseño UI/UX",
-    "s3desc": "Figma, Adobe XD, Diseño Responsivo, Wireframing",
-    "s4": "Desarrollo Móvil",
-    "s4desc": "React Native, Flutter, iOS & Android",
-    "s5": "Cloud & DevOps",
-    "s5desc": "AWS, Docker, CI/CD, Vercel, Firebase",
-    "s6": "Control de Versiones",
-    "s6desc": "Git, GitHub, GitLab, Colaboración en equipo"
+    "subtitle": "Tecnologías que utilizo para crear interfaces modernas y funcionales.",
+    "frontend": "Frontend",
+    "tools": "Herramientas"
   }
 }

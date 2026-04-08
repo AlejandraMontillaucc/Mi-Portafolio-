@@ -70,19 +70,10 @@
     "instagram": "View more on Instagram",
     "view": "View"
   },
-"skills": {
-  "title": "Skills & Technologies",
-  "s1": "Frontend Development",
-  "s1desc": "React, Vue, TypeScript, Next.js, Tailwind CSS",
-  "s2": "Backend Development",
-  "s2desc": "Node.js, Python, PostgreSQL, MongoDB, REST APIs",
-  "s3": "UI/UX Design",
-  "s3desc": "Figma, Adobe XD, Responsive Design, Wireframing",
-  "s4": "Mobile Development",
-  "s4desc": "React Native, Flutter, iOS & Android",
-  "s5": "Cloud & DevOps",
-  "s5desc": "AWS, Docker, CI/CD, Vercel, Firebase",
-  "s6": "Version Control",
-  "s6desc": "Git, GitHub, GitLab, Team collaboration"
-}
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "Technologies I use to create modern and functional interfaces.",
+    "frontend": "Frontend",
+    "tools": "Tools"
+  }
 }

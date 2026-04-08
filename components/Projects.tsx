@@ -27,9 +27,9 @@ export default function Projects() {
       title: 'LegalConnect',
       description: 'Asistente inteligente para análisis de contratos',
       image: 'URL de la imagen o path en /public',
-      tags: ['React', 'Tailwind', 'Next.js'],
-      github: 'https://github.com/tu-usuario/tu-repo',
-      demo: 'https://tu-demo.com',
+      tags: ['TypeScript', 'JavaScript'],
+      github: 'https://github.com/AndresMira21/analyzer-contract-frontend.git',
+      demo: 'https://analyzer-contract-frontend-kohl.vercel.app/',
     },
     */
   ];

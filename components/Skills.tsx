@@ -1,40 +1,105 @@
 "use client";
 
 import React from 'react';
-import { Code2, Database, Layout, Smartphone, Cloud, GitBranch } from 'lucide-react';
+import { 
+  FileCode2, 
+  Palette, 
+  Cpu, 
+  Atom, 
+  Zap, 
+  Wind, 
+  GitBranch, 
+  Github 
+} from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
+import { motion } from 'motion/react';
 
 export default function Skills() {
   const t = useTranslations('skills');
 
-  const skills = [
-    { icon: Code2, title: t('s1'), description: t('s1desc') },
-    { icon: Database, title: t('s2'), description: t('s2desc') },
-    { icon: Layout, title: t('s3'), description: t('s3desc') },
-    { icon: Smartphone, title: t('s4'), description: t('s4desc') },
-    { icon: Cloud, title: t('s5'), description: t('s5desc') },
-    { icon: GitBranch, title: t('s6'), description: t('s6desc') },
+  const categories = [
+    {
+      title: t('frontend'),
+      skills: [
+        { name: 'HTML', icon: FileCode2 },
+        { name: 'CSS', icon: Palette },
+        { name: 'JavaScript', icon: Cpu },
+        { name: 'React', icon: Atom },
+        { name: 'Next.js', icon: Zap },
+        { name: 'Tailwind CSS', icon: Wind },
+      ],
+    },
+    {
+      title: t('tools'),
+      skills: [
+        { name: 'Git', icon: GitBranch },
+        { name: 'GitHub', icon: Github },
+      ],
+    },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <section id="habilidades" className="relative px-6 py-32">
+    <section id="habilidades" className="relative px-6 py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
+      
+      {/* Decorative background element */}
+      <div className="absolute -right-20 top-40 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute -left-20 bottom-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
 
       <div className="mx-auto max-w-7xl">
-        <SectionTitle number="03" title={t('title')} />
+        <SectionTitle 
+          number="03" 
+          title={t('title')} 
+          subtitle={t('subtitle')}
+        />
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="group space-y-4 rounded-2xl border border-transparent bg-card p-8 transition-shadow duration-300 hover:shadow-lg"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <skill.icon className="h-7 w-7 text-primary transition-colors group-hover:text-inherit" />
-              </div>
-              <h3 className="font-serif text-xl">{skill.title}</h3>
-              <p className="text-foreground/70">{skill.description}</p>
+        <div className="grid gap-12 md:grid-cols-2">
+          {categories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="space-y-8">
+              <h3 className="inline-block border-b-2 border-primary/20 pb-2 text-2xl font-serif">
+                {category.title}
+              </h3>
+              
+              <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="flex flex-wrap gap-4"
+              >
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skillIndex}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05, translateY: -5 }}
+                    className="group flex items-center gap-3 rounded-xl border border-primary/10 bg-card px-5 py-3 shadow-sm transition-all duration-300 hover:border-primary/30 hover:bg-secondary/20 hover:shadow-md"
+                  >
+                    <skill.icon className="h-5 w-5 text-primary transition-colors group-hover:text-dark-mauve" />
+                    <span className="font-medium text-foreground/80 group-hover:text-foreground">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           ))}
         </div>

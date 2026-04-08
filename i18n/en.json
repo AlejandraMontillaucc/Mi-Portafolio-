@@ -16,14 +16,11 @@
     "contact": "Contact"
   },
   "about": {
-  "title": "About me",
-  "subtitle": "Creating solutions that matter",
-  "p1": "I'm a Software Engineering student with a deep passion for web development and intuitive interface design.",
-  "p2": "My approach combines analytical thinking with creativity, always looking for innovative solutions that not only work well, but also look beautiful.",
-  "p3": "When I'm not coding, you'll find me reading about the latest tech trends or designing in Figma.",
-  "years": "Years of experience",
-  "projects": "Completed projects"
-},
+    "title": "About me",
+    "p1": "I am a software engineering student and I love everything related to technology, especially web development and creating beautiful things that work well. I like to learn at my own pace, try new things and face challenges, even if sometimes I have to look for a thousand solutions until something works.",
+    "p2": "In addition to programming, I am also a manicurist, something that is an important part of my life. Thanks to that I have developed a lot of creativity, patience and attention to detail, things that I also apply when I design interfaces or work on my projects.",
+    "p3": "I like things to look good, but also to work well, and I feel that this mixture between the visual and the technical is what represents me most. I am a calm, responsible and committed person, and although I am still learning, I always try to give my best in everything I do."
+  },
 "experience": {
   "title": "Professional Experience",
   "job1title": "Full Stack Developer",

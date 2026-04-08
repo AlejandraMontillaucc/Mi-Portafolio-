@@ -17,12 +17,9 @@
   },
   "about": {
     "title": "Sobre mí",
-    "subtitle": "Creando soluciones que importan",
-    "p1": "Soy estudiante de Ingeniería de Software con una profunda pasión por el desarrollo web y el diseño de interfaces intuitivas.",
-    "p2": "Mi enfoque combina pensamiento analítico con creatividad, siempre buscando soluciones innovadoras que no solo funcionen bien, sino que también se vean hermosas.",
-    "p3": "Cuando no estoy programando, me encontrarás leyendo sobre las últimas tendencias en tecnología o diseñando en Figma.",
-    "years": "Años de experiencia",
-    "projects": "Proyectos completados"
+    "p1": "Soy estudiante de ingeniería de software y me gusta todo lo relacionado con la tecnología, especialmente el desarrollo web y crear cosas bonitas que funcionen bien. Me gusta aprender a mi ritmo, probar cosas nuevas y enfrentar retos, aunque a veces me toque buscar mil soluciones hasta que algo funcione.",
+    "p2": "Además de programar, también soy manicurista, algo que hace parte importante de mi vida. Gracias a eso he desarrollado mucha creatividad, paciencia y atención al detalle, cosas que también aplico cuando diseño interfaces o trabajo en mis proyectos.",
+    "p3": "Me gusta que las cosas se vean bien, pero también que funcionen bien, y siento que esa mezcla entre lo visual y lo técnico es lo que más me representa. Soy una persona tranquila, responsable y comprometida, y aunque sigo aprendiendo, siempre trato de dar lo mejor de mí en todo lo que hago."
   },
   "projects": {
     "title": "Proyectos Destacados",

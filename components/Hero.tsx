@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, FileDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
@@ -43,6 +43,14 @@ export default function Hero() {
                 className="rounded-lg border border-primary px-8 py-3 text-primary transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
               >
                 {t('btnContact')}
+              </a>
+              <a
+                href="/cv.pdf"
+                download
+                className="group flex items-center gap-2 rounded-lg bg-secondary/20 border border-primary/20 px-8 py-3 text-primary transition-all duration-300 hover:bg-secondary/30 hover:shadow-md hover:scale-[1.02]"
+              >
+                <FileDown className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
+                <span className="font-medium">{t('btnCV')}</span>
               </a>
             </div>
           </div>

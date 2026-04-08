@@ -5,7 +5,8 @@
     "name": "Maria Alejandra Montilla Diaz",
     "description": "Estudiante de Ingeniería de Software apasionada por crear experiencias digitales elegantes y funcionales que generen un impacto real.",
     "btnProjects": "Ver Proyectos",
-    "btnContact": "Contactar"
+    "btnContact": "Contactar",
+    "btnCV": "Descargar CV"
   },
   "navbar": {
     "home": "Inicio",

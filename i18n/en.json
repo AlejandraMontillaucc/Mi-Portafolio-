@@ -5,7 +5,8 @@
     "name": "Maria Alejandra Montilla Diaz",
     "description": "Software Engineering student passionate about creating elegant and functional digital experiences that generate real impact.",
     "btnProjects": "View Projects",
-    "btnContact": "Contact"
+    "btnContact": "Contact",
+    "btnCV": "Download CV"
   },
   "navbar": {
     "home": "Home",

@@ -21,17 +21,84 @@
     "p2": "In addition to programming, I am also a manicurist, something that is an important part of my life. Thanks to that I have developed a lot of creativity, patience and attention to detail, things that I also apply when I design interfaces or work on my projects.",
     "p3": "I like things to look good, but also to work well, and I feel that this mixture between the visual and the technical is what represents me most. I am a calm, responsible and committed person, and although I am still learning, I always try to give my best in everything I do."
   },
-"experience": {
-  "title": "Professional Experience",
-  "job1title": "Full Stack Developer",
-  "job1desc": "Development of scalable web applications using React, Node.js and PostgreSQL. Leadership in implementing new features and performance improvements.",
-  "job2title": "Frontend Developer",
-  "job2desc": "Creation of responsive and accessible user interfaces. Close collaboration with the design team to implement impactful visual experiences.",
-  "job3title": "Junior Developer",
-  "job3desc": "Development of reusable components and codebase maintenance. Continuous learning of best practices and agile methodologies.",
-  "job4title": "Intern Developer",
-  "job4desc": "Participation in hands-on learning projects. Development of fundamental skills in web programming and teamwork."
-},
+  "experience": {
+    "title": "Experience & Education",
+    "experience_title": "Professional Experience",
+    "education_title": "Education",
+    "complementary_title": "Complementary Training",
+    "jobs": {
+      "manicurist": {
+        "title": "Independent Manicurist",
+        "company": "Home service",
+        "date": "2022 - Present",
+        "desc": "I provide personalized nail care and aesthetic services at home. Customer management, appointment scheduling, loyalty and independent business management. Development of responsibility, discipline and attention to detail skills."
+      },
+      "admin_assistant": {
+        "title": "Administrative Assistance Assistant (Internship)",
+        "company": "Educational institutions and EPS (CONVIDA)",
+        "date": "2021 - 2022",
+        "desc": "Performed 880 hours of practice. Support in document management, customer service, file organization and general administrative tasks."
+      },
+      "customer_service": {
+        "title": "Customer Service Experience",
+        "company": "Various environments",
+        "date": "Various",
+        "desc": "I have developed effective communication, empathy and problem solving skills through direct interaction with customers."
+      },
+      "nail_tech": {
+        "title": "Nail Aesthetic Experience",
+        "company": "Aesthetic Center",
+        "date": "2021",
+        "desc": "Work for half a year in nail aesthetic services, strengthening technical and service skills."
+      }
+    },
+    "education": {
+      "software_eng": {
+        "title": "Software Engineering",
+        "institution": "Universidad Cooperativa de Colombia",
+        "date": "2022 - Present",
+        "desc": "Training in programming, software development, databases and design of technological solutions."
+      },
+      "sena": {
+        "title": "Technician in Administrative Assistance",
+        "institution": "SENA, Bogotá D.C.",
+        "date": "",
+        "desc": ""
+      },
+      "beauty": {
+        "title": "Labor Technician in Aesthetic Hand and Foot Care",
+        "institution": "Marlene Beauty Technical Institute, Bucaramanga",
+        "date": "",
+        "desc": ""
+      },
+      "secondary": {
+        "title": "Secondary Education",
+        "institution": "Silveria Espinosa de Rendón School, Bogotá D.C.",
+        "date": "",
+        "desc": ""
+      },
+      "primary": {
+        "title": "Primary Education",
+        "institution": "British Musical School, Pasto, Nariño",
+        "date": "",
+        "desc": ""
+      }
+    },
+    "complementary": {
+      "socioemotional": {
+        "title": "Socio-emotional Course",
+        "institution": "Universidad Cooperativa de Colombia"
+      },
+      "convivencia": {
+        "title": "Training of Coexistence Managers",
+        "institution": "Mariana University, Pasto"
+      },
+      "entrepreneurship": {
+        "title": "Entrepreneurship Training",
+        "institution": "Mariana University, Pasto"
+      }
+    }
+  },
 "testimonials": {
   "title": "What they say about me",
   "t1": "Sofía delivered an exceptional product that exceeded our expectations. Her attention to detail and ability to understand our needs was impressive.",

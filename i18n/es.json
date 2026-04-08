@@ -31,15 +31,82 @@
     "view": "Ver"
   },
   "experience": {
-    "title": "Experiencia Profesional",
-    "job1title": "Full Stack Developer",
-    "job1desc": "Desarrollo de aplicaciones web escalables utilizando React, Node.js y PostgreSQL. Liderazgo en la implementación de nuevas funcionalidades y mejoras de rendimiento.",
-    "job2title": "Frontend Developer",
-    "job2desc": "Creación de interfaces de usuario responsivas y accesibles. Colaboración estrecha con el equipo de diseño para implementar experiencias visuales impactantes.",
-    "job3title": "Junior Developer",
-    "job3desc": "Desarrollo de componentes reutilizables y mantenimiento de código base. Aprendizaje continuo de mejores prácticas y metodologías ágiles.",
-    "job4title": "Intern Developer",
-    "job4desc": "Participación en proyectos de aprendizaje práctico. Desarrollo de habilidades fundamentales en programación web y trabajo en equipo."
+    "title": "Experiencia & Educación",
+    "experience_title": "Experiencia Profesional",
+    "education_title": "Educación",
+    "complementary_title": "Formación Complementaria",
+    "jobs": {
+      "manicurist": {
+        "title": "Manicurista Independiente",
+        "company": "Servicio a domicilio",
+        "date": "2022 - Presente",
+        "desc": "Brindo servicios personalizados de cuidado y estética de uñas a domicilio. Gestión de clientes, agendamiento de citas, fidelización y manejo independiente del negocio. Desarrollo habilidades de responsabilidad, disciplina y atención al detalle."
+      },
+      "admin_assistant": {
+        "title": "Auxiliar en Asistencia Administrativa (Prácticas)",
+        "company": "Instituciones educativas y EPS (CONVIDA)",
+        "date": "2021 - 2022",
+        "desc": "Realicé 880 horas de prácticas. Apoyo en gestión documental, atención al cliente, organización de archivos y tareas administrativas generales."
+      },
+      "customer_service": {
+        "title": "Experiencia en Atención al Cliente",
+        "company": "Varios entornos",
+        "date": "Varios",
+        "desc": "He desarrollado habilidades de comunicación efectiva, empatía y resolución de problemas a través de la interacción directa con clientes."
+      },
+      "nail_tech": {
+        "title": "Experiencia en Estética de Uñas",
+        "company": "Centro de Estética",
+        "date": "2021",
+        "desc": "Trabajo durante medio año en servicios de estética de uñas, fortaleciendo habilidades técnicas y de servicio."
+      }
+    },
+    "education": {
+      "software_eng": {
+        "title": "Ingeniería de Software",
+        "institution": "Universidad Cooperativa de Colombia",
+        "date": "2022 - Presente",
+        "desc": "Formación en programación, desarrollo de software, bases de datos y diseño de soluciones tecnológicas."
+      },
+      "sena": {
+        "title": "Técnico en Asistencia Administrativa",
+        "institution": "SENA, Bogotá D.C.",
+        "date": "",
+        "desc": ""
+      },
+      "beauty": {
+        "title": "Técnico Laboral en Cuidado Estético de Manos y Pies",
+        "institution": "Instituto Técnico de Belleza Marlene, Bucaramanga",
+        "date": "",
+        "desc": ""
+      },
+      "secondary": {
+        "title": "Educación Secundaria",
+        "institution": "Colegio Silveria Espinosa de Rendón, Bogotá D.C.",
+        "date": "",
+        "desc": ""
+      },
+      "primary": {
+        "title": "Educación Primaria",
+        "institution": "Colegio Musical Británico, Pasto, Nariño",
+        "date": "",
+        "desc": ""
+      }
+    },
+    "complementary": {
+      "socioemotional": {
+        "title": "Curso Socioemocional",
+        "institution": "Universidad Cooperativa de Colombia"
+      },
+      "convivencia": {
+        "title": "Formación de Gestores de Convivencia",
+        "institution": "Universidad Mariana, Pasto"
+      },
+      "entrepreneurship": {
+        "title": "Capacitación en Emprendimiento",
+        "institution": "Universidad Mariana, Pasto"
+      }
+    }
   },
   "testimonials": {
     "title": "Lo que dicen de mí",

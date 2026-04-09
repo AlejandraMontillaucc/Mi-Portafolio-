@@ -8,13 +8,6 @@ export default function Hero() {
 
   return (
     <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:pt-32">
-      {/* Background Decorative Letter */}
-      <div className="pointer-events-none absolute right-0 top-1/2 z-0 select-none opacity-[0.02] dark:opacity-[0.04] -translate-y-1/2">
-        <span className="font-serif text-[40rem] leading-none text-primary">
-          A
-        </span>
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Content */}
@@ -64,8 +57,6 @@ export default function Hero() {
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              {/* Decorative Frame */}
-              <div className="absolute -right-8 top-8 -z-0 h-96 w-80 rounded-3xl border-2 border-primary/20 opacity-50 md:h-[500px] md:w-96" />
             </div>
           </div>
         </div>

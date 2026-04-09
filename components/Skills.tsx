@@ -60,10 +60,6 @@ export default function Skills() {
   return (
     <section id="habilidades" className="relative px-6 py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-      
-      {/* Decorative background element */}
-      <div className="absolute -right-20 top-40 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -left-20 bottom-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
 
       <div className="mx-auto max-w-7xl">
         <SectionTitle 

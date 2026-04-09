@@ -30,36 +30,13 @@ export default function Testimonials() {
           {testimonials.map((_, index) => (
             <div
               key={index}
-              className="group relative flex flex-col gap-6 rounded-2xl bg-background/50 p-8 border border-primary/5 transition-all duration-300 hover:border-primary/20 hover:shadow-lg overflow-hidden"
+              className="group relative flex flex-col gap-6 rounded-2xl bg-background/50 p-12 border border-primary/10 transition-all duration-300 hover:border-primary/20 hover:shadow-lg overflow-hidden flex items-center justify-center text-center"
             >
-              {/* Background Decoration */}
-              <div className="absolute -right-4 -top-4 text-primary/5 transition-transform duration-500 group-hover:scale-110">
-                <Quote className="h-24 w-24 rotate-12" />
-              </div>
-
-              <div className="relative z-10 space-y-6">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Quote className="h-5 w-5 text-primary/40" />
+              <div className="space-y-4">
+                <div className="h-10 w-10 mx-auto rounded-full bg-primary/5 flex items-center justify-center">
+                  <Quote className="h-5 w-5 text-primary/20" />
                 </div>
-                
-                <div className="space-y-3">
-                  <div className="h-4 w-full rounded-full bg-primary/5" />
-                  <div className="h-4 w-[90%] rounded-full bg-primary/5" />
-                  <div className="h-4 w-[75%] rounded-full bg-primary/5" />
-                </div>
-
-                <div className="flex items-center gap-4 pt-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10" />
-                  <div className="space-y-2">
-                    <div className="h-4 w-24 rounded-full bg-primary/10" />
-                    <div className="h-3 w-16 rounded-full bg-primary/5" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Sutil overlay message visible only on hover for dev awareness or kept clean */}
-              <div className="absolute inset-0 flex items-center justify-center bg-background/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="text-xs font-medium uppercase tracking-widest text-primary/40">Próximamente</span>
+                <span className="text-xs font-medium uppercase tracking-widest text-primary/30">Próximamente</span>
               </div>
             </div>
           ))}

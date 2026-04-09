@@ -35,7 +35,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="proyectos" className="relative bg-muted px-6 py-32">
+    <section id="proyectos" className="relative bg-muted/30 dark:bg-muted/10 px-6 py-32 transition-colors duration-500">
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
       <div className="mx-auto max-w-7xl">
@@ -46,7 +46,7 @@ export default function Projects() {
             projects.map((project, index) => (
               <article
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-transparent bg-background shadow-sm transition-all duration-300 hover:border-primary hover:shadow-lg"
+                className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img

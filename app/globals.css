@@ -63,21 +63,21 @@
 }
 
 .dark {
-  --background: #1A1A1A;
-  --foreground: #FAF7F5;
-  --card: rgba(45, 45, 45, 0.8);
-  --card-foreground: #FAF7F5;
-  --popover: #2D2D2D;
-  --popover-foreground: #FAF7F5;
+  --background: #0f0f0f;
+  --foreground: #f0f0f0;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #f0f0f0;
+  --popover: #121212;
+  --popover-foreground: #f0f0f0;
   --primary: #C9847A;
   --primary-foreground: #FFFFFF;
-  --secondary: #7D4E57;
-  --secondary-foreground: #FAF7F5;
-  --muted: #2D2D2D;
-  --muted-foreground: #F2D4D0;
-  --accent: #C9847A;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f0f0f0;
+  --muted: rgba(255, 255, 255, 0.03);
+  --muted-foreground: #a0a0a0;
+  --accent: rgba(255, 255, 255, 0.08);
   --accent-foreground: #FFFFFF;
-  --border: rgba(201, 132, 122, 0.2);
+  --border: rgba(255, 255, 255, 0.1);
   --ring: #C9847A;
 }
 
@@ -97,31 +97,68 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
     position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Gradiente suave global */
-    background: linear-gradient(135deg, #fdfaf7 0%, #f5e9e2 50%, #fce7f3 100%);
-    background-attachment: fixed;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
 
-  /* Textura Floral Global (Multicapa para romper la cuadrícula) */
+  /* Capa de fondo con gradiente para el modo claro */
   body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(135deg, #fdfaf7 0%, #f5e9e2 50%, #fce7f3 100%);
+    background-attachment: fixed;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+  }
+
+  /* Capa de fondo con gradiente para el modo oscuro */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(135deg, #0f0f0f 0%, #151515 50%, #0f0f0f 100%);
+    background-attachment: fixed;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  .dark body::before {
+    opacity: 0;
+  }
+
+  .dark body::after {
+    opacity: 1;
+  }
+
+  /* Textura Floral Global (Capa superior) */
+  .floral-texture {
+    content: '';
+    position: fixed;
+    inset: 0;
     pointer-events: none;
     z-index: -1;
-    /* Dos capas de la misma imagen con diferentes posiciones y tamaños para un efecto orgánico */
     background-image: 
       url('/textura-floral.png'), 
       url('/textura-floral.png');
     background-repeat: repeat, repeat;
-    background-size: 350px, 450px; /* Tamaños diferentes para romper el patrón */
-    background-position: 0 0, 150px 200px; /* Desplazamiento para ocultar la repetición en cuadros */
-    opacity: 0.32; /* Visibilidad aumentada entre 0.25 y 0.35 */
+    background-size: 350px, 450px;
+    background-position: 0 0, 150px 200px;
+    opacity: 0.32;
     mix-blend-mode: multiply;
+    transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;
+  }
+
+  .dark .floral-texture {
+    opacity: 0.07;
+    filter: brightness(0.4) contrast(1.6);
+    mix-blend-mode: screen;
+  }
+
+  /* Smooth transitions for all elements as requested */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   h1, h2, h3, h4 {
@@ -149,12 +186,5 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground;
-  }
-
-  /* Smooth transitions for all elements as requested in Figma theme.css */
-  * {
-    transition-property: color, background-color, border-color;
-    transition-duration: 200ms;
-    transition-timing-function: ease-in-out;
   }
 }

@@ -191,7 +191,7 @@ export default function Experience() {
                   {complementary.map((item, index) => (
                     <div 
                       key={index}
-                      className="rounded-xl border border-primary/5 bg-background/50 p-4 transition-colors hover:bg-primary/5"
+                      className="rounded-xl border border-primary/10 bg-card p-4 transition-all duration-300 hover:bg-primary/5 hover:border-primary/20"
                     >
                       <div className="text-sm font-semibold">{item.title}</div>
                       <div className="text-xs text-muted-foreground">{item.institution}</div>

@@ -12,7 +12,7 @@ const LANGUAGES = [
 ];
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -44,13 +44,15 @@ export default function Navbar() {
     }
   };
 
+  if (!mounted) return null;
+
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-lg border-b bg-gradient-to-b from-background via-background/95 to-background/90",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "border-primary/20 shadow-lg shadow-primary/5 py-3"
-          : "border-secondary/30 shadow-md shadow-secondary/10 py-5"
+          ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-primary/5 py-3"
+          : "bg-background/80 backdrop-blur-md border-b border-secondary/30 shadow-md shadow-secondary/5 py-5"
       )}
     >
       {/* Top gradient border */}
@@ -119,11 +121,11 @@ export default function Navbar() {
             {/* Theme Toggle */}
             {mounted && (
               <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="group rounded-xl border border-primary/20 bg-gradient-to-br from-secondary/20 to-primary/20 p-3 transition-all duration-300 hover:from-secondary/30 hover:to-primary/30 hover:scale-110 hover:shadow-lg hover:shadow-primary/10"
                 aria-label="Toggle theme"
               >
-                {theme === 'dark' ? (
+                {resolvedTheme === 'dark' ? (
                   <Sun className="h-5 w-5 text-primary transition-transform duration-300 group-hover:rotate-45" />
                 ) : (
                   <Moon className="h-5 w-5 text-primary transition-transform duration-300 group-hover:-rotate-12" />
@@ -136,10 +138,10 @@ export default function Navbar() {
           <div className="flex items-center gap-4 md:hidden">
             {mounted && (
               <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="rounded-xl border border-primary/10 bg-secondary/20 p-2.5"
               >
-                {theme === 'dark' ? <Sun className="h-5 w-5 text-primary" /> : <Moon className="h-5 w-5 text-primary" />}
+                {resolvedTheme === 'dark' ? <Sun className="h-5 w-5 text-primary" /> : <Moon className="h-5 w-5 text-primary" />}
               </button>
             )}
             <button
@@ -198,4 +200,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

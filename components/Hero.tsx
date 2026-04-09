@@ -26,20 +26,20 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#proyectos"
-                className="rounded-lg bg-primary px-8 py-3 text-primary-foreground transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+                className="rounded-lg bg-primary px-8 py-3 text-primary-foreground transition-all duration-300 hover:opacity-90 hover:shadow-xl hover:shadow-primary/20 hover:scale-[1.02]"
               >
                 {t('btnProjects')}
               </a>
               <a
                 href="#contacto"
-                className="rounded-lg border border-primary px-8 py-3 text-primary transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
+                className="rounded-lg border-2 border-primary px-8 py-3 text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:shadow-primary/10 hover:scale-[1.02]"
               >
                 {t('btnContact')}
               </a>
               <a
                 href="/cv.pdf"
                 download
-                className="group flex items-center gap-2 rounded-lg bg-secondary/20 border border-primary/20 px-8 py-3 text-primary transition-all duration-300 hover:bg-secondary/30 hover:shadow-md hover:scale-[1.02]"
+                className="group flex items-center gap-2 rounded-lg bg-secondary/10 border border-primary/20 px-8 py-3 text-primary transition-all duration-300 hover:bg-secondary/20 hover:shadow-xl hover:shadow-primary/5 hover:scale-[1.02]"
               >
                 <FileDown className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
                 <span className="font-medium">{t('btnCV')}</span>
@@ -50,7 +50,7 @@ export default function Hero() {
           {/* Image */}
           <div className="flex justify-center md:justify-end">
             <div className="relative">
-              <div className="relative z-10 h-96 w-80 overflow-hidden rounded-3xl border-2 border-primary/20 bg-accent shadow-lg md:h-[500px] md:w-96">
+              <div className="relative z-10 h-96 w-80 overflow-hidden rounded-3xl border-2 border-primary/20 bg-card dark:bg-white/5 shadow-lg dark:shadow-black/40 md:h-[500px] md:w-96">
                 <img
                   src="/me.jpg"
                   alt={t('name')}

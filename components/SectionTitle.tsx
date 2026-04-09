@@ -9,10 +9,10 @@ export default function SectionTitle({ number, title, subtitle, centered = false
   return (
     <div className={`space-y-4 mb-16 ${centered ? 'text-center' : ''}`}>
       <div className={`flex items-center gap-4 ${centered ? 'justify-center' : ''}`}>
-        <span className="text-sm font-medium tracking-wider" style={{ color: 'var(--color-muted-pink)' }}>
+        <span className="text-sm font-medium tracking-wider text-muted-foreground dark:text-primary">
           {number} —
         </span>
-        <div className="h-px flex-1 bg-border max-w-xs"></div>
+        <div className="h-px flex-1 bg-border/50 dark:bg-border/20 max-w-xs"></div>
       </div>
       <h2 className="font-serif text-4xl lg:text-5xl text-foreground">
         {title}

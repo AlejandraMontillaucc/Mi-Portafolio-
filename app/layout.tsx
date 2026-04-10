@@ -47,9 +47,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           
           {/* Floral texture */}
           <div className="floral-texture" />
+
+          <div className="sparkles-layer" />
           
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
+            <div className="relative z-10">
+              {children}
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

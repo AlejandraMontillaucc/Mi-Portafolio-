@@ -105,7 +105,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
     background: linear-gradient(135deg, #fdfaf7 0%, #f5e9e2 50%, #fce7f3 100%);
     background-attachment: fixed;
     transition: opacity 0.5s ease-in-out;
@@ -117,7 +117,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
     background: linear-gradient(135deg, #0f0f0f 0%, #151515 50%, #0f0f0f 100%);
     background-attachment: fixed;
     transition: opacity 0.5s ease-in-out;
@@ -130,30 +130,6 @@
 
   .dark body::after {
     opacity: 1;
-  }
-
-  /* Textura Floral Global (Capa superior) */
-  .floral-texture {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background-image: 
-      url('/textura-floral.png'), 
-      url('/textura-floral.png');
-    background-repeat: repeat, repeat;
-    background-size: 350px, 450px;
-    background-position: 0 0, 150px 200px;
-    opacity: 0.32;
-    mix-blend-mode: multiply;
-    transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;
-  }
-
-  .dark .floral-texture {
-    opacity: 0.07;
-    filter: brightness(0.4) contrast(1.6);
-    mix-blend-mode: screen;
   }
 
   /* Smooth transitions for all elements as requested */
@@ -186,5 +162,229 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground;
+  }
+}
+
+/* Background Shapes Layer */
+.background-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform, opacity;
+}
+
+.bg-shape-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(252, 231, 243, 0.3) 0%, transparent 70%);
+  top: -10%;
+  left: -5%;
+  animation: shapeFloat1 25s ease-in-out infinite, shapeGlow1 8s ease-in-out infinite;
+}
+
+.bg-shape-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(242, 212, 208, 0.25) 0%, transparent 70%);
+  top: 40%;
+  right: -8%;
+  animation: shapeFloat2 30s ease-in-out infinite, shapeGlow2 10s ease-in-out infinite;
+}
+
+.bg-shape-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 132, 122, 0.15) 0%, transparent 70%);
+  bottom: -5%;
+  left: 20%;
+  animation: shapeFloat3 28s ease-in-out infinite, shapeGlow1 12s ease-in-out infinite;
+}
+
+.bg-shape-4 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(252, 231, 243, 0.2) 0%, transparent 70%);
+  top: 20%;
+  right: 25%;
+  animation: shapeFloat4 22s ease-in-out infinite, shapeGlow2 9s ease-in-out infinite;
+}
+
+.bg-shape-5 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(242, 212, 208, 0.18) 0%, transparent 70%);
+  bottom: 30%;
+  left: -10%;
+  animation: shapeFloat5 35s ease-in-out infinite, shapeGlow1 11s ease-in-out infinite;
+}
+
+.bg-shape-6 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(201, 132, 122, 0.12) 0%, transparent 70%);
+  top: 60%;
+  left: 35%;
+  animation: shapeFloat6 26s ease-in-out infinite, shapeGlow2 7s ease-in-out infinite;
+}
+
+.bg-shape-7 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(252, 231, 243, 0.15) 0%, transparent 70%);
+  bottom: 10%;
+  right: 15%;
+  animation: shapeFloat7 24s ease-in-out infinite, shapeGlow1 8s ease-in-out infinite;
+}
+
+@keyframes shapeFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(40px, 30px) scale(1.03); }
+  40% { transform: translate(-30px, 50px) scale(0.97); }
+  60% { transform: translate(20px, -30px) scale(1.02); }
+  80% { transform: translate(-15px, 20px) scale(0.99); }
+}
+
+@keyframes shapeFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-35px, -25px) scale(1.03); }
+  66% { transform: translate(20px, 35px) scale(0.97); }
+}
+
+@keyframes shapeFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 25px) scale(1.02); }
+}
+
+@keyframes shapeFloat4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(25px, -20px) scale(1.04); }
+  80% { transform: translate(-15px, 15px) scale(0.98); }
+}
+
+@keyframes shapeFloat5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(15px, 20px) scale(1.02); }
+  60% { transform: translate(-25px, -15px) scale(1.03); }
+}
+
+@keyframes shapeFloat6 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(18px, -22px) scale(1.01); }
+}
+
+@keyframes shapeFloat7 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  30% { transform: translate(-12px, 18px) scale(1.02); }
+  70% { transform: translate(20px, -10px) scale(0.99); }
+}
+
+@keyframes shapeGlow1 {
+  0%, 100% { opacity: 0.6; filter: blur(60px); }
+  50% { opacity: 0.8; filter: blur(55px); }
+}
+
+@keyframes shapeGlow2 {
+  0%, 100% { opacity: 0.4; filter: blur(65px); }
+  50% { opacity: 0.6; filter: blur(58px); }
+}
+
+/* Dark mode - more visible glow */
+.dark .bg-shape-1 { animation: shapeFloat1 25s ease-in-out infinite, shapeGlow1Dark 8s ease-in-out infinite; }
+.dark .bg-shape-2 { animation: shapeFloat2 30s ease-in-out infinite, shapeGlow2Dark 10s ease-in-out infinite; }
+.dark .bg-shape-3 { animation: shapeFloat3 28s ease-in-out infinite, shapeGlow1Dark 12s ease-in-out infinite; }
+.dark .bg-shape-4 { animation: shapeFloat4 22s ease-in-out infinite, shapeGlow2Dark 9s ease-in-out infinite; }
+.dark .bg-shape-5 { animation: shapeFloat5 35s ease-in-out infinite, shapeGlow1Dark 11s ease-in-out infinite; }
+.dark .bg-shape-6 { animation: shapeFloat6 26s ease-in-out infinite, shapeGlow2Dark 7s ease-in-out infinite; }
+.dark .bg-shape-7 { animation: shapeFloat7 24s ease-in-out infinite, shapeGlow1Dark 8s ease-in-out infinite; }
+
+@keyframes shapeGlow1Dark {
+  0%, 100% { opacity: 0.5; filter: blur(55px); }
+  50% { opacity: 0.75; filter: blur(45px); }
+}
+
+@keyframes shapeGlow2Dark {
+  0%, 100% { opacity: 0.35; filter: blur(60px); }
+  50% { opacity: 0.55; filter: blur(50px); }
+}
+
+/* Textura Floral Global */
+.floral-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    url('/textura-floral.png'), 
+    url('/textura-floral.png');
+  background-repeat: repeat, repeat;
+  background-size: 350px, 450px;
+  background-position: 0 0, 150px 200px;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;
+  will-change: transform, background-position;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  transform-origin: center;
+  backface-visibility: hidden;
+  animation: floralDrift 28s linear infinite, floralBreathe 55s ease-in-out infinite;
+}
+
+.dark .floral-texture {
+  opacity: 0.07;
+  filter: brightness(0.4) contrast(1.6);
+  mix-blend-mode: screen;
+}
+
+@keyframes floralDrift {
+  0% { background-position: 0 0, 150px 200px; }
+  50% { background-position: 80px -60px, 110px 255px; }
+  100% { background-position: 160px -120px, 70px 310px; }
+}
+
+@keyframes floralBreathe {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  40% { transform: translate3d(6px, -6px, 0) scale(1.018) rotate(0.28deg); }
+  70% { transform: translate3d(-6px, 6px, 0) scale(1.01) rotate(-0.22deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floral-texture { animation: none; }
+}
+
+/* Movimiento flotante */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Movimiento lateral */
+@keyframes floatSide {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+/* Glow elegante */
+@keyframes glowSoft {
+  0%, 100% {
+    filter: blur(60px) brightness(1);
+  }
+  50% {
+    filter: blur(70px) brightness(1.2);
   }
 }

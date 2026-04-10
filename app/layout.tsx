@@ -34,7 +34,20 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           enableSystem 
           disableTransitionOnChange
         >
+          {/* Background shapes layer */}
+          <div className="background-shapes">
+            <div className="bg-shape bg-shape-1" />
+            <div className="bg-shape bg-shape-2" />
+            <div className="bg-shape bg-shape-3" />
+            <div className="bg-shape bg-shape-4" />
+            <div className="bg-shape bg-shape-5" />
+            <div className="bg-shape bg-shape-6" />
+            <div className="bg-shape bg-shape-7" />
+          </div>
+          
+          {/* Floral texture */}
           <div className="floral-texture" />
+          
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
           </NextIntlClientProvider>

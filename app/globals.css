@@ -490,3 +490,124 @@
     filter: blur(70px) brightness(1.2);
   }
 }
+
+.sparkles-layer {
+  --ambient-pink: rgba(252, 231, 243, 0.42);
+  --ambient-blush: rgba(242, 212, 208, 0.36);
+  --ambient-mauve: rgba(201, 132, 122, 0.22);
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter: none;
+  z-index: 3;
+  will-change: opacity, transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.sparkles-layer::before,
+.sparkles-layer::after {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  opacity: 0.42;
+  filter: blur(44px);
+  mix-blend-mode: screen;
+  will-change: opacity, transform;
+}
+
+.sparkles-layer::before {
+  background-image:
+    radial-gradient(720px 520px at 14% 28%, var(--ambient-pink) 0%, rgba(252, 231, 243, 0) 72%),
+    radial-gradient(680px 480px at 86% 26%, var(--ambient-blush) 0%, rgba(242, 212, 208, 0) 70%),
+    radial-gradient(760px 560px at 58% 84%, var(--ambient-mauve) 0%, rgba(201, 132, 122, 0) 74%),
+    radial-gradient(520px 400px at 38% 58%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: ambientGlowA 52s ease-in-out infinite, shimmerPulse 18s ease-in-out infinite;
+  animation-delay: -18s;
+  transform: translate3d(-2%, -1%, 0) scale(1.02);
+}
+
+.sparkles-layer::after {
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.55) 0 2px, rgba(255, 255, 255, 0) 14px),
+    radial-gradient(circle at 26% 64%, rgba(255, 255, 255, 0.42) 0 1.6px, rgba(255, 255, 255, 0) 12px),
+    radial-gradient(circle at 44% 30%, rgba(252, 231, 243, 0.5) 0 2px, rgba(252, 231, 243, 0) 14px),
+    radial-gradient(circle at 63% 18%, rgba(242, 212, 208, 0.46) 0 1.8px, rgba(242, 212, 208, 0) 13px),
+    radial-gradient(circle at 72% 52%, rgba(255, 255, 255, 0.5) 0 2.1px, rgba(255, 255, 255, 0) 15px),
+    radial-gradient(circle at 86% 28%, rgba(252, 231, 243, 0.44) 0 1.7px, rgba(252, 231, 243, 0) 13px),
+    radial-gradient(circle at 18% 86%, rgba(255, 255, 255, 0.46) 0 1.9px, rgba(255, 255, 255, 0) 14px),
+    radial-gradient(circle at 55% 78%, rgba(242, 212, 208, 0.4) 0 1.6px, rgba(242, 212, 208, 0) 12px),
+    radial-gradient(circle at 91% 82%, rgba(255, 255, 255, 0.52) 0 2.2px, rgba(255, 255, 255, 0) 16px),
+    radial-gradient(circle at 8% 58%, rgba(201, 132, 122, 0.36) 0 1.5px, rgba(201, 132, 122, 0) 11px),
+    radial-gradient(circle at 36% 44%, rgba(255, 255, 255, 0.44) 0 1.7px, rgba(255, 255, 255, 0) 12px),
+    radial-gradient(circle at 48% 88%, rgba(252, 231, 243, 0.42) 0 1.6px, rgba(252, 231, 243, 0) 12px);
+  background-repeat: repeat;
+  background-size: 320px 320px;
+  background-position: 0 0;
+  opacity: 0.55;
+  filter: blur(2.5px) saturate(1.1);
+  animation: ambientGlowB 68s ease-in-out infinite, shimmerDrift 42s linear infinite, shimmerPulse 14s ease-in-out infinite;
+  animation-delay: -31s;
+  transform: translate3d(1.5%, 1.2%, 0) scale(1.03);
+}
+
+.dark .sparkles-layer {
+  --ambient-pink: rgba(252, 231, 243, 0.18);
+  --ambient-blush: rgba(242, 212, 208, 0.16);
+  --ambient-mauve: rgba(201, 132, 122, 0.18);
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter: none;
+}
+
+@keyframes shimmerDrift {
+  0% { background-position: 0 0; }
+  50% { background-position: 70px -40px; }
+  100% { background-position: 140px -80px; }
+}
+
+@keyframes shimmerPulse {
+  0%, 100% { opacity: 0.34; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes navLine {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes ambientGlowA {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+  }
+  42% {
+    opacity: 0.38;
+    transform: translate3d(1.6%, 1.2%, 0) scale(1.07);
+  }
+  70% {
+    opacity: 0.26;
+    transform: translate3d(-0.8%, 2.2%, 0) scale(1.04);
+  }
+}
+
+@keyframes ambientGlowB {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translate3d(1.5%, 1.2%, 0) scale(1.03);
+  }
+  38% {
+    opacity: 0.32;
+    transform: translate3d(-1.2%, -1.6%, 0) scale(1.08);
+  }
+  78% {
+    opacity: 0.24;
+    transform: translate3d(2.2%, -0.6%, 0) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkles-layer::before,
+  .sparkles-layer::after { animation: none; }
+}

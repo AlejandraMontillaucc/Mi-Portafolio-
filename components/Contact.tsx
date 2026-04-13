@@ -51,7 +51,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="relative px-6 sm:px-8 lg:px-10 py-32">
+    <section id="contacto" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28">
       <div className="mx-auto max-w-[90rem]">
         <SectionTitle number="06" title={t('title')} />
 

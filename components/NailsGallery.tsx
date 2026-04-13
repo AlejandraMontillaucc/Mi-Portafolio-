@@ -37,7 +37,7 @@ export default function NailsGallery() {
   };
 
   return (
-    <section id="unas" className="relative px-6 sm:px-8 lg:px-10 py-32 overflow-hidden">
+    <section id="unas" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28 overflow-hidden">
       <div className="mx-auto max-w-[90rem]">
         <div className="mb-16 text-center">
           <SectionTitle number="04" title={t('title')} centered />

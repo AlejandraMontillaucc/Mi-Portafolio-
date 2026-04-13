@@ -9,7 +9,7 @@ export default function About() {
   const t = useTranslations('about');
 
   return (
-    <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-10 py-32">
+    <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28">
       <div className="mx-auto max-w-5xl">
         <SectionTitle number="01" title={t('title')} centered />
 

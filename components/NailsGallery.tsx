@@ -39,7 +39,7 @@ export default function NailsGallery() {
 
   return (
     <section id="unas" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28 overflow-hidden">
-      <div className="mx-auto max-w-[90rem]">
+      <div className="mx-auto max-w-[100rem]">
         <div className="mb-16 text-center">
           <SectionTitle number="04" title={t('title')} />
           <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/82">

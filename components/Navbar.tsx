@@ -141,7 +141,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-[90rem] px-6 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-[100rem] px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between py-3 md:py-4">
             <div className="h-10 w-10 md:w-[110px]" aria-hidden="true" />
 

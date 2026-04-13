@@ -34,19 +34,19 @@ export default function About() {
   }, []);
 
   return (
-    <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-12 py-24 md:py-28">
+      <div className="mx-auto max-w-[100rem]">
         <SectionTitle number="01" title={t('title')} />
 
-        <div className="mt-12 grid items-center gap-10 md:grid-cols-[280px_1fr_280px] lg:grid-cols-[320px_1fr_320px]">
+        <div className="mt-12 grid items-center gap-12 lg:gap-16 xl:gap-20 md:grid-cols-[1fr_1.5fr_1fr] lg:grid-cols-[1fr_2.2fr_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto w-64 sm:w-72 md:w-full"
+            className="mx-auto w-full max-w-[320px] md:max-w-none"
           >
-            <div className="mx-auto aspect-square w-full max-w-[320px]">
+            <div className="mx-auto aspect-square w-full max-w-[420px] xl:max-w-[480px]">
               {womanAnimation ? (
                 <Lottie
                   animationData={womanAnimation}
@@ -65,7 +65,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto max-w-3xl space-y-8 text-lg leading-relaxed text-foreground/82 text-center md:text-xl"
+            className="mx-auto w-full max-w-5xl space-y-8 text-lg leading-relaxed text-foreground/82 text-center md:text-xl lg:text-[1.25rem] xl:text-[1.35rem]"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -98,9 +98,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto w-64 sm:w-72 md:w-full"
+            className="mx-auto w-full max-w-[320px] md:max-w-none"
           >
-            <div className="mx-auto aspect-square w-full max-w-[320px]">
+            <div className="mx-auto aspect-square w-full max-w-[420px] xl:max-w-[480px]">
               {polishAnimation ? (
                 <Lottie
                   animationData={polishAnimation}

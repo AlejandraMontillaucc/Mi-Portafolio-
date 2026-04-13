@@ -35,9 +35,17 @@ export default function SectionTitle({ number, title, subtitle }: SectionTitlePr
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '0px 0px -20% 0px' }}
         transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-        className="font-serif text-4xl lg:text-5xl text-foreground tracking-[0.06em] uppercase"
+        className="relative inline-flex justify-center font-serif text-4xl lg:text-5xl text-foreground tracking-[0.06em] uppercase"
       >
         {title}
+        <motion.span
+          aria-hidden="true"
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, margin: '0px 0px -20% 0px' }}
+          transition={{ duration: 0.75, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute -bottom-3 left-1/2 h-px w-[min(16rem,70vw)] origin-center -translate-x-1/2 bg-gradient-to-r from-transparent via-wine/60 to-transparent"
+        />
       </motion.h2>
 
       <div className="mx-auto">

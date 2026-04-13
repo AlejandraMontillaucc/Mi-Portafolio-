@@ -48,7 +48,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 mx-auto w-full max-w-[90rem]"
+        className="relative z-10 mx-auto w-full max-w-[100rem]"
       >
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Content */}
@@ -137,7 +137,7 @@ export default function Hero() {
               <div className="profile-glow-orbit" aria-hidden="true" />
               <div className="profile-glow-scan" aria-hidden="true" />
               <div className="profile-glow-dots" aria-hidden="true" />
-              <div className="relative z-10 h-80 w-80 overflow-hidden rounded-full border border-white/50 bg-white/10 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[460px] md:w-[460px]">
+              <div className="relative z-10 h-80 w-80 overflow-hidden rounded-full border border-white/50 bg-white/10 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[480px] md:w-[480px] lg:h-[540px] lg:w-[540px]">
                 <img
                   src="/me.jpg"
                   alt={t('name')}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Moon, Sun, Menu, X, Globe } from 'lucide-react';
+import Lottie from 'lottie-react';
 import { useTheme } from 'next-themes';
 import { useState, useEffect, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -18,6 +19,8 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
   const [activeHref, setActiveHref] = useState('#inicio');
+  const [cuteAnimation, setCuteAnimation] = useState<Record<string, unknown> | null>(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
   
   const locale = useLocale();
   const t = useTranslations('navbar');
@@ -28,6 +31,23 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+
+    const url = encodeURI('/Valentine lips.json');
+    fetch(url)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => setCuteAnimation(data))
+      .catch(() => setCuteAnimation(null));
+
+    return () => media.removeEventListener('change', update);
+  }, [mounted]);
 
   const navLinks = useMemo(
     () => [
@@ -99,33 +119,36 @@ export default function Navbar() {
     <nav className="fixed inset-x-0 top-0 z-50 w-full">
       <div
         className={cn(
-          "relative w-full border-b border-white/10 backdrop-blur-2xl transition-all duration-500 dark:border-white/5",
-          isScrolled ? "bg-background/70 shadow-2xl shadow-primary/10" : "bg-background/45 shadow-lg shadow-primary/5"
+          "relative w-full border-b border-wine/20 bg-secondary/70 backdrop-blur-sm transition-all duration-300 dark:border-white/10 dark:bg-background/35",
+          isScrolled
+            ? "shadow-[0_16px_60px_rgba(36,20,22,0.14)]"
+            : "shadow-[0_10px_40px_rgba(36,20,22,0.10)]"
         )}
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 opacity-70" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/18 via-transparent to-primary/14 opacity-55" />
         <div
-          className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-70"
+          className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-wine/55 to-transparent opacity-70"
           style={{ backgroundSize: '200% 100%', animation: 'navLine 12s linear infinite' }}
         />
-        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-80" />
+        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-vino/35 to-accent/25 opacity-70 blur-[0.2px]" />
+        <div className="pointer-events-none absolute left-3 top-0 bottom-0 z-10 flex items-center md:left-4">
+          <div className="h-full aspect-square origin-left scale-[1.35] overflow-visible transform-gpu md:scale-[1.55]">
+            {cuteAnimation ? (
+              <Lottie
+                animationData={cuteAnimation}
+                loop
+                autoplay
+                style={{ width: '100%', height: '100%' }}
+              />
+            ) : (
+              <div className="h-full w-full" />
+            )}
+          </div>
+        </div>
 
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <div className="flex items-center justify-between py-3 md:py-4">
-            <a
-              href="#inicio"
-              onClick={() => {
-                setActiveHref('#inicio');
-                setIsMobileMenuOpen(false);
-              }}
-              className="group flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-white/5"
-            >
-              <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-primary shadow-inner shadow-primary/10 ring-1 ring-white/10 dark:ring-white/5">
-                <span className="font-serif text-base">AM</span>
-                <span className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-tr from-primary/15 via-transparent to-secondary/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </span>
-              <span className="hidden text-sm font-medium tracking-wide text-foreground/75 md:inline">María</span>
-            </a>
+            <div className="h-10 w-10 md:w-[110px]" aria-hidden="true" />
 
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => {
@@ -136,16 +159,16 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setActiveHref(link.href)}
                     className={cn(
-                      "group relative rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300",
+                      "group relative rounded-full px-3.5 py-2 font-serif text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                       isActive
-                        ? "text-foreground bg-white/10 ring-1 ring-white/10 dark:bg-white/5 dark:ring-white/5"
-                        : "text-foreground/70 hover:text-foreground hover:bg-white/5 hover:scale-[1.03]"
+                        ? "text-wine bg-wine/10 ring-1 ring-wine/25 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
+                        : "text-foreground/90 hover:text-vino hover:bg-wine/5 hover:scale-105"
                     )}
                   >
                     <span className="relative z-10">{link.label}</span>
                     <span
                       className={cn(
-                        "pointer-events-none absolute bottom-1 left-3 right-3 h-px origin-left rounded-full bg-gradient-to-r from-primary via-secondary to-primary transition-transform duration-500",
+                        "pointer-events-none absolute bottom-1 left-4 right-4 h-px origin-left rounded-full bg-gradient-to-r from-wine via-vino to-accent transition-transform duration-500",
                         isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       )}
                     />
@@ -160,16 +183,15 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setShowLanguageMenu((v) => !v)}
-                  className="group flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-foreground/70 backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:text-foreground hover:shadow-lg hover:shadow-primary/10 dark:border-white/5"
+                  className="group flex items-center gap-2 rounded-xl border border-wine/18 bg-secondary/55 px-3 py-2 text-foreground/90 backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-secondary/75 hover:text-wine dark:border-white/10 dark:bg-white/5 dark:hover:text-vino"
                   aria-label="Change language"
                 >
-                  <Globe className="h-4 w-4 text-primary/90 transition-transform duration-300 group-hover:rotate-6" />
+                  <Globe className="h-4 w-4 text-wine transition-transform duration-300 group-hover:rotate-6 dark:text-vino" />
                   <span className="text-xs font-semibold uppercase tracking-widest">{locale}</span>
                 </button>
 
                 {showLanguageMenu && (
-                  <div className="absolute right-0 top-full mt-3 min-w-[180px] overflow-hidden rounded-2xl border border-white/10 bg-background/70 shadow-2xl shadow-primary/10 backdrop-blur-2xl dark:border-white/5">
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-secondary/10" />
+                  <div className="absolute right-0 top-full mt-3 min-w-[180px] overflow-hidden rounded-2xl border border-wine/18 bg-secondary/75 shadow-[0_18px_60px_rgba(36,20,22,0.14)] backdrop-blur-sm dark:border-white/10 dark:bg-background/55">
                     <div className="relative">
                       {LANGUAGES.map((lang) => (
                         <button
@@ -178,8 +200,8 @@ export default function Navbar() {
                           className={cn(
                             "flex w-full items-center gap-3 px-5 py-3 text-left text-sm transition-colors",
                             locale === lang.code
-                              ? "bg-white/10 text-foreground"
-                              : "text-foreground/70 hover:bg-white/5 hover:text-foreground"
+                              ? "bg-wine/10 text-wine dark:bg-vino/15 dark:text-foreground"
+                              : "text-foreground/90 hover:bg-wine/5 hover:text-vino"
                           )}
                         >
                           <span className="text-lg">{lang.flag}</span>
@@ -193,7 +215,7 @@ export default function Navbar() {
 
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="group rounded-xl border border-white/10 bg-white/5 p-2.5 text-primary/90 backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:text-primary hover:shadow-lg hover:shadow-primary/10 dark:border-white/5"
+                className="group rounded-xl border border-wine/18 bg-secondary/55 p-2.5 text-wine backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-secondary/75 hover:text-vino dark:border-white/10 dark:bg-white/5"
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === 'dark' ? (
@@ -209,14 +231,14 @@ export default function Navbar() {
             <div className="flex items-center gap-2 md:hidden">
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="rounded-xl border border-white/10 bg-white/5 p-2.5 text-primary/90 backdrop-blur-xl dark:border-white/5"
+                className="rounded-xl border border-wine/18 bg-secondary/55 p-2.5 text-wine backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-vino"
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
               <button
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
-                className="rounded-xl border border-white/10 bg-white/10 p-2.5 text-foreground shadow-lg shadow-primary/10 backdrop-blur-xl transition-colors hover:bg-white/15 dark:border-white/5"
+                className="rounded-xl border border-wine/18 bg-secondary/65 p-2.5 text-foreground shadow-[0_12px_40px_rgba(36,20,22,0.10)] backdrop-blur-sm transition-colors hover:bg-secondary/80 dark:border-white/10 dark:bg-white/6"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -227,8 +249,7 @@ export default function Navbar() {
           {isMobileMenuOpen && (
             <div className="md:hidden">
               <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-              <div className="relative px-1 pb-5 pt-4">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-secondary/10 opacity-70" />
+              <div className="relative mt-4 rounded-2xl border border-wine/18 bg-secondary/70 px-2 pb-5 pt-4 shadow-[0_18px_60px_rgba(36,20,22,0.14)] backdrop-blur-sm dark:border-white/10 dark:bg-background/45">
                 <div className="relative flex flex-col gap-2">
                   {navLinks.map((link) => {
                     const isActive = activeHref === link.href;
@@ -241,14 +262,14 @@ export default function Navbar() {
                           setIsMobileMenuOpen(false);
                         }}
                         className={cn(
-                          "flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                          "flex items-center justify-between rounded-xl px-4 py-3 font-serif text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                           isActive
-                            ? "bg-white/10 text-foreground ring-1 ring-white/10 dark:bg-white/5 dark:ring-white/5"
-                            : "text-foreground/75 hover:bg-white/5 hover:text-foreground"
+                            ? "bg-wine/10 text-wine ring-1 ring-wine/22 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
+                            : "text-foreground/90 hover:bg-wine/5 hover:text-vino"
                         )}
                       >
                         {link.label}
-                        <span className={cn("h-1.5 w-1.5 rounded-full bg-primary transition-opacity", isActive ? "opacity-100" : "opacity-40")} />
+                        <span className={cn("h-1.5 w-1.5 rounded-full bg-wine transition-opacity dark:bg-vino", isActive ? "opacity-100" : "opacity-35")} />
                       </a>
                     );
                   })}
@@ -256,15 +277,15 @@ export default function Navbar() {
                   <div className="mt-2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                   <div className="flex items-center justify-between gap-3 rounded-xl px-4 py-3">
-                    <span className="text-sm font-medium text-foreground/60">Idioma</span>
+                    <span className="text-sm font-medium text-foreground/75">Idioma</span>
                     <div className="flex gap-2">
                       {LANGUAGES.map((lang) => (
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageChange(lang.code)}
                           className={cn(
-                            "rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold tracking-widest transition-colors dark:border-white/5",
-                            locale === lang.code ? "bg-white/10 text-foreground" : "text-foreground/60 hover:bg-white/10 hover:text-foreground"
+                            "rounded-xl border border-wine/18 bg-secondary/55 px-3 py-2 text-xs font-semibold tracking-widest transition-colors dark:border-white/10 dark:bg-white/5",
+                            locale === lang.code ? "bg-wine/10 text-wine dark:bg-vino/15 dark:text-foreground" : "text-foreground/80 hover:bg-wine/5 hover:text-vino"
                           )}
                         >
                           {lang.code.toUpperCase()}

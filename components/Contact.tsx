@@ -5,6 +5,7 @@ import { Mail, Linkedin, Github, Send } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 interface ContactLinkProps {
   href: string;
@@ -17,9 +18,9 @@ const ContactLink = ({ href, icon: Icon, label }: ContactLinkProps) => (
     href={href}
     target={href.startsWith('http') ? '_blank' : undefined}
     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-    className="group flex items-center gap-4 text-foreground/70 transition-colors hover:text-primary"
+    className="group flex items-center gap-4 text-foreground/85 transition-colors hover:text-wine dark:hover:text-vino"
   >
-    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-all group-hover:bg-primary group-hover:text-primary-foreground">
+    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-wine/10 text-wine transition-all group-hover:bg-wine group-hover:text-white dark:bg-vino/15 dark:text-vino dark:group-hover:bg-vino">
       <Icon className="h-5 w-5" />
     </div>
     <span>{label}</span>
@@ -58,9 +59,15 @@ export default function Contact() {
 
         <div className="grid gap-16 md:grid-cols-2">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10% 0px -45% 0px' }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8"
+          >
             <h3 className="font-serif text-3xl">{t('subtitle')}</h3>
-            <p className="text-lg leading-relaxed text-foreground/70">
+            <p className="text-lg leading-relaxed text-foreground/82">
               {t('connectDesc')}
             </p>
 
@@ -81,10 +88,17 @@ export default function Contact() {
                 label="GitHub Profile" 
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10% 0px -45% 0px' }}
+            transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-6"
+          >
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium">{t('name')}</label>
               <input
@@ -92,7 +106,7 @@ export default function Contact() {
                 id="name"
                 required
                 autoComplete="name"
-                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-wine"
                 placeholder={t('namePlaceholder')}
                 value={formData.name}
                 onChange={handleChange}
@@ -106,7 +120,7 @@ export default function Contact() {
                 id="email"
                 required
                 autoComplete="email"
-                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                className="w-full rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-wine"
                 placeholder={t('emailPlaceholder')}
                 value={formData.email}
                 onChange={handleChange}
@@ -119,7 +133,7 @@ export default function Contact() {
                 id="message"
                 required
                 rows={5}
-                className="w-full resize-none rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-primary"
+                className="w-full resize-none rounded-xl border border-transparent bg-card px-4 py-3 outline-none transition-all focus:border-wine"
                 placeholder={t('messagePlaceholder')}
                 value={formData.message}
                 onChange={handleChange}
@@ -130,17 +144,16 @@ export default function Contact() {
               type="submit"
               disabled={isSubmitting}
               className={cn(
-                "flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 font-medium text-primary-foreground transition-all hover:opacity-90 hover:shadow-lg disabled:opacity-50",
+                "flex w-full items-center justify-center gap-2 rounded-xl bg-wine py-4 font-medium text-white transition-all duration-300 hover:bg-vino hover:shadow-[0_20px_55px_rgba(109,0,6,0.26)] disabled:opacity-50",
                 isSubmitting && "cursor-not-allowed"
               )}
             >
               <Send className={cn("h-5 w-5", isSubmitting && "animate-pulse")} />
               {isSubmitting ? 'Enviando...' : t('send')}
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
   );
 }
-

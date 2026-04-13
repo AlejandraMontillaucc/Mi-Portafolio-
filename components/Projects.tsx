@@ -4,6 +4,7 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
+import { motion } from 'motion/react';
 
 interface Project {
   title: string;
@@ -44,9 +45,13 @@ export default function Projects() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.length > 0 ? (
             projects.map((project, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-card shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+                transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative overflow-hidden rounded-2xl border border-wine/12 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-wine/28 hover:shadow-[0_20px_70px_rgba(109,0,6,0.14)]"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -59,7 +64,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
+                      className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
                       aria-label="Ver en GitHub"
                     >
                       <Github className="h-5 w-5" />
@@ -68,7 +73,7 @@ export default function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full bg-primary p-3 text-primary-foreground transition-transform hover:scale-110"
+                      className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
                       aria-label="Ver demo"
                     >
                       <ExternalLink className="h-5 w-5" />
@@ -78,31 +83,36 @@ export default function Projects() {
 
                 <div className="space-y-4 p-6">
                   <h3 className="font-serif text-2xl">{project.title}</h3>
-                  <p className="text-foreground/70">{project.description}</p>
+                  <p className="text-foreground/80">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag: string) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-secondary/30 px-3 py-1 text-xs text-primary"
+                        className="rounded-full bg-secondary/60 px-3 py-1 text-xs text-wine/85 dark:text-vino"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))
           ) : (
             /* Card de ejemplo estructural vacía (se muestra cuando no hay proyectos) */
-            <div className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-24 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-24 text-center"
+            >
               <div className="rounded-full bg-primary/5 p-6 animate-pulse">
                 <ExternalLink className="h-10 w-10 text-primary/20" />
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
     </section>
   );
 }
-

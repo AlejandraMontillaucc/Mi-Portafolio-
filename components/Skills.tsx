@@ -71,7 +71,7 @@ export default function Skills() {
         <div className="grid gap-12 md:grid-cols-2">
           {categories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="space-y-8">
-              <h3 className="inline-block border-b-2 border-primary/20 pb-2 text-2xl font-serif">
+              <h3 className="inline-block border-b-2 border-wine/25 pb-2 text-2xl font-serif">
                 {category.title}
               </h3>
               
@@ -87,10 +87,10 @@ export default function Skills() {
                     key={skillIndex}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, translateY: -5 }}
-                    className="group flex items-center gap-3 rounded-xl border border-primary/10 bg-card px-5 py-3 shadow-sm transition-all duration-300 hover:border-primary/30 hover:bg-secondary/20 hover:shadow-md"
+                    className="group flex items-center gap-3 rounded-xl border border-wine/12 bg-card px-5 py-3 shadow-sm transition-all duration-300 hover:border-wine/28 hover:bg-accent/30 hover:shadow-md"
                   >
-                    <skill.icon className="h-5 w-5 text-primary transition-colors group-hover:text-dark-mauve" />
-                    <span className="font-medium text-foreground/80 group-hover:text-foreground">
+                    <skill.icon className="h-5 w-5 text-wine/85 transition-colors group-hover:text-vino" />
+                    <span className="font-medium text-foreground/90 group-hover:text-foreground">
                       {skill.name}
                     </span>
                   </motion.div>
@@ -103,4 +103,3 @@ export default function Skills() {
     </section>
   );
 }
-

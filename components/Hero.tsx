@@ -61,13 +61,13 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 {t('greeting')}{' '}
-                <span className="block mt-2 bg-gradient-to-r from-primary via-[#E89B8E] to-[#FF8A7A] bg-clip-text text-transparent pb-1">
+                <span className="block mt-2 bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1">
                   {t('name')}
                 </span>
               </motion.h1>
 
               <motion.p 
-                className="text-xl md:text-2xl leading-relaxed text-foreground/70 max-w-xl"
+                className="text-xl md:text-2xl leading-relaxed text-foreground/82 max-w-xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -84,15 +84,15 @@ export default function Hero() {
             >
               <a
                 href="#proyectos"
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-[#E89B8E] px-10 py-4 text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_30px_rgba(201,132,122,0.4)] active:scale-95"
+                className="group relative overflow-hidden rounded-full bg-wine px-10 py-4 text-white transition-all duration-300 hover:bg-vino hover:scale-105 hover:shadow-[0_16px_48px_rgba(109,0,6,0.32)] active:scale-95"
               >
                 <span className="relative z-10 font-semibold tracking-wide">{t('btnProjects')}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A7A] to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-r from-wine via-primary to-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </a>
               
               <a
                 href="#contacto"
-                className="group relative overflow-hidden rounded-full border-2 border-primary/30 px-10 py-4 text-primary transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:scale-105 hover:shadow-[0_10px_20px_rgba(201,132,122,0.15)] active:scale-95"
+                className="group relative overflow-hidden rounded-full border-2 border-wine/35 px-10 py-4 text-foreground/88 transition-all duration-300 hover:border-wine/55 hover:text-wine hover:bg-wine/6 hover:scale-105 hover:shadow-[0_12px_26px_rgba(109,0,6,0.12)] active:scale-95 dark:text-foreground/88 dark:hover:text-vino dark:hover:bg-vino/10"
               >
                 <span className="font-semibold tracking-wide">{t('btnContact')}</span>
               </a>
@@ -100,7 +100,7 @@ export default function Hero() {
               <a
                 href="/cv.pdf"
                 download
-                className="group flex items-center gap-3 rounded-full bg-secondary/10 border border-primary/10 px-10 py-4 text-primary transition-all duration-300 hover:bg-secondary/20 hover:shadow-xl hover:scale-105 active:scale-95"
+                className="group flex items-center gap-3 rounded-full border border-wine/20 bg-secondary/15 px-10 py-4 text-wine transition-all duration-300 hover:border-vino/30 hover:bg-secondary/25 hover:text-vino hover:shadow-xl hover:scale-105 active:scale-95 dark:border-white/12 dark:bg-white/5 dark:text-vino"
               >
                 <FileDown className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
                 <span className="font-semibold tracking-wide">{t('btnCV')}</span>

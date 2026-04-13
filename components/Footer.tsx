@@ -14,17 +14,17 @@ export default function Footer() {
 
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex flex-col items-center gap-2 md:items-start">
-          <div className="font-serif text-2xl text-primary">AM</div>
-          <p className="text-sm text-foreground/50">
+          <div className="font-serif text-2xl text-wine">AM</div>
+          <p className="text-sm text-foreground/70">
             {t('tagline')}
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-sm text-foreground/60">
+        <div className="flex items-center gap-2 text-sm text-foreground/75">
           <span>© {currentYear}</span>
           <span>•</span>
           <div className="flex items-center gap-1.5">
-            {t('madeWith')} <Heart className="h-4 w-4 fill-primary text-primary" /> {t('by')} <span className="font-medium text-primary">Maria Alejandra</span>
+            {t('madeWith')} <Heart className="h-4 w-4 fill-vino text-vino" /> {t('by')} <span className="font-medium text-wine">Maria Alejandra</span>
           </div>
         </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/50 transition-colors hover:text-primary"
+              className="text-sm font-medium text-foreground/70 transition-colors hover:text-wine dark:hover:text-vino"
             >
               {link.label}
             </a>
@@ -47,4 +47,3 @@ export default function Footer() {
     </footer>
   );
 }
-

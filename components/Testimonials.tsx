@@ -4,6 +4,7 @@ import React from 'react';
 import { Quote } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
+import { motion } from 'motion/react';
 
 export default function Testimonials() {
   const t = useTranslations('testimonials');
@@ -28,21 +29,24 @@ export default function Testimonials() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((_, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative flex flex-col gap-6 rounded-2xl bg-background/50 p-12 border border-primary/10 transition-all duration-300 hover:border-primary/20 hover:shadow-lg overflow-hidden flex items-center justify-center text-center"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+              transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative flex flex-col gap-6 rounded-2xl border border-wine/12 bg-background/55 p-12 text-center transition-all duration-300 hover:-translate-y-1 hover:border-wine/28 hover:shadow-[0_20px_70px_rgba(109,0,6,0.14)] overflow-hidden flex items-center justify-center"
             >
               <div className="space-y-4">
-                <div className="h-10 w-10 mx-auto rounded-full bg-primary/5 flex items-center justify-center">
-                  <Quote className="h-5 w-5 text-primary/20" />
+                <div className="h-10 w-10 mx-auto rounded-full bg-wine/10 flex items-center justify-center">
+                  <Quote className="h-5 w-5 text-wine/55 dark:text-vino/70" />
                 </div>
-                <span className="text-xs font-medium uppercase tracking-widest text-primary/30">Próximamente</span>
+                <span className="text-xs font-medium uppercase tracking-widest text-wine/55 dark:text-vino/70">Próximamente</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

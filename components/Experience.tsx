@@ -83,8 +83,8 @@ export default function Experience() {
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Timeline: Experience */}
           <div className="space-y-12">
-            <div className="flex items-center gap-4 border-b border-primary/10 pb-4">
-              <div className="rounded-lg bg-primary/10 p-2 text-primary">
+            <div className="flex items-center gap-4 border-b border-wine/15 pb-4">
+              <div className="rounded-lg bg-wine/10 p-2 text-wine dark:bg-vino/15 dark:text-vino">
                 <Briefcase className="h-6 w-6" />
               </div>
               <h3 className="font-serif text-3xl">{t('experience_title')}</h3>
@@ -92,7 +92,7 @@ export default function Experience() {
 
             <div className="relative space-y-10 pl-8">
               {/* Vertical Line */}
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-wine/40 via-wine/20 to-transparent dark:from-vino/45 dark:via-vino/25" />
 
               {jobs.map((job, index) => (
                 <motion.div
@@ -104,15 +104,15 @@ export default function Experience() {
                   className="relative group"
                 >
                   {/* Dot */}
-                  <div className="absolute -left-[33px] top-2 h-2.5 w-2.5 rounded-full border-2 border-background bg-primary transition-transform duration-300 group-hover:scale-150" />
+                  <div className="absolute -left-[33px] top-2 h-2.5 w-2.5 rounded-full border-2 border-background bg-wine transition-transform duration-300 group-hover:scale-150 dark:bg-vino" />
                   
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
+                      <h4 className="font-serif text-xl text-foreground group-hover:text-wine transition-colors dark:group-hover:text-vino">
                         {job.title}
                       </h4>
                       {job.date && (
-                        <span className="rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
+                        <span className="rounded-full bg-wine/10 px-3 py-1 text-xs font-medium text-wine dark:bg-vino/15 dark:text-vino">
                           {job.date}
                         </span>
                       )}
@@ -121,7 +121,7 @@ export default function Experience() {
                       {job.company}
                     </div>
                     {job.desc && (
-                      <p className="text-sm leading-relaxed text-foreground/60 max-w-md">
+                      <p className="text-sm leading-relaxed text-foreground/75 max-w-md">
                         {job.desc}
                       </p>
                     )}
@@ -133,8 +133,8 @@ export default function Experience() {
 
           {/* Timeline: Education */}
           <div className="space-y-12">
-            <div className="flex items-center gap-4 border-b border-primary/10 pb-4">
-              <div className="rounded-lg bg-primary/10 p-2 text-primary">
+            <div className="flex items-center gap-4 border-b border-wine/15 pb-4">
+              <div className="rounded-lg bg-wine/10 p-2 text-wine dark:bg-vino/15 dark:text-vino">
                 <GraduationCap className="h-6 w-6" />
               </div>
               <h3 className="font-serif text-3xl">{t('education_title')}</h3>
@@ -142,7 +142,7 @@ export default function Experience() {
 
             <div className="relative space-y-10 pl-8">
               {/* Vertical Line */}
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-wine/40 via-wine/20 to-transparent dark:from-vino/45 dark:via-vino/25" />
 
               {education.map((edu, index) => (
                 <motion.div
@@ -154,15 +154,15 @@ export default function Experience() {
                   className="relative group"
                 >
                   {/* Dot */}
-                  <div className="absolute -left-[33px] top-2 h-2.5 w-2.5 rounded-full border-2 border-background bg-primary transition-transform duration-300 group-hover:scale-150" />
+                  <div className="absolute -left-[33px] top-2 h-2.5 w-2.5 rounded-full border-2 border-background bg-wine transition-transform duration-300 group-hover:scale-150 dark:bg-vino" />
                   
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
+                      <h4 className="font-serif text-xl text-foreground group-hover:text-wine transition-colors dark:group-hover:text-vino">
                         {edu.title}
                       </h4>
                       {edu.date && (
-                        <span className="rounded-full bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
+                        <span className="rounded-full bg-wine/10 px-3 py-1 text-xs font-medium text-wine dark:bg-vino/15 dark:text-vino">
                           {edu.date}
                         </span>
                       )}
@@ -171,7 +171,7 @@ export default function Experience() {
                       {edu.institution}
                     </div>
                     {edu.desc && (
-                      <p className="text-sm leading-relaxed text-foreground/60 max-w-md">
+                      <p className="text-sm leading-relaxed text-foreground/75 max-w-md">
                         {edu.desc}
                       </p>
                     )}
@@ -182,8 +182,8 @@ export default function Experience() {
               {/* Complementary Section */}
               <div className="pt-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Award className="h-5 w-5 text-primary" />
-                  <h4 className="font-serif text-lg text-primary uppercase tracking-wider">
+                  <Award className="h-5 w-5 text-wine dark:text-vino" />
+                  <h4 className="font-serif text-lg text-wine uppercase tracking-wider dark:text-vino">
                     {t('complementary_title')}
                   </h4>
                 </div>
@@ -191,7 +191,7 @@ export default function Experience() {
                   {complementary.map((item, index) => (
                     <div 
                       key={index}
-                      className="rounded-xl border border-primary/10 bg-card p-4 transition-all duration-300 hover:bg-primary/5 hover:border-primary/20"
+                      className="rounded-xl border border-wine/12 bg-card p-4 transition-all duration-300 hover:border-wine/28 hover:bg-wine/5 hover:shadow-[0_16px_50px_rgba(109,0,6,0.10)]"
                     >
                       <div className="text-sm font-semibold">{item.title}</div>
                       <div className="text-xs text-muted-foreground">{item.institution}</div>
@@ -206,4 +206,3 @@ export default function Experience() {
     </section>
   );
 }
-

@@ -43,7 +43,7 @@ export default function NailsGallery() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <SectionTitle number="04" title={t('title')} centered />
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/70">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/82">
             {t('description')}
           </p>
         </div>

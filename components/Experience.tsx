@@ -74,8 +74,8 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experiencia" className="relative px-6 py-32 overflow-hidden">
-      <div className="mx-auto max-w-6xl">
+    <section id="experiencia" className="relative px-6 sm:px-8 lg:px-10 py-32 overflow-hidden">
+      <div className="mx-auto max-w-[90rem]">
         <SectionTitle number="05" title={t('title')} centered />
 
         <div className="grid gap-16 lg:grid-cols-2">

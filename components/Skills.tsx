@@ -58,8 +58,8 @@ export default function Skills() {
   };
 
   return (
-    <section id="habilidades" className="relative px-6 py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl">
+    <section id="habilidades" className="relative px-6 sm:px-8 lg:px-10 py-32 overflow-hidden">
+      <div className="mx-auto max-w-[90rem]">
         <SectionTitle 
           number="03" 
           title={t('title')} 

@@ -9,8 +9,8 @@ export default function About() {
   const t = useTranslations('about');
 
   return (
-    <section id="sobre-mi" className="relative px-6 py-32">
-      <div className="mx-auto max-w-4xl">
+    <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-10 py-32">
+      <div className="mx-auto max-w-5xl">
         <SectionTitle number="01" title={t('title')} centered />
 
         <motion.div

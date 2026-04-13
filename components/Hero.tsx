@@ -21,7 +21,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-24 md:pt-32 md:pb-32">
+    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 sm:px-8 lg:px-10 pt-28 pb-24 md:pt-32 md:pb-32">
       {/* Hero-specific decorative lights */}
       <motion.div 
         animate={{ 
@@ -48,7 +48,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 mx-auto w-full max-w-7xl"
+        className="relative z-10 mx-auto w-full max-w-[90rem]"
       >
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Content */}

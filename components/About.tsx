@@ -10,8 +10,6 @@ export default function About() {
 
   return (
     <section id="sobre-mi" className="relative px-6 py-32">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-
       <div className="mx-auto max-w-4xl">
         <SectionTitle number="01" title={t('title')} centered />
 

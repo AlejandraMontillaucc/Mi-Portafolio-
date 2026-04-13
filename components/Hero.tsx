@@ -50,7 +50,7 @@ export default function Hero() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto w-full max-w-7xl"
       >
-        <div className="grid items-center gap-16 md:grid-cols-2">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Content */}
           <div className="flex flex-col gap-10">
             <div className="space-y-6">
@@ -110,21 +110,6 @@ export default function Hero() {
               className="flex flex-wrap gap-5"
             >
               <a
-                href="#proyectos"
-                className="group relative overflow-hidden rounded-full bg-wine px-10 py-4 text-white transition-all duration-300 hover:bg-vino hover:scale-105 hover:shadow-[0_16px_48px_rgba(109,0,6,0.32)] active:scale-95"
-              >
-                <span className="relative z-10 font-semibold tracking-wide">{t('btnProjects')}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-wine via-primary to-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </a>
-              
-              <a
-                href="#contacto"
-                className="group relative overflow-hidden rounded-full border-2 border-wine/35 px-10 py-4 text-foreground/88 transition-all duration-300 hover:border-wine/55 hover:text-wine hover:bg-wine/6 hover:scale-105 hover:shadow-[0_12px_26px_rgba(109,0,6,0.12)] active:scale-95 dark:text-foreground/88 dark:hover:text-vino dark:hover:bg-vino/10"
-              >
-                <span className="font-semibold tracking-wide">{t('btnContact')}</span>
-              </a>
-
-              <a
                 href="/cv.pdf"
                 download
                 className="group flex items-center gap-3 rounded-full border border-wine/20 bg-secondary/15 px-10 py-4 text-wine transition-all duration-300 hover:border-vino/30 hover:bg-secondary/25 hover:text-vino hover:shadow-xl hover:scale-105 active:scale-95 dark:border-white/12 dark:bg-white/5 dark:text-vino"
@@ -137,17 +122,16 @@ export default function Hero() {
 
           {/* Image */}
           <motion.div 
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-start"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative group">
-              {/* Decorative rings */}
-              <div className="absolute -inset-4 rounded-[40px] border border-primary/10 scale-110 transition-transform duration-700 group-hover:rotate-6 group-hover:scale-115" />
-              <div className="absolute -inset-8 rounded-[50px] border border-primary/5 scale-120 transition-transform duration-1000 group-hover:-rotate-3 group-hover:scale-125" />
-              
-              <div className="relative z-10 h-96 w-80 md:h-[550px] md:w-[420px] overflow-hidden rounded-[32px] border-2 border-white/50 bg-white/10 shadow-2xl backdrop-blur-sm transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative group profile-glow">
+              <div className="profile-glow-orbit" aria-hidden="true" />
+              <div className="profile-glow-scan" aria-hidden="true" />
+              <div className="profile-glow-dots" aria-hidden="true" />
+              <div className="relative z-10 h-80 w-80 overflow-hidden rounded-full border border-white/50 bg-white/10 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[460px] md:w-[460px]">
                 <img
                   src="/me.jpg"
                   alt={t('name')}
@@ -159,24 +143,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 hidden sm:flex"
-        >
-          <a href="#sobre-mi" className="group flex flex-col items-center gap-2 text-foreground/40 transition-colors duration-300 hover:text-primary">
-            <span className="text-xs uppercase tracking-[0.2em] font-medium">Explore</span>
-            <div className="relative flex items-center justify-center h-10 w-6 rounded-full border border-foreground/20 group-hover:border-primary transition-colors">
-              <motion.div 
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="h-1.5 w-1 rounded-full bg-foreground/40 group-hover:bg-primary transition-colors"
-              />
-            </div>
-          </a>
-        </motion.div>
       </motion.div>
     </section>
   );

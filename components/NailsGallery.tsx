@@ -38,8 +38,6 @@ export default function NailsGallery() {
 
   return (
     <section id="unas" className="relative px-6 py-32 overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-      
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <SectionTitle number="04" title={t('title')} centered />

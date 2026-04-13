@@ -75,8 +75,6 @@ export default function Experience() {
 
   return (
     <section id="experiencia" className="relative px-6 py-32 overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-
       <div className="mx-auto max-w-6xl">
         <SectionTitle number="05" title={t('title')} centered />
 

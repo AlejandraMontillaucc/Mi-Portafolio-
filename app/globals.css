@@ -533,3 +533,191 @@
   .sparkles-layer::before,
   .sparkles-layer::after { animation: none; }
 }
+
+.profile-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.profile-glow::before,
+.profile-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-glow-orbit {
+  position: absolute;
+  inset: -36px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(10px 10px at 18% 26%, rgba(109, 0, 6, 0.32) 0%, rgba(109, 0, 6, 0) 72%),
+    radial-gradient(12px 12px at 84% 34%, rgba(138, 28, 31, 0.28) 0%, rgba(138, 28, 31, 0) 72%),
+    radial-gradient(9px 9px at 62% 84%, rgba(201, 132, 122, 0.22) 0%, rgba(201, 132, 122, 0) 72%),
+    radial-gradient(7px 7px at 34% 78%, rgba(109, 0, 6, 0.22) 0%, rgba(109, 0, 6, 0) 72%);
+  filter: blur(0.2px) brightness(1.2);
+  opacity: 0.48;
+  transform: translate3d(0, 0, 0);
+  animation: profileOrbit 6.8s ease-in-out infinite;
+}
+
+.profile-glow-scan {
+  position: absolute;
+  inset: -34px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    rgba(109, 0, 6, 0) 0deg 300deg,
+    rgba(109, 0, 6, 0.42) 320deg,
+    rgba(138, 28, 31, 0.26) 338deg,
+    rgba(109, 0, 6, 0) 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  opacity: 0.5;
+  filter: blur(0.45px);
+  transform: translate3d(0, 0, 0);
+  animation: profileScanSpin 6.4s linear infinite, profileScanPulse 3.6s ease-in-out infinite;
+}
+
+.profile-glow-scan::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 132, 122, 0.42) 0%, rgba(201, 132, 122, 0) 55%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
+  opacity: 0.36;
+  filter: blur(5px);
+  transform: translate3d(0, 0, 0);
+  animation: profileScanHighlight 5.6s ease-in-out infinite;
+}
+
+.dark .profile-glow-scan {
+  opacity: 0.24;
+}
+
+.profile-glow-dots {
+  position: absolute;
+  inset: -26px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(2px 2px at 18% 34%, rgba(109, 0, 6, 0.55) 0%, rgba(109, 0, 6, 0) 70%),
+    radial-gradient(2px 2px at 84% 28%, rgba(138, 28, 31, 0.5) 0%, rgba(138, 28, 31, 0) 70%),
+    radial-gradient(2px 2px at 76% 78%, rgba(201, 132, 122, 0.45) 0%, rgba(201, 132, 122, 0) 70%),
+    radial-gradient(2px 2px at 36% 84%, rgba(109, 0, 6, 0.45) 0%, rgba(109, 0, 6, 0) 70%),
+    radial-gradient(2px 2px at 56% 18%, rgba(138, 28, 31, 0.42) 0%, rgba(138, 28, 31, 0) 70%),
+    radial-gradient(2px 2px at 10% 62%, rgba(201, 132, 122, 0.35) 0%, rgba(201, 132, 122, 0) 70%);
+  filter: blur(0.2px) brightness(1.2);
+  opacity: 0.32;
+  transform: translate3d(0, 0, 0);
+  animation: profileDotsBlink 2.4s ease-in-out infinite;
+}
+
+.dark .profile-glow-dots {
+  opacity: 0.16;
+}
+
+.profile-glow::before {
+  inset: -22px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(109, 0, 6, 0.62),
+    rgba(138, 28, 31, 0.58),
+    rgba(201, 132, 122, 0.52),
+    rgba(109, 0, 6, 0.62)
+  );
+  filter: blur(20px);
+  opacity: 0.5;
+  transform: translate3d(0, 0, 0) scale(0.98);
+  animation: profileGlowPulse 7.6s ease-in-out infinite, profileGlowSpin 18s linear infinite;
+}
+
+.profile-glow::after {
+  inset: -10px;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 56%),
+    radial-gradient(circle at 72% 70%, rgba(201, 132, 122, 0.16) 0%, rgba(201, 132, 122, 0) 58%),
+    radial-gradient(circle at 40% 85%, rgba(138, 28, 31, 0.18) 0%, rgba(138, 28, 31, 0) 62%);
+  filter: blur(12px);
+  opacity: 0.32;
+  transform: translate3d(0, 0, 0);
+  animation: profileGlowDrift 9.5s ease-in-out infinite;
+}
+
+.profile-glow > .relative.z-10 {
+  border-color: rgba(109, 0, 6, 0.28);
+  box-shadow:
+    0 32px 90px rgba(36, 20, 22, 0.18),
+    0 0 0 1px rgba(138, 28, 31, 0.18) inset;
+}
+
+.dark .profile-glow > .relative.z-10 {
+  border-color: rgba(201, 132, 122, 0.22);
+}
+
+.dark .profile-glow::before {
+  opacity: 0.38;
+  filter: blur(18px) brightness(1.12);
+}
+
+.dark .profile-glow::after {
+  opacity: 0.26;
+}
+
+@keyframes profileGlowPulse {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(0.98); opacity: 0.45; }
+  50% { transform: translate3d(0, 0, 0) scale(1.05); opacity: 0.72; }
+}
+
+@keyframes profileGlowDrift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.24; }
+  50% { transform: translate3d(7px, -5px, 0); opacity: 0.38; }
+}
+
+@keyframes profileGlowSpin {
+  to { transform: translate3d(0, 0, 0) rotate(360deg); }
+}
+
+@keyframes profileOrbit {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.26; }
+  50% { transform: translate3d(0, 0, 0) rotate(18deg); opacity: 0.44; }
+}
+
+@keyframes profileScanSpin {
+  to { transform: translate3d(0, 0, 0) rotate(360deg); }
+}
+
+@keyframes profileScanPulse {
+  0%, 100% { opacity: 0.26; }
+  50% { opacity: 0.44; }
+}
+
+@keyframes profileScanHighlight {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(12deg); opacity: 0.18; }
+  50% { transform: translate3d(0, 0, 0) rotate(-10deg); opacity: 0.34; }
+}
+
+@keyframes profileDotsBlink {
+  0%, 100% { opacity: 0.14; }
+  45% { opacity: 0.28; }
+  55% { opacity: 0.18; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-glow::before,
+  .profile-glow::after { animation: none; }
+  .profile-glow-orbit { animation: none; }
+  .profile-glow-scan,
+  .profile-glow-scan::after { animation: none; }
+  .profile-glow-dots { animation: none; }
+}

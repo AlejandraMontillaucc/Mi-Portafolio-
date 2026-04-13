@@ -126,11 +126,6 @@ export default function Navbar() {
         )}
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/18 via-transparent to-primary/14 opacity-55" />
-        <div
-          className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-wine/55 to-transparent opacity-70"
-          style={{ backgroundSize: '200% 100%', animation: 'navLine 12s linear infinite' }}
-        />
-        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-vino/35 to-accent/25 opacity-70 blur-[0.2px]" />
         <div className="pointer-events-none absolute left-3 top-0 bottom-0 z-10 flex items-center md:left-4">
           <div className="h-full aspect-square origin-left scale-[1.35] overflow-visible transform-gpu md:scale-[1.55]">
             {cuteAnimation ? (
@@ -248,7 +243,6 @@ export default function Navbar() {
 
           {isMobileMenuOpen && (
             <div className="md:hidden">
-              <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
               <div className="relative mt-4 rounded-2xl border border-wine/18 bg-secondary/70 px-2 pb-5 pt-4 shadow-[0_18px_60px_rgba(36,20,22,0.14)] backdrop-blur-sm dark:border-white/10 dark:bg-background/45">
                 <div className="relative flex flex-col gap-2">
                   {navLinks.map((link) => {
@@ -273,8 +267,6 @@ export default function Navbar() {
                       </a>
                     );
                   })}
-
-                  <div className="mt-2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                   <div className="flex items-center justify-between gap-3 rounded-xl px-4 py-3">
                     <span className="text-sm font-medium text-foreground/75">Idioma</span>

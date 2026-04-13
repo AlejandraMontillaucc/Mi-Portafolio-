@@ -37,8 +37,6 @@ export default function Projects() {
 
   return (
     <section id="proyectos" className="relative bg-muted/30 dark:bg-muted/10 px-6 py-32 transition-colors duration-500">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-
       <div className="mx-auto max-w-7xl">
         <SectionTitle number="02" title={t('title')} />
 

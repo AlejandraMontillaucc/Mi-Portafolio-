@@ -10,8 +10,6 @@ export default function Footer() {
 
   return (
     <footer className="relative px-6 py-12">
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex flex-col items-center gap-2 md:items-start">
           <div className="font-serif text-2xl text-wine">AM</div>

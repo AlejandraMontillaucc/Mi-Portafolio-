@@ -713,6 +713,45 @@
   55% { opacity: 0.18; }
 }
 
+.hero-title-gradient {
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  animation: heroTitleGradient 9.5s ease-in-out infinite;
+}
+
+@keyframes heroTitleGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-cv-shimmer {
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  animation: heroCvShimmer 2.6s ease-in-out infinite;
+}
+
+@keyframes heroCvShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-cv-breathe {
+  background-size: 180% 100%;
+  background-position: 0% 50%;
+  animation: heroCvBreathe 4.8s ease-in-out infinite;
+}
+
+@keyframes heroCvBreathe {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 16px 50px rgba(109, 0, 6, 0.18);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 22px 70px rgba(109, 0, 6, 0.26);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .profile-glow::before,
   .profile-glow::after { animation: none; }
@@ -720,4 +759,7 @@
   .profile-glow-scan,
   .profile-glow-scan::after { animation: none; }
   .profile-glow-dots { animation: none; }
+  .hero-title-gradient { animation: none; }
+  .hero-cv-shimmer { animation: none; }
+  .hero-cv-breathe { animation: none; }
 }

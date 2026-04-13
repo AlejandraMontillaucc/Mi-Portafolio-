@@ -21,7 +21,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:pt-32">
+    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-24 md:pt-32 md:pb-32">
       {/* Hero-specific decorative lights */}
       <motion.div 
         animate={{ 
@@ -52,7 +52,7 @@ export default function Hero() {
       >
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Content */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6">
             <div className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -78,9 +78,14 @@ export default function Hero() {
                     {t('greeting')}{' '}
                   </>
                 ) : null}
-                <span className="block bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1">
+                <motion.span
+                  className="block hero-title-gradient bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1"
+                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.85, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                >
                   {t('name')}
-                </span>
+                </motion.span>
               </motion.h1>
 
               <motion.p
@@ -112,8 +117,9 @@ export default function Hero() {
               <a
                 href="/cv.pdf"
                 download
-                className="group flex items-center gap-3 rounded-full border border-wine/20 bg-secondary/15 px-10 py-4 text-wine transition-all duration-300 hover:border-vino/30 hover:bg-secondary/25 hover:text-vino hover:shadow-xl hover:scale-105 active:scale-95 dark:border-white/12 dark:bg-white/5 dark:text-vino"
+                className="group hero-cv-breathe relative flex items-center gap-3 overflow-hidden rounded-full border border-wine/30 bg-gradient-to-r from-wine via-vino to-primary px-8 py-3.5 text-sm text-white shadow-[0_16px_50px_rgba(109,0,6,0.20)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(109,0,6,0.28)] active:translate-y-0 active:scale-95 dark:border-white/10"
               >
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/0 via-white/14 to-white/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hero-cv-shimmer" />
                 <FileDown className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
                 <span className="font-semibold tracking-wide">{t('btnCV')}</span>
               </a>

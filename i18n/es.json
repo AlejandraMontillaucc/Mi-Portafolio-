@@ -1,9 +1,9 @@
 {
   "hero": {
     "role": "Software Engineer",
-    "greeting": "Hola, soy",
+    "greeting": "",
     "name": "Maria Alejandra Montilla Diaz",
-    "description": "Estudiante de Ingeniería de Software apasionada por crear experiencias digitales elegantes y funcionales que generen un impacto real.",
+    "description": "Estudiante de Ingeniería de Software,\naprendiendo, creando y mejorando cada día\nen el mundo del desarrollo.",
     "btnProjects": "Ver Proyectos",
     "btnContact": "Contactar",
     "btnCV": "Descargar CV"

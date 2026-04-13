@@ -6,6 +6,19 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const descriptionLines = t('description').split('\n');
+  const textContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+  const textLine = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 },
+  };
 
   return (
     <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:pt-32">
@@ -44,7 +57,7 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.75, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-3"
               >
                 <div className="h-px w-8 bg-primary/60" />
@@ -58,21 +71,35 @@ export default function Hero() {
                 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               >
-                {t('greeting')}{' '}
-                <span className="block mt-2 bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1">
+                {t('greeting') ? (
+                  <>
+                    {t('greeting')}{' '}
+                  </>
+                ) : null}
+                <span className="block bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1">
                   {t('name')}
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 className="text-xl md:text-2xl leading-relaxed text-foreground/82 max-w-xl"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                variants={textContainer}
+                initial="hidden"
+                animate="show"
+                transition={{ delayChildren: 0.42 }}
               >
-                {t('description')}
+                {descriptionLines.map((line, idx) => (
+                  <motion.span
+                    key={`${line}-${idx}`}
+                    className="block"
+                    variants={textLine}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    {line}
+                  </motion.span>
+                ))}
               </motion.p>
             </div>
 

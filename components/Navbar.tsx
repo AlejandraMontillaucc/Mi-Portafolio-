@@ -159,7 +159,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setActiveHref(link.href)}
                     className={cn(
-                      "group relative rounded-full px-3.5 py-2 font-serif text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
+                      "group relative rounded-full px-3.5 py-2 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                       isActive
                         ? "text-wine bg-wine/10 ring-1 ring-wine/25 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
                         : "text-foreground/90 hover:text-vino hover:bg-wine/5 hover:scale-105"
@@ -262,7 +262,7 @@ export default function Navbar() {
                           setIsMobileMenuOpen(false);
                         }}
                         className={cn(
-                          "flex items-center justify-between rounded-xl px-4 py-3 font-serif text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
+                          "flex items-center justify-between rounded-xl px-4 py-3 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                           isActive
                             ? "bg-wine/10 text-wine ring-1 ring-wine/22 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
                             : "text-foreground/90 hover:bg-wine/5 hover:text-vino"

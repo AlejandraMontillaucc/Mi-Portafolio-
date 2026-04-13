@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
-const inter = Inter({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-source-serif",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +22,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
-      <body style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={sourceSerif.variable}
+      style={
+        {
+          ["--font-inter" as never]: sourceSerif.style.fontFamily,
+          ["--font-playfair" as never]: sourceSerif.style.fontFamily,
+        } as React.CSSProperties
+      }
+    >
+      <body className={`${sourceSerif.className} antialiased`}>
         <ThemeProvider 
           attribute="class" 
           defaultTheme="system" 

@@ -2,8 +2,8 @@
 
 @theme {
   /* Fuentes */
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
   /* Paleta de colores personalizada */
   --color-warm-white: #fdfaf7;
@@ -46,6 +46,8 @@
 }
 
 :root {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   --background: #fdfaf7;
   --foreground: #241416;
   --card: rgba(255, 255, 255, 0.68);
@@ -94,13 +96,38 @@
 
   html {
     scroll-behavior: smooth;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-sans);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
     position: relative;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+
+  .font-sans {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-serif {
+    font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  }
+
+  button,
+  input,
+  textarea,
+  select,
+  a,
+  p,
+  span,
+  li {
+    font-family: inherit;
   }
 
   /* Capa de fondo con gradiente para el modo claro */
@@ -147,15 +174,23 @@
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-    line-height: 1.5;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), ui-serif, Georgia, serif;
+    line-height: 1.18;
+    letter-spacing: 0.02em;
+    font-kerning: normal;
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: geometricPrecision;
   }
 
-  h1 { @apply text-4xl font-medium; }
-  h2 { @apply text-3xl font-medium; }
-  h3 { @apply text-2xl font-medium; }
-  h4 { @apply text-xl font-medium; }
+  h1 { @apply text-4xl font-semibold; }
+  h2 { @apply text-3xl font-semibold; }
+  h3 { @apply text-2xl font-semibold; }
+  h4 { @apply text-xl font-semibold; }
+
+  p {
+    text-rendering: optimizeLegibility;
+  }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {

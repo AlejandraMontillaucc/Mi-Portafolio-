@@ -47,7 +47,7 @@ export default function Projects() {
                 key={index}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+                viewport={{ once: true, margin: '0px 0px -20% 0px' }}
                 transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative overflow-hidden rounded-2xl border border-wine/12 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-wine/28 hover:shadow-[0_20px_70px_rgba(109,0,6,0.14)]"
               >
@@ -100,7 +100,7 @@ export default function Projects() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+              viewport={{ once: true, margin: '0px 0px -20% 0px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="col-span-full flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-primary/20 p-24 text-center"
             >

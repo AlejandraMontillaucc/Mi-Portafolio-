@@ -60,7 +60,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-10% 0px -45% 0px' }}
+            viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
@@ -93,7 +93,7 @@ export default function Contact() {
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-10% 0px -45% 0px' }}
+            viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Instagram, X, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import SectionTitle from './SectionTitle';
 import { motion, AnimatePresence } from 'motion/react';
@@ -40,7 +41,7 @@ export default function NailsGallery() {
     <section id="unas" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28 overflow-hidden">
       <div className="mx-auto max-w-[90rem]">
         <div className="mb-16 text-center">
-          <SectionTitle number="04" title={t('title')} centered />
+          <SectionTitle number="04" title={t('title')} />
           <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/82">
             {t('description')}
           </p>
@@ -58,11 +59,12 @@ export default function NailsGallery() {
               onClick={() => openModal(index)}
               className="group relative aspect-square cursor-pointer overflow-hidden rounded-2xl bg-muted"
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -123,13 +125,15 @@ export default function NailsGallery() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-h-full max-w-full overflow-hidden rounded-3xl shadow-2xl"
+                className="relative h-[85vh] w-[min(92vw,1100px)] overflow-hidden rounded-3xl shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
-                <img
+                <Image
                   src={NAIL_IMAGES[selectedImageIndex].src}
                   alt={NAIL_IMAGES[selectedImageIndex].alt}
-                  className="max-h-[85vh] object-contain"
+                  fill
+                  sizes="92vw"
+                  className="object-contain"
                 />
               </motion.div>
 

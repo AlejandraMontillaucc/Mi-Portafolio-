@@ -13,14 +13,14 @@ export default function SectionTitle({ number, title, subtitle }: SectionTitlePr
     <motion.div
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-15% 0px -60% 0px' }}
+      viewport={{ once: true, margin: '0px 0px -20% 0px' }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="space-y-2 mb-6 text-center"
     >
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-15% 0px -60% 0px' }}
+        viewport={{ once: true, margin: '0px 0px -20% 0px' }}
         transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         className="flex items-center gap-4 justify-center"
       >
@@ -33,7 +33,7 @@ export default function SectionTitle({ number, title, subtitle }: SectionTitlePr
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-15% 0px -60% 0px' }}
+        viewport={{ once: true, margin: '0px 0px -20% 0px' }}
         transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         className="font-serif text-4xl lg:text-5xl text-foreground tracking-[0.06em] uppercase"
       >
@@ -48,7 +48,7 @@ export default function SectionTitle({ number, title, subtitle }: SectionTitlePr
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-15% 0px -60% 0px' }}
+          viewport={{ once: true, margin: '0px 0px -20% 0px' }}
           transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-2xl text-lg text-foreground/75"
         >

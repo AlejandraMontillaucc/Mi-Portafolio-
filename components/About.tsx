@@ -11,19 +11,19 @@ export default function About() {
   return (
     <section id="sobre-mi" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28">
       <div className="mx-auto max-w-5xl">
-        <SectionTitle number="01" title={t('title')} centered />
+        <SectionTitle number="01" title={t('title')} />
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-15% 0px -55% 0px' }}
+          viewport={{ once: true, margin: '0px 0px -20% 0px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-16 space-y-8 text-lg leading-relaxed text-foreground/82 text-center md:text-xl"
         >
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-15% 0px -55% 0px' }}
+            viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           >
             {t('p1')}
@@ -31,7 +31,7 @@ export default function About() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-15% 0px -55% 0px' }}
+            viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           >
             {t('p2')}
@@ -39,7 +39,7 @@ export default function About() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-15% 0px -55% 0px' }}
+            viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           >
             {t('p3')}

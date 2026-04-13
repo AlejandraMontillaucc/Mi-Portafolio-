@@ -31,7 +31,7 @@ export default function Testimonials() {
               key={index}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10% 0px -40% 0px' }}
+              viewport={{ once: true, margin: '0px 0px -20% 0px' }}
               transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
               className="group relative flex flex-col gap-6 rounded-2xl border border-wine/12 bg-background/55 p-12 text-center transition-all duration-300 hover:-translate-y-1 hover:border-wine/28 hover:shadow-[0_20px_70px_rgba(109,0,6,0.14)] overflow-hidden flex items-center justify-center"
             >

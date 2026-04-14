@@ -8,12 +8,14 @@ import SectionTitle from './SectionTitle';
 import { motion, AnimatePresence } from 'motion/react';
 
 const NAIL_IMAGES = [
-  { id: 1, src: '/unas/unas1.jpg', alt: 'Nail Design 1' },
-  { id: 2, src: '/unas/unas2.jpg', alt: 'Nail Design 2' },
-  { id: 3, src: '/unas/unas3.jpg', alt: 'Nail Design 3' },
-  { id: 4, src: '/unas/unas4.jpg', alt: 'Nail Design 4' },
-  { id: 5, src: '/unas/unas5.jpg', alt: 'Nail Design 5' },
-  { id: 6, src: '/unas/unas6.jpg', alt: 'Nail Design 6' },
+  { id: 1, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM.jpeg', alt: 'Uñas 1' },
+  { id: 2, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (1).jpeg', alt: 'Uñas 2' },
+  { id: 3, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (2).jpeg', alt: 'Uñas 3' },
+  { id: 4, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM.jpeg', alt: 'Uñas 4' },
+  { id: 5, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (1).jpeg', alt: 'Uñas 5' },
+  { id: 6, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (2).jpeg', alt: 'Uñas 6' },
+  { id: 7, src: '/unas/WhatsApp Image 2026-04-14 at 12.08.56 PM.jpeg', alt: 'Uñas 7' },
+  { id: 8, src: '/unas/WhatsApp Image 2026-04-14 at 6.17.33 PM.jpeg', alt: 'Uñas 8' },
 ];
 
 export default function NailsGallery() {

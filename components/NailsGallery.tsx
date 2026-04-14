@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Instagram, X, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -23,7 +23,6 @@ export default function NailsGallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [shiftPx, setShiftPx] = useState(220);
-  const wheelLockRef = useRef<number | null>(null);
 
   const images = useMemo(
     () =>
@@ -68,22 +67,9 @@ export default function NailsGallery() {
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selectedImageIndex !== null) {
-        closeModal();
-        return;
-      }
-
-      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-      e.preventDefault();
-
-      if (selectedImageIndex !== null) {
-        if (e.key === 'ArrowRight') setSelectedImageIndex((v) => (v === null ? 0 : (v + 1) % images.length));
-        if (e.key === 'ArrowLeft') setSelectedImageIndex((v) => (v === null ? 0 : (v - 1 + images.length) % images.length));
-        return;
-      }
-
-      if (e.key === 'ArrowRight') goNext();
-      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key !== 'Escape') return;
+      if (selectedImageIndex === null) return;
+      closeModal();
     };
 
     window.addEventListener('keydown', onKeyDown);
@@ -99,19 +85,6 @@ export default function NailsGallery() {
     return diff;
   };
 
-  const onWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
-    const dominant = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(dominant) < 6) return;
-    if (wheelLockRef.current) return;
-
-    wheelLockRef.current = window.setTimeout(() => {
-      wheelLockRef.current = null;
-    }, 220);
-
-    if (dominant > 0) goNext();
-    else goPrev();
-  };
-
   return (
     <section id="unas" className="relative px-6 sm:px-8 lg:px-10 py-24 md:py-28 overflow-hidden">
       <div className="mx-auto max-w-[100rem]">
@@ -122,10 +95,7 @@ export default function NailsGallery() {
           </p>
         </div>
 
-        <div
-          className="relative overflow-hidden rounded-[2.25rem] border border-wine/12 bg-card/35 px-6 py-10 shadow-[0_20px_70px_rgba(109,0,6,0.10)] backdrop-blur-sm sm:px-10"
-          onWheel={onWheel}
-        >
+        <div className="relative overflow-hidden rounded-[2.25rem] border border-wine/12 bg-card/35 px-6 py-10 shadow-[0_20px_70px_rgba(109,0,6,0.10)] backdrop-blur-sm sm:px-10">
           <div className="pointer-events-none absolute inset-0 opacity-70">
             <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_18%,rgba(109,0,6,0.12),transparent_55%),radial-gradient(1000px_circle_at_85%_35%,rgba(192,129,107,0.10),transparent_60%)]" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(109,0,6,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(109,0,6,0.08)_1px,transparent_1px)] bg-[size:46px_46px] [mask-image:radial-gradient(62%_72%_at_50%_40%,black,transparent)]" />
@@ -180,7 +150,7 @@ export default function NailsGallery() {
                       filter: hidden ? 'blur(6px)' : blur,
                     }}
                     transition={{ type: 'spring', stiffness: 220, damping: 28, mass: 0.9 }}
-                    onClick={() => (offset === 0 ? openModal(index) : setActiveIndex(index))}
+                    onClick={() => openModal(index)}
                     className={[
                       'group absolute left-1/2 top-1/2 w-[min(86vw,680px)] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-gradient-to-r from-wine/40 via-vino/18 to-accent/18 p-[1px] outline-none',
                       hidden ? 'pointer-events-none' : 'pointer-events-auto',
@@ -225,7 +195,6 @@ export default function NailsGallery() {
                             <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.16)]" />
                             {String(index + 1).padStart(2, '0')}
                           </div>
-                          <div className="mt-3 truncate font-serif text-2xl sm:text-3xl">{img.alt}</div>
                         </div>
 
                         <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-sm font-medium text-white/85 backdrop-blur sm:flex">
@@ -329,7 +298,7 @@ export default function NailsGallery() {
 
                   <div className="pointer-events-none absolute left-6 bottom-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.18)]" />
-                    {images[selectedImageIndex].alt} · {selectedImageIndex + 1}/{images.length}
+                    {selectedImageIndex + 1}/{images.length}
                   </div>
                 </div>
               </motion.div>

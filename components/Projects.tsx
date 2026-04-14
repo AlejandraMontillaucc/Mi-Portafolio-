@@ -18,21 +18,17 @@ interface Project {
 export default function Projects() {
   const t = useTranslations('projects');
 
-  /**
-   * AQUÍ PUEDES AGREGAR TUS PROYECTOS REALES
-   * Solo añade objetos a este array siguiendo la estructura de la interfaz Project.
-   */
   const projects: Project[] = [
-    /* 
+  
     {
       title: 'LegalConnect',
       description: 'Asistente inteligente para análisis de contratos',
-      image: 'URL de la imagen o path en /public',
+      image: '/legalconnect.png',
       tags: ['TypeScript', 'JavaScript'],
       github: 'https://github.com/AndresMira21/analyzer-contract-frontend.git',
       demo: 'https://analyzer-contract-frontend-kohl.vercel.app/',
     },
-    */
+
   ];
 
   return (

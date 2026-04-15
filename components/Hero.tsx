@@ -187,8 +187,8 @@ export default function Hero() {
               className="flex flex-wrap gap-5"
             >
               <motion.a
-                href="/cv.pdf"
-                download
+                href="/hoja%20de%20vida.pdf"
+                download="hoja de vida.pdf"
                 animate={reduceMotion ? undefined : { y: [0, -3, 0] }}
                 transition={reduceMotion ? undefined : { duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
                 whileHover={reduceMotion ? undefined : { y: -8 }}

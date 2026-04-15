@@ -107,10 +107,6 @@ export default function NailsGallery() {
                 <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.16)]" />
                 Carousel 3D
               </div>
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-wine/14 bg-background/45 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground/70 backdrop-blur">
-                {activeIndex + 1}/{images.length}
-              </div>
             </div>
 
             <div
@@ -191,10 +187,6 @@ export default function NailsGallery() {
 
                       <div className="absolute left-6 bottom-6 right-6 flex items-end justify-between gap-6 text-white">
                         <div className="min-w-0">
-                          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/85 backdrop-blur">
-                            <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.16)]" />
-                            {String(index + 1).padStart(2, '0')}
-                          </div>
                         </div>
 
                         <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-sm font-medium text-white/85 backdrop-blur sm:flex">
@@ -298,7 +290,6 @@ export default function NailsGallery() {
 
                   <div className="pointer-events-none absolute left-6 bottom-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.18)]" />
-                    {selectedImageIndex + 1}/{images.length}
                   </div>
                 </div>
               </motion.div>

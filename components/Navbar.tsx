@@ -54,7 +54,10 @@ export default function Navbar() {
       { href: '#inicio', label: t('home') },
       { href: '#sobre-mi', label: t('about') },
       { href: '#proyectos', label: t('projects') },
+      { href: '#habilidades', label: t('skills') },
+      { href: '#unas', label: t('nails') },
       { href: '#experiencia', label: t('experience') },
+      { href: '#testimonios', label: t('testimonials') },
       { href: '#contacto', label: t('contact') },
     ],
     [t]

@@ -99,13 +99,27 @@ export default function Hero() {
                   animate="show"
                 >
                   <span className="sr-only">{t('name')}</span>
-                  <span aria-hidden="true" className="block">
+                  <span aria-hidden="true" className="block dark:hidden">
                     {nameWords.map((word, idx) => (
                       <motion.span
-                        key={`${word}-${idx}`}
+                        key={`light-${word}-${idx}`}
                         variants={nameWord}
                         transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-                        className="inline-block bg-gradient-to-r from-wine via-vino to-wine bg-clip-text text-transparent drop-shadow-[0_18px_46px_rgba(109,0,6,0.38)]"
+                        className="inline-block drop-shadow-[0_18px_52px_rgba(109,0,6,0.42)]"
+                        style={{ color: '#520006' }}
+                      >
+                        {word}
+                        {idx < nameWords.length - 1 ? '\u00A0' : null}
+                      </motion.span>
+                    ))}
+                  </span>
+                  <span aria-hidden="true" className="hidden dark:block">
+                    {nameWords.map((word, idx) => (
+                      <motion.span
+                        key={`dark-${word}-${idx}`}
+                        variants={nameWord}
+                        transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+                        className="inline-block bg-gradient-to-r from-[#f5e9e2] via-[#d39b98] to-[#f5e9e2] bg-clip-text text-transparent drop-shadow-[0_18px_46px_rgba(255,255,255,0.12)]"
                       >
                         {word}
                         {idx < nameWords.length - 1 ? '\u00A0' : null}

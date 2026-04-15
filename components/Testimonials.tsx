@@ -9,20 +9,29 @@ import { motion } from 'motion/react';
 export default function Testimonials() {
   const t = useTranslations('testimonials');
 
-  /**
-   * AQUÍ VAN FUTURAS RESEÑAS/TESTIMONIOS
-   * Cuando tengas testimonios reales, agrégalos al array 'testimonials'.
-   * Por ahora se muestran tarjetas vacías con un diseño elegante.
-   */
   const testimonials = [
     {
       id: 1,
       text:
         'Quiero recomendar el trabajo de mi manicurista, Alejandra, quien cada mes me diseña las uñas con mucho cuidado y dedicación. Sus resultados son muy bonitos, prolijos y duraderos.\n\nUsa materiales de buena calidad, lo que se nota en el acabado y la duración del diseño. Además, ofrece servicio a domicilio, lo que resulta muy cómodo.\n\nTambién es una persona muy amable, empática y profesional, lo que hace que la atención sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.',
       author: 'Luisa Salazar',
+      role: 'Clienta',
+      phone: '3153505689',
     },
-    { id: 2 },
-    { id: 3 },
+    {
+      id: 2,
+      text: 'Quiero destacar el trabajo de mi manicurista, Alejandra, por su dedicación, cuidado en los detalles y resultados impecables en cada diseño.\n\nSus trabajos son personalizados, duraderos y de gran calidad. Además, es una persona amable, responsable y profesional, lo que hace que cada cita sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.',
+      author: 'Claudia Salazar',
+      role: 'Clienta',
+      phone: '3166023779',
+    },
+    {
+      id: 3,
+      text: 'Es un gusto recomendar a Alejandra, a quien conozco tanto a nivel personal como profesional. Quiero destacar sus habilidades y cualidades como futura profesional.\n\nHa sido muy importante en mi emprendimiento, aportando creatividad y apoyo en proyectos de publicidad.\n\nComo manicurista, su trabajo es excelente, y su personalidad amable, honesta y empática genera mucha confianza. También es una persona disciplinada y constante, lo que se refleja en todo lo que hace, incluyendo su compromiso con su salud y estilo de vida.',
+      author: 'Carolina Hidalgo',
+      role: 'Compañera de trabajo',
+      phone: '3183722460',
+    },
   ];
 
   return (
@@ -53,6 +62,12 @@ export default function Testimonials() {
                   <div className="pt-2 text-sm font-semibold text-foreground/90">
                     {item.author}
                   </div>
+                  {item.role || item.phone ? (
+                    <div className="space-y-1 text-xs text-foreground/70">
+                      {item.role ? <div>{item.role}</div> : null}
+                      {item.phone ? <div>{item.phone}</div> : null}
+                    </div>
+                  ) : null}
                 </>
               ) : (
                 <div className="space-y-4 flex flex-col items-center justify-center flex-1">

@@ -20,9 +20,9 @@
   },
   "about": {
     "title": "Sobre mí",
-    "p1": "Soy estudiante de ingeniería de software y me gusta todo lo relacionado con la tecnología, especialmente el desarrollo web y crear cosas bonitas que funcionen bien. Me gusta aprender a mi ritmo, probar cosas nuevas y enfrentar retos, aunque a veces me toque buscar mil soluciones hasta que algo funcione.",
-    "p2": "Además de programar, también soy manicurista, algo que hace parte importante de mi vida. Gracias a eso he desarrollado mucha creatividad, paciencia y atención al detalle, cosas que también aplico cuando diseño interfaces o trabajo en mis proyectos.",
-    "p3": "Me gusta que las cosas se vean bien, pero también que funcionen bien, y siento que esa mezcla entre lo visual y lo técnico es lo que más me representa. Soy una persona tranquila, responsable y comprometida, y aunque sigo aprendiendo, siempre trato de dar lo mejor de mí en todo lo que hago."
+    "p1": "Soy estudiante de ingeniería de software y me interesa la tecnología, especialmente el desarrollo web. Me gusta aprender, probar cosas nuevas y resolver problemas mientras voy avanzando.",
+    "p2": "También soy manicurista, lo cual forma una parte importante de mi vida. Esto me ha ayudado a desarrollar creatividad, paciencia y atención al detalle, habilidades que también aplico en mis proyectos de programación y diseño.",
+    "p3": "Me gusta que las cosas se vean bien y funcionen bien al mismo tiempo. Me considero una persona tranquila, responsable y comprometida, que siempre intenta dar lo mejor de sí mientras sigue aprendiendo."
   },
   "projects": {
     "title": "Proyectos Destacados"

@@ -142,8 +142,14 @@
   },
   "skills": {
     "title": "Habilidades & Tecnologías",
-    "subtitle": "Tecnologías que utilizo para crear interfaces modernas y funcionales.",
-    "frontend": "Frontend",
-    "tools": "Herramientas"
+    "subtitle": "Tecnologías y herramientas que utilizo para construir interfaces modernas, escalables y enfocadas en experiencia de usuario.",
+    "interfaces": "Desarrollo de Interfaces",
+    "interfacesDesc": "Base del stack para estructura, estilos e interactividad en la web.",
+    "frameworks": "Frameworks y Librerías",
+    "frameworksDesc": "Construcción de aplicaciones con componentes, routing y rendimiento para productos modernos.",
+    "ui": "Estilos y UI",
+    "uiDesc": "Sistema de estilos, diseño consistente y rapidez al crear interfaces.",
+    "tools": "Herramientas",
+    "toolsDesc": "Control de versiones, colaboración y flujo de trabajo para desarrollo, entrega y despliegue con orden."
   }
 }

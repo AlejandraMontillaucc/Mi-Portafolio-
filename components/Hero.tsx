@@ -3,9 +3,13 @@
 import { FileDown, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'motion/react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const descriptionLines = t('description').split('\n');
   const nameWords = t('name').split(' ').filter(Boolean);
   const textContainer = {
@@ -33,6 +37,12 @@ export default function Hero() {
     hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
     show: { opacity: 1, y: 0, filter: 'blur(0px)' },
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === 'dark';
 
   return (
     <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden px-6 sm:px-8 lg:px-10 pt-28 pb-24 md:pt-32 md:pb-32">
@@ -99,27 +109,22 @@ export default function Hero() {
                   animate="show"
                 >
                   <span className="sr-only">{t('name')}</span>
-                  <span aria-hidden="true" className="block dark:hidden">
+                  <span aria-hidden="true" className="block">
                     {nameWords.map((word, idx) => (
                       <motion.span
-                        key={`light-${word}-${idx}`}
+                        key={`${isDark ? 'dark' : 'light'}-${word}-${idx}`}
                         variants={nameWord}
                         transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-                        className="inline-block drop-shadow-[0_18px_52px_rgba(109,0,6,0.42)]"
-                        style={{ color: '#520006' }}
-                      >
-                        {word}
-                        {idx < nameWords.length - 1 ? '\u00A0' : null}
-                      </motion.span>
-                    ))}
-                  </span>
-                  <span aria-hidden="true" className="hidden dark:block">
-                    {nameWords.map((word, idx) => (
-                      <motion.span
-                        key={`dark-${word}-${idx}`}
-                        variants={nameWord}
-                        transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-                        className="inline-block bg-gradient-to-r from-[#f5e9e2] via-[#d39b98] to-[#f5e9e2] bg-clip-text text-transparent drop-shadow-[0_18px_46px_rgba(255,255,255,0.12)]"
+                        className={
+                          isDark
+                            ? 'inline-block bg-gradient-to-r from-[#f5e9e2] via-[#d39b98] to-[#f5e9e2] bg-clip-text text-transparent drop-shadow-[0_18px_46px_rgba(255,255,255,0.12)]'
+                            : 'inline-block drop-shadow-[0_20px_60px_rgba(109,0,6,0.45)]'
+                        }
+                        style={
+                          isDark
+                            ? undefined
+                            : { color: '#6d0006', textShadow: '0 1px 0 rgba(0,0,0,0.18)' }
+                        }
                       >
                         {word}
                         {idx < nameWords.length - 1 ? '\u00A0' : null}
@@ -128,29 +133,20 @@ export default function Hero() {
                   </span>
                   <motion.span
                     aria-hidden="true"
-                    className="pointer-events-none absolute -inset-x-10 -bottom-1 h-[2px] opacity-70"
+                    className="pointer-events-none absolute -inset-x-10 -bottom-1 h-[2px]"
                     style={{
                       backgroundImage:
-                        'repeating-linear-gradient(to right, rgba(109,0,6,0.0) 0px, rgba(109,0,6,0.0) 10px, rgba(109,0,6,0.65) 10px, rgba(109,0,6,0.65) 28px)',
+                        isDark
+                          ? 'repeating-linear-gradient(to right, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.0) 14px, rgba(255,255,255,0.42) 14px, rgba(255,255,255,0.42) 30px)'
+                          : 'repeating-linear-gradient(to right, rgba(109,0,6,0.0) 0px, rgba(109,0,6,0.0) 10px, rgba(109,0,6,0.65) 10px, rgba(109,0,6,0.65) 28px)',
                       backgroundSize: '220px 100%',
                     }}
                     animate={{
                       backgroundPositionX: ['0%', '200%'],
-                      opacity: [0.4, 0.78, 0.4],
+                      opacity: isDark ? [0.28, 0.62, 0.28] : [0.4, 0.78, 0.4],
                       filter: ['blur(0.2px)', 'blur(0.8px)', 'blur(0.2px)'],
                     }}
                     transition={{ duration: 3.6, repeat: Infinity, ease: 'linear', delay: 1.8 }}
-                  />
-                  <motion.span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -inset-x-10 -bottom-1 h-[2px] opacity-50 dark:opacity-65"
-                    style={{
-                      backgroundImage:
-                        'repeating-linear-gradient(to right, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.0) 14px, rgba(255,255,255,0.42) 14px, rgba(255,255,255,0.42) 30px)',
-                      backgroundSize: '240px 100%',
-                    }}
-                    animate={{ backgroundPositionX: ['200%', '0%'] }}
-                    transition={{ duration: 6.2, repeat: Infinity, ease: 'linear', delay: 2.1 }}
                   />
                 </motion.span>
               </motion.h1>

@@ -102,13 +102,6 @@ export default function NailsGallery() {
           </div>
 
           <div className="relative mx-auto max-w-6xl">
-            <div className="mb-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
-              <div className="inline-flex items-center gap-2 rounded-full border border-wine/14 bg-background/45 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground/85 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-wine shadow-[0_0_0_4px_rgba(109,0,6,0.16)]" />
-                Carousel 3D
-              </div>
-            </div>
-
             <div
               className="relative mx-auto h-[420px] w-full sm:h-[520px] lg:h-[600px]"
               style={{ perspective: 1200, transformStyle: 'preserve-3d' }}

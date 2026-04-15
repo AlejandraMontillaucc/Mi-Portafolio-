@@ -114,29 +114,29 @@ export default function Hero() {
                   </span>
                   <motion.span
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-y-0 -left-24 w-44 bg-gradient-to-r from-transparent via-white/45 to-transparent mix-blend-overlay"
-                    animate={{ x: ['-30%', '160%'], opacity: [0, 0.6, 0] }}
-                    transition={{ duration: 5.6, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
+                    className="pointer-events-none absolute -inset-x-10 -bottom-1 h-[2px] opacity-70"
+                    style={{
+                      backgroundImage:
+                        'repeating-linear-gradient(to right, rgba(109,0,6,0.0) 0px, rgba(109,0,6,0.0) 10px, rgba(109,0,6,0.65) 10px, rgba(109,0,6,0.65) 28px)',
+                      backgroundSize: '220px 100%',
+                    }}
+                    animate={{
+                      backgroundPositionX: ['0%', '200%'],
+                      opacity: [0.4, 0.78, 0.4],
+                      filter: ['blur(0.2px)', 'blur(0.8px)', 'blur(0.2px)'],
+                    }}
+                    transition={{ duration: 3.6, repeat: Infinity, ease: 'linear', delay: 1.8 }}
                   />
                   <motion.span
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 opacity-0 [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"
+                    className="pointer-events-none absolute -inset-x-10 -bottom-1 h-[2px] opacity-50 dark:opacity-65"
                     style={{
                       backgroundImage:
-                        'repeating-linear-gradient(to bottom, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 9px)',
+                        'repeating-linear-gradient(to right, rgba(255,255,255,0.0) 0px, rgba(255,255,255,0.0) 14px, rgba(255,255,255,0.42) 14px, rgba(255,255,255,0.42) 30px)',
+                      backgroundSize: '240px 100%',
                     }}
-                    animate={{ opacity: [0.05, 0.2, 0.05] }}
-                    transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
-                  />
-                  <motion.span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -inset-x-12 -bottom-1 h-[2px] opacity-65"
-                    style={{
-                      backgroundImage:
-                        'linear-gradient(to right, transparent, rgba(109,0,6,0.55), rgba(138,28,31,0.5), rgba(109,0,6,0.55), transparent)',
-                    }}
-                    animate={{ opacity: [0.22, 0.55, 0.22], filter: ['blur(0.2px)', 'blur(0.9px)', 'blur(0.2px)'] }}
-                    transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
+                    animate={{ backgroundPositionX: ['200%', '0%'] }}
+                    transition={{ duration: 6.2, repeat: Infinity, ease: 'linear', delay: 2.1 }}
                   />
                 </motion.span>
               </motion.h1>

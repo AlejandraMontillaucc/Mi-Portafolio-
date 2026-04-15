@@ -574,24 +574,24 @@
 
 .profile-glow-orbit {
   position: absolute;
-  inset: -36px;
+  inset: -46px;
   border-radius: 9999px;
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(10px 10px at 18% 26%, rgba(109, 0, 6, 0.32) 0%, rgba(109, 0, 6, 0) 72%),
-    radial-gradient(12px 12px at 84% 34%, rgba(138, 28, 31, 0.28) 0%, rgba(138, 28, 31, 0) 72%),
-    radial-gradient(9px 9px at 62% 84%, rgba(201, 132, 122, 0.22) 0%, rgba(201, 132, 122, 0) 72%),
-    radial-gradient(7px 7px at 34% 78%, rgba(109, 0, 6, 0.22) 0%, rgba(109, 0, 6, 0) 72%);
-  filter: blur(0.2px) brightness(1.2);
-  opacity: 0.48;
+    radial-gradient(11px 11px at 18% 26%, rgba(109, 0, 6, 0.48) 0%, rgba(109, 0, 6, 0) 72%),
+    radial-gradient(13px 13px at 84% 34%, rgba(138, 28, 31, 0.42) 0%, rgba(138, 28, 31, 0) 72%),
+    radial-gradient(10px 10px at 62% 84%, rgba(201, 132, 122, 0.34) 0%, rgba(201, 132, 122, 0) 72%),
+    radial-gradient(8px 8px at 34% 78%, rgba(109, 0, 6, 0.36) 0%, rgba(109, 0, 6, 0) 72%);
+  filter: blur(0.2px) brightness(1.4) saturate(1.1);
+  opacity: 0.78;
   transform: translate3d(0, 0, 0);
-  animation: profileOrbit 6.8s ease-in-out infinite;
+  animation: profileOrbit 4.6s ease-in-out infinite;
 }
 
 .profile-glow-scan {
   position: absolute;
-  inset: -34px;
+  inset: -44px;
   border-radius: 9999px;
   pointer-events: none;
   z-index: 0;
@@ -604,10 +604,10 @@
   );
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
-  opacity: 0.5;
-  filter: blur(0.45px);
+  opacity: 0.74;
+  filter: blur(0.28px) brightness(1.14);
   transform: translate3d(0, 0, 0);
-  animation: profileScanSpin 6.4s linear infinite, profileScanPulse 3.6s ease-in-out infinite;
+  animation: profileScanSpin 4.4s linear infinite, profileScanPulse 2.2s ease-in-out infinite;
 }
 
 .profile-glow-scan::after {
@@ -618,37 +618,51 @@
   background: radial-gradient(circle at 50% 0%, rgba(201, 132, 122, 0.42) 0%, rgba(201, 132, 122, 0) 55%);
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 8px));
-  opacity: 0.36;
-  filter: blur(5px);
+  opacity: 0.62;
+  filter: blur(7px);
   transform: translate3d(0, 0, 0);
-  animation: profileScanHighlight 5.6s ease-in-out infinite;
+  animation: profileScanHighlight 4.0s ease-in-out infinite;
 }
 
 .dark .profile-glow-scan {
-  opacity: 0.24;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0) 0deg 300deg,
+    rgba(255, 255, 255, 0.55) 320deg,
+    rgba(245, 233, 226, 0.34) 338deg,
+    rgba(255, 255, 255, 0) 360deg
+  );
+  opacity: 0.74;
+  filter: blur(0.28px) brightness(1.25);
 }
 
 .profile-glow-dots {
   position: absolute;
-  inset: -26px;
+  inset: -34px;
   border-radius: 9999px;
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(2px 2px at 18% 34%, rgba(109, 0, 6, 0.55) 0%, rgba(109, 0, 6, 0) 70%),
-    radial-gradient(2px 2px at 84% 28%, rgba(138, 28, 31, 0.5) 0%, rgba(138, 28, 31, 0) 70%),
-    radial-gradient(2px 2px at 76% 78%, rgba(201, 132, 122, 0.45) 0%, rgba(201, 132, 122, 0) 70%),
-    radial-gradient(2px 2px at 36% 84%, rgba(109, 0, 6, 0.45) 0%, rgba(109, 0, 6, 0) 70%),
-    radial-gradient(2px 2px at 56% 18%, rgba(138, 28, 31, 0.42) 0%, rgba(138, 28, 31, 0) 70%),
-    radial-gradient(2px 2px at 10% 62%, rgba(201, 132, 122, 0.35) 0%, rgba(201, 132, 122, 0) 70%);
-  filter: blur(0.2px) brightness(1.2);
-  opacity: 0.32;
+    radial-gradient(2px 2px at 18% 34%, rgba(109, 0, 6, 0.72) 0%, rgba(109, 0, 6, 0) 70%),
+    radial-gradient(2px 2px at 84% 28%, rgba(138, 28, 31, 0.66) 0%, rgba(138, 28, 31, 0) 70%),
+    radial-gradient(2px 2px at 76% 78%, rgba(201, 132, 122, 0.6) 0%, rgba(201, 132, 122, 0) 70%),
+    radial-gradient(2px 2px at 36% 84%, rgba(109, 0, 6, 0.62) 0%, rgba(109, 0, 6, 0) 70%),
+    radial-gradient(2px 2px at 56% 18%, rgba(138, 28, 31, 0.58) 0%, rgba(138, 28, 31, 0) 70%),
+    radial-gradient(2px 2px at 10% 62%, rgba(201, 132, 122, 0.5) 0%, rgba(201, 132, 122, 0) 70%);
+  filter: blur(0.2px) brightness(1.35);
+  opacity: 0.56;
   transform: translate3d(0, 0, 0);
-  animation: profileDotsBlink 2.4s ease-in-out infinite;
+  animation: profileDotsBlink 1.6s ease-in-out infinite;
 }
 
 .dark .profile-glow-dots {
-  opacity: 0.16;
+  background:
+    radial-gradient(2px 2px at 18% 34%, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(2px 2px at 84% 28%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(2px 2px at 76% 78%, rgba(245, 233, 226, 0.42) 0%, rgba(245, 233, 226, 0) 70%),
+    radial-gradient(2px 2px at 36% 84%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(2px 2px at 56% 18%, rgba(255, 255, 255, 0.44) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0.54;
 }
 
 .profile-glow::before {
@@ -661,9 +675,9 @@
     rgba(109, 0, 6, 0.62)
   );
   filter: blur(20px);
-  opacity: 0.5;
+  opacity: 0.62;
   transform: translate3d(0, 0, 0) scale(0.98);
-  animation: profileGlowPulse 7.6s ease-in-out infinite, profileGlowSpin 18s linear infinite;
+  animation: profileGlowPulse 6.2s ease-in-out infinite, profileGlowSpin 14.5s linear infinite;
 }
 
 .profile-glow::after {
@@ -673,9 +687,9 @@
     radial-gradient(circle at 72% 70%, rgba(201, 132, 122, 0.16) 0%, rgba(201, 132, 122, 0) 58%),
     radial-gradient(circle at 40% 85%, rgba(138, 28, 31, 0.18) 0%, rgba(138, 28, 31, 0) 62%);
   filter: blur(12px);
-  opacity: 0.32;
+  opacity: 0.4;
   transform: translate3d(0, 0, 0);
-  animation: profileGlowDrift 9.5s ease-in-out infinite;
+  animation: profileGlowDrift 7.8s ease-in-out infinite;
 }
 
 .profile-glow > .relative.z-10 {
@@ -690,12 +704,23 @@
 }
 
 .dark .profile-glow::before {
-  opacity: 0.38;
-  filter: blur(18px) brightness(1.12);
+  background: conic-gradient(
+    from 180deg,
+    rgba(255, 255, 255, 0.48),
+    rgba(245, 233, 226, 0.34),
+    rgba(201, 132, 122, 0.22),
+    rgba(255, 255, 255, 0.48)
+  );
+  opacity: 0.66;
+  filter: blur(18px) brightness(1.25);
 }
 
 .dark .profile-glow::after {
-  opacity: 0.26;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 56%),
+    radial-gradient(circle at 72% 70%, rgba(245, 233, 226, 0.18) 0%, rgba(245, 233, 226, 0) 58%),
+    radial-gradient(circle at 40% 85%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 62%);
+  opacity: 0.46;
 }
 
 @keyframes profileGlowPulse {

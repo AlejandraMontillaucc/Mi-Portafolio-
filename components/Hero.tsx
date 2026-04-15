@@ -31,7 +31,7 @@ export default function Hero() {
           y: [0, -20, 0]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[100px] pointer-events-none" 
+        className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/12 blur-[130px] pointer-events-none" 
       />
       <motion.div 
         animate={{ 
@@ -41,7 +41,7 @@ export default function Hero() {
           y: [0, 30, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-secondary/20 blur-[120px] pointer-events-none" 
+        className="absolute -bottom-28 -right-28 h-[34rem] w-[34rem] rounded-full bg-wine/10 blur-[150px] pointer-events-none" 
       />
 
       <motion.div
@@ -137,13 +137,13 @@ export default function Hero() {
               <div className="profile-glow-orbit" aria-hidden="true" />
               <div className="profile-glow-scan" aria-hidden="true" />
               <div className="profile-glow-dots" aria-hidden="true" />
-              <div className="relative z-10 h-80 w-80 overflow-hidden rounded-full border border-white/50 bg-white/10 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[480px] md:w-[480px] lg:h-[540px] lg:w-[540px]">
+              <div className="relative z-10 h-88 w-88 overflow-hidden rounded-full border border-white/55 bg-white/10 shadow-[0_28px_90px_rgba(0,0,0,0.22)] ring-1 ring-wine/18 backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[520px] md:w-[520px] lg:h-[580px] lg:w-[580px] dark:border-white/20 dark:ring-white/10">
                 <img
                   src="/me.jpg"
                   alt={t('name')}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover brightness-[1.06] contrast-[1.06] saturate-[1.05] transition-transform duration-700 group-hover:scale-110 dark:brightness-[0.94] dark:contrast-[1.02] dark:saturate-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/18 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-primary/14" />
               </div>
             </div>
           </motion.div>

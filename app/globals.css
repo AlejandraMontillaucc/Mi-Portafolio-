@@ -113,6 +113,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
     position: relative;
+    min-height: 100vh;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
 
@@ -140,17 +141,15 @@
     content: '';
     position: fixed;
     inset: 0;
-    z-index: -3;
-    background: linear-gradient(
-      135deg,
-      #f5e9e2 0%,
-      #efe0d6 52%,
-      #d9a5a3 78%,
-      rgba(138, 28, 31, 0.12) 92%,
-      rgba(109, 0, 6, 0.08) 100%
-    );
-    background-attachment: fixed;
-    transition: opacity 0.5s ease-in-out;
+    z-index: -4;
+    background-color: #fdfaf7;
+    background-image: url('/24d41c24d1eb15b59ad879dee11fbcd1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.18);
+    transform-origin: center;
+    filter: blur(64px) saturate(1.08) contrast(1.08) brightness(1.04);
     opacity: 1;
   }
 
@@ -160,18 +159,38 @@
     position: fixed;
     inset: 0;
     z-index: -3;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a0a0d 40%, #240c10 70%, #0f0f0f 100%);
-    background-attachment: fixed;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
+    background-image:
+      radial-gradient(1200px circle at 18% 22%, rgba(220, 38, 38, 0.12) 0%, transparent 62%),
+      radial-gradient(1200px circle at 86% 34%, rgba(127, 29, 29, 0.10) 0%, transparent 64%),
+      linear-gradient(135deg, rgba(253, 250, 247, 0.78) 0%, rgba(247, 236, 232, 0.66) 55%, rgba(253, 250, 247, 0.78) 100%),
+      radial-gradient(circle at 50% 50%, rgba(253, 250, 247, 0) 38%, rgba(247, 236, 232, 0.78) 72%, rgba(253, 250, 247, 0.98) 100%),
+      url('/24d41c24d1eb15b59ad879dee11fbcd1.jpg');
+    background-size: cover, cover, cover, cover, clamp(900px, 135vmin, 1600px);
+    background-position: center, center, center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    filter: saturate(1.02) contrast(1.05) brightness(1.22) blur(0.8px);
+    opacity: 1;
   }
 
   .dark body::before {
-    opacity: 0.06;
+    background-color: #070507;
+    background-image:
+      radial-gradient(1100px circle at 18% 28%, rgba(220, 38, 38, 0.18) 0%, transparent 62%),
+      radial-gradient(1200px circle at 84% 34%, rgba(127, 29, 29, 0.16) 0%, transparent 64%),
+      url('/24d41c24d1eb15b59ad879dee11fbcd1.jpg');
+    background-size: cover, cover, clamp(980px, 140vmin, 1700px);
+    background-position: center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    filter: saturate(1.06) contrast(1.06) brightness(0.84);
+    opacity: 1;
   }
 
   .dark body::after {
-    opacity: 0.94;
+    background-image:
+      linear-gradient(135deg, rgba(0, 0, 0, 0.64) 0%, rgba(127, 29, 29, 0.34) 55%, rgba(220, 38, 38, 0.12) 100%),
+      radial-gradient(900px circle at 22% 30%, rgba(220, 38, 38, 0.10) 0%, transparent 62%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.58) 100%);
+    opacity: 1;
   }
 
   /* Smooth transitions for all elements as requested */
@@ -377,7 +396,7 @@
   background-repeat: repeat, repeat;
   background-size: 350px, 450px;
   background-position: 0 0, 150px 200px;
-  opacity: 0.22;
+  opacity: 0;
   mix-blend-mode: multiply;
   filter: sepia(0.22) saturate(0.95) hue-rotate(-8deg);
   transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;
@@ -389,7 +408,7 @@
 }
 
 .dark .floral-texture {
-  opacity: 0.035;
+  opacity: 0;
   filter: brightness(0.28) contrast(1.05);
   mix-blend-mode: soft-light;
 }

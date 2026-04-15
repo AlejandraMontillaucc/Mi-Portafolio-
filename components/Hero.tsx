@@ -10,6 +10,7 @@ export default function Hero() {
   const t = useTranslations('hero');
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
   const descriptionLines = t('description').split('\n');
   const nameWords = t('name').split(' ').filter(Boolean);
   const textContainer = {
@@ -40,6 +41,14 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
   }, []);
 
   const isDark = mounted && resolvedTheme === 'dark';
@@ -177,15 +186,19 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-wrap gap-5"
             >
-              <a
+              <motion.a
                 href="/cv.pdf"
                 download
-                className="group hero-cv-breathe relative flex items-center gap-3 overflow-hidden rounded-full border border-wine/30 bg-gradient-to-r from-wine via-vino to-primary px-8 py-3.5 text-sm text-white shadow-[0_16px_50px_rgba(109,0,6,0.20)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(109,0,6,0.28)] active:translate-y-0 active:scale-95 dark:border-white/10"
+                animate={reduceMotion ? undefined : { y: [0, -3, 0] }}
+                transition={reduceMotion ? undefined : { duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
+                whileHover={reduceMotion ? undefined : { y: -8 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97, y: 0 }}
+                className="group hero-cv-breathe relative flex items-center gap-3 overflow-hidden rounded-full border border-wine/35 bg-gradient-to-r from-wine via-vino to-primary px-8 py-3.5 text-sm text-white shadow-[0_16px_50px_rgba(109,0,6,0.22)] transition-shadow duration-300 hover:shadow-[0_24px_85px_rgba(109,0,6,0.32)] dark:border-white/10"
               >
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/0 via-white/14 to-white/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hero-cv-shimmer" />
                 <FileDown className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
                 <span className="font-semibold tracking-wide">{t('btnCV')}</span>
-              </a>
+              </motion.a>
             </motion.div>
           </div>
 

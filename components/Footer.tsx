@@ -1,8 +1,11 @@
 "use client";
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('footer');
+
   return (
     <footer className="relative px-6 sm:px-8 lg:px-10 py-12">
       <div className="mx-auto max-w-[100rem]">
@@ -17,10 +20,10 @@ export default function Footer() {
             <span className="h-2 w-2 rounded-full bg-accent/70 shadow-[0_0_0_4px_rgba(192,129,107,0.12)]" />
           </div>
           <div className="inline-flex items-center justify-center rounded-full border border-wine/14 bg-background/55 px-5 py-2 text-sm text-foreground/70 shadow-[0_18px_60px_rgba(36,20,22,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
-            © 2026 Alejandra Montilla
+            {t('copyright')}
           </div>
           <div className="text-xs font-medium uppercase tracking-[0.2em] text-foreground/55">
-            Portafolio
+            {t('portfolio')}
           </div>
         </div>
       </div>

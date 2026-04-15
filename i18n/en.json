@@ -1,7 +1,7 @@
 {
   "hero": {
     "role": "Software Engineer",
-    "greeting": "Hi, I'm",
+    "greeting": "",
     "name": "Maria Alejandra Montilla Diaz",
     "description": "Software Engineering student passionate about creating elegant and functional digital experiences that generate real impact.",
     "btnProjects": "View Projects",
@@ -16,7 +16,13 @@
     "nails": "My Work",
     "experience": "Experience",
     "testimonials": "Testimonials",
-    "contact": "Contact"
+    "contact": "Contact",
+    "language": "Language",
+    "aria": {
+      "changeLanguage": "Change language",
+      "toggleTheme": "Toggle theme",
+      "toggleMenu": "Toggle menu"
+    }
   },
   "about": {
     "title": "About me",
@@ -161,7 +167,35 @@
     }
   },
 "testimonials": {
-  "title": "What they say about me",
+  "title": "Testimonials",
+  "badge": "Testimonial",
+  "soon": "Coming soon",
+  "items": {
+    "t1": {
+      "text": "I want to recommend the work of my manicurist, Alejandra. Every month she designs my nails with great care and dedication. The results are beautiful, neat and long-lasting.\n\nShe uses good quality materials, which you can notice in the finish and how long the design lasts. She also offers home service, which is very convenient.\n\nShe is also kind, empathetic and professional, which makes the experience very pleasant.\n\nI totally recommend her for her talent and excellent service.",
+      "author": "Luisa Salazar",
+      "role": "Client",
+      "phone": "3153505689"
+    },
+    "t2": {
+      "text": "I want to highlight the work of my manicurist, Alejandra, for her dedication, attention to detail and flawless results in every design.\n\nHer work is personalized, long-lasting and high quality. She is also kind, responsible and professional, which makes every appointment enjoyable.\n\nI totally recommend her for her talent and excellent service.",
+      "author": "Claudia Salazar",
+      "role": "Client",
+      "phone": "3166023779"
+    },
+    "t3": {
+      "text": "It is a pleasure to recommend Alejandra, whom I know both personally and professionally. I want to highlight her skills and qualities as a future professional.\n\nShe has been very important in my business, bringing creativity and support in advertising projects.\n\nAs a manicurist, her work is excellent, and her kind, honest and empathetic personality builds a lot of trust. She is also disciplined and consistent, which is reflected in everything she does, including her commitment to her health and lifestyle.",
+      "author": "Carolina Hidalgo",
+      "role": "Co-worker",
+      "phone": "3183722460"
+    },
+    "t4": {
+      "text": "I sincerely recommend her work. She has proven to be a committed person with great ability to work as part of a team. She always contributes ideas, supports her teammates and helps achieve objectives.\n\nHer ability to solve problems efficiently and clearly stands out.\n\nWithout a doubt, she is a great asset to any team.",
+      "author": "Fabian Medina",
+      "role": "Co-worker",
+      "phone": "3224098928"
+    }
+  },
   "t1": "Sofía delivered an exceptional product that exceeded our expectations. Her attention to detail and ability to understand our needs was impressive.",
   "t2": "Working with Sofía was an incredible experience. Her professionalism and technical skills are top notch. I would definitely recommend her.",
   "t3": "A talented developer with an exceptional eye for design. Sofía transformed our vision into a beautiful and functional reality."
@@ -171,6 +205,14 @@
   "subtitle": "Have a project in mind? I'd love to hear your idea and see how I can help.",
   "connect": "Let's Connect",
   "connectDesc": "I'm always open to new opportunities and interesting projects. Feel free to reach out.",
+  "links": {
+    "email": "Email",
+    "github": "GitHub",
+    "phone": "Phone",
+    "whatsappWork": "WhatsApp (Work)",
+    "instagramPersonal": "Instagram (Personal)",
+    "instagramWork": "Instagram (Work)"
+  },
   "name": "Name",
   "namePlaceholder": "Your name",
   "email": "Email",
@@ -181,6 +223,8 @@
   "successMsg": "Thanks for your message! I'll get back to you soon."
 },
 "footer": {
+  "copyright": "© 2026 Alejandra Montilla",
+  "portfolio": "Portfolio",
   "tagline": "Creating digital experiences with passion",
   "madeWith": "Made with",
   "by": "by YOUR NAME",
@@ -190,13 +234,37 @@
   "contact": "Contact"
 },
   "projects": {
-    "title": "Featured Projects"
+    "title": "Featured Projects",
+    "labels": {
+      "github": "View on GitHub",
+      "demo": "View demo"
+    },
+    "items": {
+      "legalconnect": {
+        "title": "LegalConnect",
+        "description": "Smart assistant for contract analysis"
+      },
+      "vite_app": {
+        "title": "React App with Vite",
+        "description": "A React + Vite app created to learn and apply unit testing with Jest, plus continuous integration with GitHub Actions."
+      },
+      "multiview": {
+        "title": "Multiview",
+        "description": "A tool that helps you work with functions of two variables and visualize 3D surfaces in a simple and intuitive way."
+      }
+    }
   },
   "nails": {
     "title": "My Work",
     "description": "Besides development, I also dedicate myself to nail design, where I express my creativity and attention to detail.",
     "instagram": "View more on Instagram",
-    "view": "View"
+    "view": "View",
+    "alt": "Nail design {n}",
+    "aria": {
+      "previous": "Previous",
+      "next": "Next",
+      "close": "Close"
+    }
   },
   "skills": {
     "title": "Skills & Technologies",

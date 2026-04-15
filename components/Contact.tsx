@@ -153,7 +153,7 @@ export default function Contact() {
     return [
       {
         href: 'mailto:alejadiiaz27@gmail.com',
-        platform: 'Email',
+        platform: t('links.email'),
         handle: 'alejadiiaz27@gmail.com',
         brand: isDark ? 'rgba(255,255,255,0.78)' : 'rgba(17,17,17,0.72)',
         glow: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.10)',
@@ -161,7 +161,7 @@ export default function Contact() {
       },
       {
         href: 'https://github.com/AlejandraMontillaucc',
-        platform: 'GitHub',
+        platform: t('links.github'),
         handle: 'AlejandraMontillaucc',
         brand: isDark ? '#FFFFFF' : '#111111',
         glow: isDark ? 'rgba(255,255,255,0.14)' : 'rgba(17,17,17,0.14)',
@@ -169,7 +169,7 @@ export default function Contact() {
       },
       {
         href: 'tel:+573162376930',
-        platform: 'Teléfono',
+        platform: t('links.phone'),
         handle: '+57 316 237 6930',
         brand: isDark ? 'rgba(255,255,255,0.78)' : 'rgba(17,17,17,0.72)',
         glow: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.10)',
@@ -177,7 +177,7 @@ export default function Contact() {
       },
       {
         href: 'https://wa.me/573234762158',
-        platform: 'WhatsApp (Trabajo)',
+        platform: t('links.whatsappWork'),
         handle: '+57 323 476 2158',
         brand: '#25D366',
         glow: 'rgba(37,211,102,0.22)',
@@ -185,7 +185,7 @@ export default function Contact() {
       },
       {
         href: 'https://www.instagram.com/ale.05d?igsh=MW5paDNnYm8yb2g1Yg==',
-        platform: 'Instagram (Personal)',
+        platform: t('links.instagramPersonal'),
         handle: '@ale.05d',
         brand: '#D62976',
         glow: 'rgba(214,41,118,0.22)',
@@ -193,14 +193,14 @@ export default function Contact() {
       },
       {
         href: 'https://www.instagram.com/alejandranails05?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
-        platform: 'Instagram (Trabajo)',
+        platform: t('links.instagramWork'),
         handle: '@alejandranails05',
         brand: '#FA7E1E',
         glow: 'rgba(250,126,30,0.22)',
         Logo: (props: { className?: string }) => <InstagramLogo {...props} gradientId={`${instagramGradientId}-w`} />,
       },
     ];
-  }, [instagramGradientId, resolvedTheme]);
+  }, [instagramGradientId, resolvedTheme, t]);
 
   return (
     <section id="contacto" className="relative px-6 sm:px-8 lg:px-12 py-24 md:py-28">

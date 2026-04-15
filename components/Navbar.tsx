@@ -3,10 +3,11 @@
 import { Moon, Sun, Menu, X, Globe } from 'lucide-react';
 import Lottie from 'lottie-react';
 import { useTheme } from 'next-themes';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
 
 const LANGUAGES = [
   { code: 'es', flag: '🇨🇴', name: 'Español' },
@@ -15,6 +16,8 @@ const LANGUAGES = [
 
 export default function Navbar() {
   const { setTheme, resolvedTheme } = useTheme();
+  const router = useRouter();
+  const [, startTransition] = useTransition();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -174,12 +177,34 @@ export default function Navbar() {
     };
   }, [mounted, showLanguageMenu]);
 
+  useEffect(() => {
+    if (!mounted) return;
+    if (typeof window === 'undefined') return;
+
+    const stored = window.localStorage.getItem('preferredLocale');
+    if (!stored) return;
+    if (stored === locale) return;
+
+    document.cookie = `NEXT_LOCALE=${stored}; path=/; max-age=31536000`;
+    startTransition(() => {
+      router.refresh();
+    });
+  }, [locale, mounted, router, startTransition]);
+
   const handleLanguageChange = (newLocale: string) => {
-    if (typeof window !== 'undefined') {
-      // eslint-disable-next-line react-hooks/immutability
-      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
-      window.location.reload();
-    }
+    if (typeof window === 'undefined') return;
+    if (newLocale === locale) return;
+
+    const y = window.scrollY;
+    window.localStorage.setItem('preferredLocale', newLocale);
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
+    setShowLanguageMenu(false);
+
+    startTransition(() => {
+      router.refresh();
+    });
+
+    window.setTimeout(() => window.scrollTo({ top: y }), 0);
   };
 
   if (!mounted) return null;
@@ -261,7 +286,7 @@ export default function Navbar() {
                 <button
                   onClick={() => setShowLanguageMenu((v) => !v)}
                   className="group flex items-center gap-2 rounded-xl border border-wine/18 bg-secondary/55 px-3 py-2 text-foreground/90 backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-secondary/75 hover:text-wine dark:border-white/10 dark:bg-white/5 dark:hover:text-vino"
-                  aria-label="Change language"
+                  aria-label={t('aria.changeLanguage')}
                 >
                   <Globe className="h-4 w-4 text-wine transition-transform duration-300 group-hover:rotate-6 dark:text-vino" />
                   <span className="text-xs font-semibold uppercase tracking-widest">{locale}</span>
@@ -293,7 +318,7 @@ export default function Navbar() {
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="group rounded-xl border border-wine/18 bg-secondary/55 p-2.5 text-wine backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-secondary/75 hover:text-vino dark:border-white/10 dark:bg-white/5"
-                aria-label="Toggle theme"
+                aria-label={t('aria.toggleTheme')}
               >
                 {resolvedTheme === 'dark' ? (
                   <Sun className="h-5 w-5 transition-transform duration-300 group-hover:rotate-45" />
@@ -309,14 +334,14 @@ export default function Navbar() {
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="rounded-xl border border-wine/18 bg-secondary/55 p-2.5 text-wine backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-vino"
-                aria-label="Toggle theme"
+                aria-label={t('aria.toggleTheme')}
               >
                 {resolvedTheme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
               <button
                 onClick={() => setIsMobileMenuOpen((v) => !v)}
                 className="rounded-xl border border-wine/18 bg-secondary/65 p-2.5 text-foreground shadow-[0_12px_40px_rgba(36,20,22,0.10)] backdrop-blur-sm transition-colors hover:bg-secondary/80 dark:border-white/10 dark:bg-white/6"
-                aria-label="Toggle menu"
+                aria-label={t('aria.toggleMenu')}
               >
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -353,7 +378,7 @@ export default function Navbar() {
                   })}
 
                   <div className="flex items-center justify-between gap-3 rounded-xl px-4 py-3">
-                    <span className="text-sm font-medium text-foreground/75">Idioma</span>
+                    <span className="text-sm font-medium text-foreground/75">{t('language')}</span>
                     <div className="flex gap-2">
                       {LANGUAGES.map((lang) => (
                         <button

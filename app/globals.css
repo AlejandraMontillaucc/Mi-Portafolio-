@@ -60,9 +60,9 @@
   --secondary-foreground: #1a0d10;
   --muted: rgba(245, 233, 226, 0.62);
   --muted-foreground: #3d1b22;
-  --accent: #d39b98;
+  --accent: rgba(109, 0, 6, 0.10);
   --accent-foreground: #1a0d10;
-  --border: rgba(109, 0, 6, 0.16);
+  --border: rgba(109, 0, 6, 0.20);
   --input: transparent;
   --ring: #6d0006;
 }
@@ -94,6 +94,11 @@
     padding: 0;
   }
 
+  ::selection {
+    background: rgba(109, 0, 6, 0.18);
+    color: var(--foreground);
+  }
+
   html {
     scroll-behavior: smooth;
     font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -113,7 +118,7 @@
     width: min(72rem, 92vw);
     height: 1px;
     transform: translateX(-50%);
-    background: linear-gradient(to right, transparent, rgba(109, 0, 6, 0.22), transparent);
+    background: linear-gradient(to right, transparent, rgba(109, 0, 6, 0.30), transparent);
     opacity: 0.85;
     pointer-events: none;
   }
@@ -240,11 +245,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
+    @apply bg-wine rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground;
+    @apply bg-vino;
   }
 }
 

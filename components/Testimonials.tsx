@@ -12,32 +12,31 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text:
-        'Quiero recomendar el trabajo de mi manicurista, Alejandra, quien cada mes me diseña las uñas con mucho cuidado y dedicación. Sus resultados son muy bonitos, prolijos y duraderos.\n\nUsa materiales de buena calidad, lo que se nota en el acabado y la duración del diseño. Además, ofrece servicio a domicilio, lo que resulta muy cómodo.\n\nTambién es una persona muy amable, empática y profesional, lo que hace que la atención sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.',
-      author: 'Luisa Salazar',
-      role: 'Clienta',
-      phone: '3153505689',
+      text: t('items.t1.text'),
+      author: t('items.t1.author'),
+      role: t('items.t1.role'),
+      phone: t('items.t1.phone'),
     },
     {
       id: 2,
-      text: 'Quiero destacar el trabajo de mi manicurista, Alejandra, por su dedicación, cuidado en los detalles y resultados impecables en cada diseño.\n\nSus trabajos son personalizados, duraderos y de gran calidad. Además, es una persona amable, responsable y profesional, lo que hace que cada cita sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.',
-      author: 'Claudia Salazar',
-      role: 'Clienta',
-      phone: '3166023779',
+      text: t('items.t2.text'),
+      author: t('items.t2.author'),
+      role: t('items.t2.role'),
+      phone: t('items.t2.phone'),
     },
     {
       id: 3,
-      text: 'Es un gusto recomendar a Alejandra, a quien conozco tanto a nivel personal como profesional. Quiero destacar sus habilidades y cualidades como futura profesional.\n\nHa sido muy importante en mi emprendimiento, aportando creatividad y apoyo en proyectos de publicidad.\n\nComo manicurista, su trabajo es excelente, y su personalidad amable, honesta y empática genera mucha confianza. También es una persona disciplinada y constante, lo que se refleja en todo lo que hace, incluyendo su compromiso con su salud y estilo de vida.',
-      author: 'Carolina Hidalgo',
-      role: 'Compañera de trabajo',
-      phone: '3183722460',
+      text: t('items.t3.text'),
+      author: t('items.t3.author'),
+      role: t('items.t3.role'),
+      phone: t('items.t3.phone'),
     },
     {
       id: 4,
-      text: 'Recomiendo sinceramente su trabajo, ya que ha demostrado ser una persona comprometida y con gran capacidad para el trabajo en equipo. Siempre aporta ideas, apoya a sus compañeros y contribuye al cumplimiento de los objetivos.\n\nSe destaca su habilidad para resolver problemas de manera eficiente y clara.\n\nSin duda, es un gran aporte para cualquier equipo de trabajo.',
-      author: 'Fabian Medina',
-      role: 'Compañero de trabajo',
-      phone: '3224098928',
+      text: t('items.t4.text'),
+      author: t('items.t4.author'),
+      role: t('items.t4.role'),
+      phone: t('items.t4.phone'),
     },
   ];
 
@@ -103,7 +102,7 @@ export default function Testimonials() {
                         </div>
                       </div>
                       <div className="rounded-full border border-wine/12 bg-background/45 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-wine/70 backdrop-blur-sm">
-                        Testimonio
+                        {t('badge')}
                       </div>
                     </div>
 
@@ -120,7 +119,7 @@ export default function Testimonials() {
                     <Quote className="h-5 w-5 text-wine/70 dark:text-vino/80" />
                   </div>
                   <span className="text-xs font-semibold uppercase tracking-[0.22em] text-wine/70 dark:text-vino/80">
-                    Próximamente
+                    {t('soon')}
                   </span>
                 </div>
               )}

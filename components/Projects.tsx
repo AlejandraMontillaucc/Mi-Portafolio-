@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 import { useTranslations } from 'next-intl';
@@ -17,29 +17,35 @@ interface Project {
 
 export default function Projects() {
   const t = useTranslations('projects');
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
 
   const projects: Project[] = [
-  
     {
-      title: 'LegalConnect',
-      description: 'Asistente inteligente para análisis de contratos',
+      title: t('items.legalconnect.title'),
+      description: t('items.legalconnect.description'),
       image: '/legalconnect.png',
       tags: ['TypeScript', 'JavaScript'],
       github: 'https://github.com/AndresMira21/analyzer-contract-frontend.git',
       demo: 'https://analyzer-contract-frontend-kohl.vercel.app/',
     },
-
     {
-      title: 'Aplicativo React con Vite',
-      description: 'Este proyecto es un aplicativo desarrollado en React con Vite para aprender y aplicar pruebas unitarias con Jest más la integración continua con GitHub Actions.',
+      title: t('items.vite_app.title'),
+      description: t('items.vite_app.description'),
       image: '/WhatsApp%20Image%202026-04-15%20at%202.36.20%20AM.jpeg',
       tags: ['TypeScript', 'JavaScript', 'CSS', 'HTML'],
       github: 'https://github.com/AlejandraMontillaucc/Integraci-n-Calidad.git',
     },
-
     {
-      title: 'Multiview',
-      description: 'Esta herramienta te permite trabajar con funciones de dos variables y visualizar superficies en 3D de manera sencilla e intuitiva.',
+      title: t('items.multiview.title'),
+      description: t('items.multiview.description'),
       image: '/Captura%20de%20pantalla%202026-04-15%20034026.png',
       tags: ['JavaScript', 'CSS', 'HTML', 'Python'],
       github: 'https://github.com/AlejandraMontillaucc/proyecto-calculo.git',
@@ -69,25 +75,33 @@ export default function Projects() {
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 flex items-end justify-center gap-4 bg-gradient-to-t from-background/80 to-transparent pb-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <a
+                    <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
-                      aria-label="Ver en GitHub"
+                      animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
+                      transition={reduceMotion ? undefined : { duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+                      whileHover={reduceMotion ? undefined : { scale: 1.12, y: -8 }}
+                      whileTap={reduceMotion ? undefined : { scale: 0.96, y: 0 }}
+                      className="rounded-full bg-wine p-3 text-white shadow-[0_14px_45px_rgba(109,0,6,0.22)] transition-colors hover:bg-vino"
+                      aria-label={t('labels.github')}
                     >
                       <Github className="h-5 w-5" />
-                    </a>
+                    </motion.a>
                     {project.demo ? (
-                      <a
+                      <motion.a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
-                        aria-label="Ver demo"
+                        animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
+                        transition={reduceMotion ? undefined : { duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+                        whileHover={reduceMotion ? undefined : { scale: 1.12, y: -8 }}
+                        whileTap={reduceMotion ? undefined : { scale: 0.96, y: 0 }}
+                        className="rounded-full bg-wine p-3 text-white shadow-[0_14px_45px_rgba(109,0,6,0.22)] transition-colors hover:bg-vino"
+                        aria-label={t('labels.demo')}
                       >
                         <ExternalLink className="h-5 w-5" />
-                      </a>
+                      </motion.a>
                     ) : null}
                   </div>
                 </div>

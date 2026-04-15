@@ -8,14 +8,14 @@ import SectionTitle from './SectionTitle';
 import { motion, AnimatePresence } from 'motion/react';
 
 const NAIL_IMAGES = [
-  { id: 1, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM.jpeg', alt: 'Uñas 1' },
-  { id: 2, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (1).jpeg', alt: 'Uñas 2' },
-  { id: 3, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (2).jpeg', alt: 'Uñas 3' },
-  { id: 4, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM.jpeg', alt: 'Uñas 4' },
-  { id: 5, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (1).jpeg', alt: 'Uñas 5' },
-  { id: 6, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (2).jpeg', alt: 'Uñas 6' },
-  { id: 7, src: '/unas/WhatsApp Image 2026-04-14 at 12.08.56 PM.jpeg', alt: 'Uñas 7' },
-  { id: 8, src: '/unas/WhatsApp Image 2026-04-14 at 6.17.33 PM.jpeg', alt: 'Uñas 8' },
+  { id: 1, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM.jpeg' },
+  { id: 2, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (1).jpeg' },
+  { id: 3, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.10 PM (2).jpeg' },
+  { id: 4, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM.jpeg' },
+  { id: 5, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (1).jpeg' },
+  { id: 6, src: '/unas/WhatsApp Image 2026-04-14 at 12.07.11 PM (2).jpeg' },
+  { id: 7, src: '/unas/WhatsApp Image 2026-04-14 at 12.08.56 PM.jpeg' },
+  { id: 8, src: '/unas/WhatsApp Image 2026-04-14 at 6.17.33 PM.jpeg' },
 ];
 
 export default function NailsGallery() {
@@ -29,8 +29,9 @@ export default function NailsGallery() {
       NAIL_IMAGES.map((img) => ({
         ...img,
         src: encodeURI(img.src),
+        alt: t('alt', { n: img.id }),
       })),
-    []
+    [t]
   );
 
   const openModal = (index: number) => setSelectedImageIndex(index);
@@ -197,7 +198,7 @@ export default function NailsGallery() {
                   type="button"
                   onClick={goPrev}
                   className="rounded-full border border-wine/18 bg-background/55 p-3 text-foreground transition-all hover:bg-background/75 hover:shadow-[0_16px_50px_rgba(109,0,6,0.12)] active:scale-95"
-                  aria-label="Previous"
+                  aria-label={t('aria.previous')}
                 >
                   <ChevronLeft className="h-6 w-6" />
                 </button>
@@ -205,7 +206,7 @@ export default function NailsGallery() {
                   type="button"
                   onClick={goNext}
                   className="rounded-full border border-wine/18 bg-background/55 p-3 text-foreground transition-all hover:bg-background/75 hover:shadow-[0_16px_50px_rgba(109,0,6,0.12)] active:scale-95"
-                  aria-label="Next"
+                  aria-label={t('aria.next')}
                 >
                   <ChevronRight className="h-6 w-6" />
                 </button>
@@ -241,7 +242,7 @@ export default function NailsGallery() {
             <button
               onClick={closeModal}
               className="absolute right-6 top-6 rounded-full bg-foreground/10 p-3 text-foreground transition-colors hover:bg-foreground/20"
-              aria-label="Close modal"
+              aria-label={t('aria.close')}
             >
               <X className="h-6 w-6" />
             </button>
@@ -251,6 +252,7 @@ export default function NailsGallery() {
               <button
                 onClick={prevImage}
                 className="absolute left-0 z-10 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:bg-foreground/20 hover:scale-110 md:-left-12"
+                aria-label={t('aria.previous')}
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
@@ -290,6 +292,7 @@ export default function NailsGallery() {
               <button
                 onClick={nextImage}
                 className="absolute right-0 z-10 rounded-full bg-foreground/10 p-3 text-foreground transition-all hover:bg-foreground/20 hover:scale-110 md:-right-12"
+                aria-label={t('aria.next')}
               >
                 <ChevronRight className="h-8 w-8" />
               </button>

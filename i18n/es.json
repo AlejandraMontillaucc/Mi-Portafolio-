@@ -1,6 +1,6 @@
 {
   "hero": {
-    "role": "Software Engineer",
+    "role": "Estudiante de Ingeniería de Software",
     "greeting": "",
     "name": "Maria Alejandra Montilla Diaz",
     "description": "Estudiante de Ingeniería de Software,\naprendiendo, creando y mejorando cada día\nen el mundo del desarrollo.",
@@ -16,7 +16,13 @@
     "nails": "Mi Trabajo",
     "experience": "Experiencia",
     "testimonials": "Testimonios",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "language": "Idioma",
+    "aria": {
+      "changeLanguage": "Cambiar idioma",
+      "toggleTheme": "Cambiar tema",
+      "toggleMenu": "Abrir menú"
+    }
   },
   "about": {
     "title": "Sobre mí",
@@ -25,13 +31,37 @@
     "p3": "Me gusta que las cosas se vean bien y funcionen bien al mismo tiempo. Me considero una persona tranquila, responsable y comprometida, que siempre intenta dar lo mejor de sí mientras sigue aprendiendo."
   },
   "projects": {
-    "title": "Proyectos Destacados"
+    "title": "Proyectos Destacados",
+    "labels": {
+      "github": "Ver en GitHub",
+      "demo": "Ver demo"
+    },
+    "items": {
+      "legalconnect": {
+        "title": "LegalConnect",
+        "description": "Asistente inteligente para análisis de contratos"
+      },
+      "vite_app": {
+        "title": "Aplicativo React con Vite",
+        "description": "Este proyecto es un aplicativo desarrollado en React con Vite para aprender y aplicar pruebas unitarias con Jest más la integración continua con GitHub Actions."
+      },
+      "multiview": {
+        "title": "Multiview",
+        "description": "Esta herramienta te permite trabajar con funciones de dos variables y visualizar superficies en 3D de manera sencilla e intuitiva."
+      }
+    }
   },
   "nails": {
     "title": "Mi Trabajo",
     "description": "Además del desarrollo, también me dedico al diseño de uñas, donde expreso mi creatividad y atención al detalle.",
     "instagram": "Ver más en Instagram",
-    "view": "Ver"
+    "view": "Ver",
+    "alt": "Diseño de uñas {n}",
+    "aria": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "close": "Cerrar"
+    }
   },
   "experience": {
     "title": "Experiencia & Educación",
@@ -171,6 +201,34 @@
   },
   "testimonials": {
     "title": "Testimonios",
+    "badge": "Testimonio",
+    "soon": "Próximamente",
+    "items": {
+      "t1": {
+        "text": "Quiero recomendar el trabajo de mi manicurista, Alejandra, quien cada mes me diseña las uñas con mucho cuidado y dedicación. Sus resultados son muy bonitos, prolijos y duraderos.\n\nUsa materiales de buena calidad, lo que se nota en el acabado y la duración del diseño. Además, ofrece servicio a domicilio, lo que resulta muy cómodo.\n\nTambién es una persona muy amable, empática y profesional, lo que hace que la atención sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.",
+        "author": "Luisa Salazar",
+        "role": "Clienta",
+        "phone": "3153505689"
+      },
+      "t2": {
+        "text": "Quiero destacar el trabajo de mi manicurista, Alejandra, por su dedicación, cuidado en los detalles y resultados impecables en cada diseño.\n\nSus trabajos son personalizados, duraderos y de gran calidad. Además, es una persona amable, responsable y profesional, lo que hace que cada cita sea muy agradable.\n\nLa recomiendo totalmente por su talento y excelente servicio.",
+        "author": "Claudia Salazar",
+        "role": "Clienta",
+        "phone": "3166023779"
+      },
+      "t3": {
+        "text": "Es un gusto recomendar a Alejandra, a quien conozco tanto a nivel personal como profesional. Quiero destacar sus habilidades y cualidades como futura profesional.\n\nHa sido muy importante en mi emprendimiento, aportando creatividad y apoyo en proyectos de publicidad.\n\nComo manicurista, su trabajo es excelente, y su personalidad amable, honesta y empática genera mucha confianza. También es una persona disciplinada y constante, lo que se refleja en todo lo que hace, incluyendo su compromiso con su salud y estilo de vida.",
+        "author": "Carolina Hidalgo",
+        "role": "Compañera de trabajo",
+        "phone": "3183722460"
+      },
+      "t4": {
+        "text": "Recomiendo sinceramente su trabajo, ya que ha demostrado ser una persona comprometida y con gran capacidad para el trabajo en equipo. Siempre aporta ideas, apoya a sus compañeros y contribuye al cumplimiento de los objetivos.\n\nSe destaca su habilidad para resolver problemas de manera eficiente y clara.\n\nSin duda, es un gran aporte para cualquier equipo de trabajo.",
+        "author": "Fabian Medina",
+        "role": "Compañero de trabajo",
+        "phone": "3224098928"
+      }
+    },
     "t1": "Sofía entregó un producto excepcional que superó nuestras expectativas. Su atención al detalle y capacidad para entender nuestras necesidades fue impresionante.",
     "t2": "Trabajar con Sofía fue una experiencia increíble. Su profesionalismo y habilidades técnicas son de primer nivel. Definitivamente la recomendaría.",
     "t3": "Una desarrolladora talentosa con un ojo excepcional para el diseño. Sofía transformó nuestra visión en una realidad hermosa y funcional."
@@ -180,6 +238,14 @@
     "subtitle": "¿Tienes un proyecto en mente? Me encantaría escuchar tu idea y ver cómo puedo ayudarte.",
     "connect": "Conectemos",
     "connectDesc": "Estoy siempre abierta a nuevas oportunidades y proyectos interesantes. No dudes en contactarme.",
+    "links": {
+      "email": "Email",
+      "github": "GitHub",
+      "phone": "Teléfono",
+      "whatsappWork": "WhatsApp (Trabajo)",
+      "instagramPersonal": "Instagram (Personal)",
+      "instagramWork": "Instagram (Trabajo)"
+    },
     "name": "Nombre",
     "namePlaceholder": "Tu nombre",
     "email": "Email",
@@ -190,6 +256,8 @@
     "successMsg": "¡Gracias por tu mensaje! Te responderé pronto."
   },
   "footer": {
+    "copyright": "© 2026 Alejandra Montilla",
+    "portfolio": "Portafolio",
     "tagline": "Creando experiencias digitales con pasión",
     "madeWith": "Hecho con",
     "by": "por TU NOMBRE",

@@ -102,6 +102,20 @@
 
   section[id] {
     scroll-margin-top: 96px;
+    position: relative;
+  }
+
+  section[id]:not(#inicio)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(72rem, 92vw);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, transparent, rgba(109, 0, 6, 0.22), transparent);
+    opacity: 0.85;
+    pointer-events: none;
   }
 
   body {

@@ -108,7 +108,7 @@ function TechChip({ tech, index }: { tech: Tech; index: number }) {
           '--brandGlow': tech.glow,
         } as React.CSSProperties
       }
-      className="group relative flex items-center gap-3 rounded-2xl border border-wine/10 bg-background/55 px-5 py-4 shadow-[0_14px_50px_rgba(36,20,22,0.06)] backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:shadow-[0_22px_80px_var(--brandGlow)]"
+      className="group relative flex items-center gap-3 rounded-2xl border border-wine/14 bg-background/55 px-5 py-4 shadow-[0_14px_50px_rgba(36,20,22,0.06)] ring-1 ring-wine/8 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:ring-wine/18 hover:shadow-[0_22px_80px_var(--brandGlow)]"
     >
       <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/30 dark:bg-white/5">
         <span

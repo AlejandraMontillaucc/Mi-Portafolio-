@@ -93,7 +93,7 @@ const ContactCard = ({ href, platform, handle, brand, glow, Logo }: ContactLinkP
         '--glow': glow,
       } as React.CSSProperties
     }
-    className="group relative overflow-hidden rounded-2xl border border-wine/12 bg-background/55 p-5 shadow-[0_18px_65px_rgba(36,20,22,0.10)] backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:shadow-[0_26px_95px_var(--glow)]"
+    className="group relative overflow-hidden rounded-2xl border border-wine/14 bg-background/55 p-5 shadow-[0_18px_65px_rgba(36,20,22,0.10)] ring-1 ring-wine/8 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:ring-wine/18 hover:shadow-[0_26px_95px_var(--glow)]"
   >
     <div className="flex items-center gap-4">
       <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/35 dark:bg-white/5">

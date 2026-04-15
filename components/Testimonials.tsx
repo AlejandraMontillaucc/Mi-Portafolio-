@@ -32,6 +32,13 @@ export default function Testimonials() {
       role: 'Compañera de trabajo',
       phone: '3183722460',
     },
+    {
+      id: 4,
+      text: 'Recomiendo sinceramente su trabajo, ya que ha demostrado ser una persona comprometida y con gran capacidad para el trabajo en equipo. Siempre aporta ideas, apoya a sus compañeros y contribuye al cumplimiento de los objetivos.\n\nSe destaca su habilidad para resolver problemas de manera eficiente y clara.\n\nSin duda, es un gran aporte para cualquier equipo de trabajo.',
+      author: 'Fabian Medina',
+      role: 'Compañero de trabajo',
+      phone: '3224098928',
+    },
   ];
 
   return (
@@ -39,7 +46,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-[100rem]">
         <SectionTitle number="06" title={t('title')} />
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((item, index) => (
             <motion.div
               key={index}

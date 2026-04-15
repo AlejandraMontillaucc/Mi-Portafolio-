@@ -100,6 +100,10 @@
     font-size: clamp(16px, 0.35vw + 15px, 18px);
   }
 
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

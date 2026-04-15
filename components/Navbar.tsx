@@ -3,9 +3,10 @@
 import { Moon, Sun, Menu, X, Globe } from 'lucide-react';
 import Lottie from 'lottie-react';
 import { useTheme } from 'next-themes';
-import { useState, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 const LANGUAGES = [
   { code: 'es', flag: '🇨🇴', name: 'Español' },
@@ -21,15 +22,16 @@ export default function Navbar() {
   const [activeHref, setActiveHref] = useState('#inicio');
   const [cuteAnimation, setCuteAnimation] = useState<Record<string, unknown> | null>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [navHeight, setNavHeight] = useState(88);
+  const navRef = useRef<HTMLElement | null>(null);
+  const langRootRef = useRef<HTMLDivElement | null>(null);
+  const ratiosRef = useRef<Record<string, number>>({});
   
   const locale = useLocale();
   const t = useTranslations('navbar');
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -49,6 +51,46 @@ export default function Navbar() {
     return () => media.removeEventListener('change', update);
   }, [mounted]);
 
+  useEffect(() => {
+    if (!mounted) return;
+
+    const measure = () => {
+      const h = navRef.current?.getBoundingClientRect().height;
+      if (h) setNavHeight(Math.round(h));
+    };
+
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+    return () => window.removeEventListener('resize', measure);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const sentinel = document.createElement('div');
+    sentinel.setAttribute('data-navbar-sentinel', 'true');
+    sentinel.style.position = 'absolute';
+    sentinel.style.top = '0';
+    sentinel.style.left = '0';
+    sentinel.style.width = '1px';
+    sentinel.style.height = '1px';
+    sentinel.style.pointerEvents = 'none';
+    document.body.prepend(sentinel);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsScrolled(!entry.isIntersecting);
+      },
+      { root: null, rootMargin: '-20px 0px 0px 0px', threshold: 0 }
+    );
+
+    observer.observe(sentinel);
+    return () => {
+      observer.disconnect();
+      sentinel.remove();
+    };
+  }, [mounted]);
+
   const navLinks = useMemo(
     () => [
       { href: '#inicio', label: t('home') },
@@ -61,6 +103,19 @@ export default function Navbar() {
       { href: '#contacto', label: t('contact') },
     ],
     [t]
+  );
+
+  const scrollToHref = useCallback(
+    (href: string) => {
+      const id = href.replace('#', '');
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 14;
+      window.history.pushState(null, '', href);
+      window.scrollTo({ top, behavior: 'smooth' });
+    },
+    [navHeight]
   );
 
   useEffect(() => {
@@ -76,37 +131,48 @@ export default function Navbar() {
 
     if (sections.length === 0) return;
 
+    ratiosRef.current = Object.fromEntries(ids.map((id) => [id, 0]));
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+        entries.forEach((entry) => {
+          const id = (entry.target as HTMLElement).id;
+          ratiosRef.current[id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+        });
 
-        if (!visible?.target) return;
-        setActiveHref(`#${(visible.target as HTMLElement).id}`);
+        const best = Object.entries(ratiosRef.current).sort((a, b) => b[1] - a[1])[0];
+        if (!best) return;
+        if (best[1] <= 0) return;
+        const next = `#${best[0]}`;
+        setActiveHref((prev) => (prev === next ? prev : next));
       },
       {
         root: null,
-        rootMargin: '-35% 0px -55% 0px',
-        threshold: [0.15, 0.25, 0.35],
+        rootMargin: `-${Math.round(navHeight + 24)}px 0px -60% 0px`,
+        threshold: [0.12, 0.2, 0.28, 0.36, 0.5, 0.65],
       }
     );
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [mounted, navLinks]);
+  }, [mounted, navLinks, navHeight]);
 
   useEffect(() => {
     if (!mounted) return;
 
-    const close = () => setShowLanguageMenu(false);
-    window.addEventListener('scroll', close, { passive: true });
-    window.addEventListener('resize', close);
-    return () => {
-      window.removeEventListener('scroll', close);
-      window.removeEventListener('resize', close);
+    const close = (e: PointerEvent) => {
+      if (!showLanguageMenu) return;
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (langRootRef.current?.contains(target)) return;
+      setShowLanguageMenu(false);
     };
-  }, [mounted]);
+
+    window.addEventListener('pointerdown', close);
+    return () => {
+      window.removeEventListener('pointerdown', close);
+    };
+  }, [mounted, showLanguageMenu]);
 
   const handleLanguageChange = (newLocale: string) => {
     if (typeof window !== 'undefined') {
@@ -119,7 +185,7 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 w-full">
+    <nav ref={navRef} className="fixed inset-x-0 top-0 z-50 w-full">
       <div
         className={cn(
           "relative w-full border-b border-wine/20 bg-secondary/70 backdrop-blur-sm transition-all duration-300 dark:border-white/10 dark:bg-background/35",
@@ -155,7 +221,13 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setActiveHref(link.href)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveHref(link.href);
+                      setIsMobileMenuOpen(false);
+                      setShowLanguageMenu(false);
+                      scrollToHref(link.href);
+                    }}
                     className={cn(
                       "group relative rounded-full px-3.5 py-2 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                       isActive
@@ -166,10 +238,17 @@ export default function Navbar() {
                     <span className="relative z-10">{link.label}</span>
                     <span
                       className={cn(
-                        "pointer-events-none absolute bottom-1 left-4 right-4 h-px origin-left rounded-full bg-gradient-to-r from-wine via-vino to-accent transition-transform duration-500",
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                        "pointer-events-none absolute bottom-1 left-4 right-4 h-px origin-left rounded-full bg-gradient-to-r from-wine via-vino to-accent opacity-0 transition-opacity duration-300",
+                        "group-hover:opacity-100"
                       )}
                     />
+                    {isActive ? (
+                      <motion.span
+                        layoutId="navbar-underline"
+                        className="pointer-events-none absolute bottom-1 left-4 right-4 h-[2px] rounded-full bg-gradient-to-r from-wine via-vino to-accent"
+                        transition={{ type: 'spring', stiffness: 520, damping: 44 }}
+                      />
+                    ) : null}
                   </a>
                 );
               })}
@@ -178,7 +257,7 @@ export default function Navbar() {
             <div className="hidden items-center gap-2 md:flex">
               <div className="h-6 w-px bg-gradient-to-b from-transparent via-white/15 to-transparent" />
 
-              <div className="relative">
+              <div ref={langRootRef} className="relative">
                 <button
                   onClick={() => setShowLanguageMenu((v) => !v)}
                   className="group flex items-center gap-2 rounded-xl border border-wine/18 bg-secondary/55 px-3 py-2 text-foreground/90 backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-secondary/75 hover:text-wine dark:border-white/10 dark:bg-white/5 dark:hover:text-vino"
@@ -256,6 +335,8 @@ export default function Navbar() {
                         href={link.href}
                         onClick={() => {
                           setActiveHref(link.href);
+                          scrollToHref(link.href);
+                          setShowLanguageMenu(false);
                           setIsMobileMenuOpen(false);
                         }}
                         className={cn(

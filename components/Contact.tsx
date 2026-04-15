@@ -207,7 +207,7 @@ export default function Contact() {
       <div className="mx-auto max-w-[100rem]">
         <SectionTitle number="07" title={t('title')} />
 
-        <div className="grid gap-16 md:grid-cols-2 md:items-center">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -215,8 +215,8 @@ export default function Contact() {
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
-            <h3 className="font-serif text-3xl">{t('subtitle')}</h3>
-            <p className="text-lg leading-relaxed text-foreground/82">
+            <h3 className="font-serif text-2xl sm:text-3xl">{t('subtitle')}</h3>
+            <p className="text-base leading-relaxed text-foreground/82 sm:text-lg">
               {t('connectDesc')}
             </p>
 

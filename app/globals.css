@@ -103,6 +103,7 @@
     scroll-behavior: smooth;
     font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
     font-size: clamp(16px, 0.35vw + 15px, 18px);
+    overflow-x: clip;
   }
 
   section[id] {
@@ -133,7 +134,14 @@
     font-feature-settings: "liga" 1, "calt" 1, "kern" 1;
     position: relative;
     min-height: 100vh;
+    overflow-x: clip;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
   }
 
   .font-sans {

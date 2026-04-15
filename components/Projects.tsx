@@ -68,7 +68,7 @@ export default function Projects() {
                 transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative overflow-hidden rounded-2xl border border-wine/12 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-wine/28 hover:shadow-[0_20px_70px_rgba(109,0,6,0.14)]"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-56 overflow-hidden sm:h-64">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -106,9 +106,9 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="space-y-4 p-6">
-                  <h3 className="font-serif text-2xl">{project.title}</h3>
-                  <p className="text-foreground/80">{project.description}</p>
+                <div className="space-y-4 p-5 sm:p-6">
+                  <h3 className="font-serif text-xl sm:text-2xl">{project.title}</h3>
+                  <p className="text-sm text-foreground/80 sm:text-base">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag: string) => (
                       <span

@@ -83,7 +83,7 @@ export default function Hero() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto w-full max-w-[100rem]"
       >
-        <div className="grid items-center gap-12 md:grid-cols-2">
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
           {/* Content */}
           <div className="flex flex-col gap-6">
             <div className="space-y-6">
@@ -161,7 +161,7 @@ export default function Hero() {
               </motion.h1>
 
               <motion.p
-                className="text-xl md:text-2xl leading-relaxed text-foreground/82 max-w-xl"
+                className="max-w-xl text-lg leading-relaxed text-foreground/82 sm:text-xl md:text-2xl"
                 variants={textContainer}
                 initial="hidden"
                 animate="show"
@@ -213,7 +213,7 @@ export default function Hero() {
               <div className="profile-glow-orbit" aria-hidden="true" />
               <div className="profile-glow-scan" aria-hidden="true" />
               <div className="profile-glow-dots" aria-hidden="true" />
-              <div className="relative z-10 h-88 w-88 overflow-hidden rounded-full border border-white/55 bg-white/10 shadow-[0_28px_90px_rgba(0,0,0,0.22)] ring-1 ring-wine/18 backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[520px] md:w-[520px] lg:h-[580px] lg:w-[580px] dark:border-white/20 dark:ring-white/10">
+              <div className="relative z-10 h-[min(78vw,22rem)] w-[min(78vw,22rem)] overflow-hidden rounded-full border border-white/55 bg-white/10 shadow-[0_28px_90px_rgba(0,0,0,0.22)] ring-1 ring-wine/18 backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] md:h-[520px] md:w-[520px] lg:h-[580px] lg:w-[580px] dark:border-white/20 dark:ring-white/10">
                 <img
                   src="/me.jpg"
                   alt={t('name')}

@@ -568,7 +568,7 @@ export default function Experience() {
                           whileHover={reduceMotion ? undefined : { y: -8, rotateX: 2, rotateY: sideLeft ? -2 : 2 }}
                           transition={{ type: 'spring', stiffness: 360, damping: 26 }}
                           className={[
-                            'group relative w-full overflow-hidden rounded-2xl border border-wine/16 bg-background/35 p-8 text-left shadow-[0_18px_70px_rgba(36,20,22,0.10)] backdrop-blur-md transition-all duration-500',
+                            'group relative w-full overflow-hidden rounded-2xl border border-wine/16 bg-background/35 p-6 text-left shadow-[0_18px_70px_rgba(36,20,22,0.10)] backdrop-blur-md transition-all duration-500 sm:p-8',
                             'hover:border-wine/34 hover:shadow-[0_30px_120px_rgba(109,0,6,0.18)]',
                             isActive ? 'ring-1 ring-wine/18' : 'ring-1 ring-wine/8',
                             soften ? 'brightness-[0.98] saturate-[0.98]' : 'brightness-100 saturate-100',

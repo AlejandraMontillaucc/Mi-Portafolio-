@@ -54,7 +54,7 @@ export default function Testimonials() {
               viewport={{ once: true, margin: '0px 0px -20% 0px' }}
               transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl border border-wine/16 bg-background/40 p-8 shadow-[0_18px_70px_rgba(36,20,22,0.10)] backdrop-blur-md transition-all duration-500 hover:border-wine/32 hover:shadow-[0_28px_110px_rgba(109,0,6,0.18)]"
+              className="group relative overflow-hidden rounded-2xl border border-wine/16 bg-background/40 p-6 shadow-[0_18px_70px_rgba(36,20,22,0.10)] backdrop-blur-md transition-all duration-500 hover:border-wine/32 hover:shadow-[0_28px_110px_rgba(109,0,6,0.18)] sm:p-8"
             >
               <motion.div
                 aria-hidden="true"
@@ -108,7 +108,7 @@ export default function Testimonials() {
 
                     <div className="h-px w-full bg-gradient-to-r from-transparent via-wine/18 to-transparent" />
 
-                    <p className="text-base leading-relaxed text-foreground/82 whitespace-pre-line">
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-foreground/82 sm:text-base">
                       {item.text}
                     </p>
                   </div>

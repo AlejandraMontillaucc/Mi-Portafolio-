@@ -13,6 +13,7 @@ const LANGUAGES = [
   { code: 'es', flag: '🇨🇴', name: 'Español' },
   { code: 'en', flag: '🇺🇸', name: 'English' },
 ];
+const SUPPORTED_LOCALES = LANGUAGES.map((lang) => lang.code);
 
 export default function Navbar() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -183,6 +184,10 @@ export default function Navbar() {
 
     const stored = window.localStorage.getItem('preferredLocale');
     if (!stored) return;
+    if (!SUPPORTED_LOCALES.includes(stored)) {
+      window.localStorage.removeItem('preferredLocale');
+      return;
+    }
     if (stored === locale) return;
 
     document.cookie = `NEXT_LOCALE=${stored}; path=/; max-age=31536000`;
@@ -193,6 +198,7 @@ export default function Navbar() {
 
   const handleLanguageChange = (newLocale: string) => {
     if (typeof window === 'undefined') return;
+    if (!SUPPORTED_LOCALES.includes(newLocale)) return;
     if (newLocale === locale) return;
 
     const y = window.scrollY;
@@ -220,13 +226,13 @@ export default function Navbar() {
         )}
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/18 via-transparent to-primary/14 opacity-55" />
-        <div className="pointer-events-none absolute left-3 top-0 bottom-0 z-10 flex items-center md:left-4">
-          <div className="h-full aspect-square origin-left scale-[1.35] overflow-visible transform-gpu md:scale-[1.55]">
+        <div className="pointer-events-none absolute left-3 top-1/2 z-10 hidden -translate-y-1/2 md:left-4 md:flex">
+          <div className="h-11 w-11 origin-left scale-[1.15] overflow-visible transform-gpu md:h-12 md:w-12 md:scale-[1.25]">
             {cuteAnimation ? (
               <Lottie
                 animationData={cuteAnimation}
-                loop
-                autoplay
+                loop={!reduceMotion}
+                autoplay={!reduceMotion}
                 style={{ width: '100%', height: '100%' }}
               />
             ) : (
@@ -350,8 +356,23 @@ export default function Navbar() {
 
           {isMobileMenuOpen && (
             <div className="md:hidden">
-              <div className="relative mt-4 rounded-2xl border border-wine/18 bg-secondary/70 px-2 pb-5 pt-4 shadow-[0_18px_60px_rgba(36,20,22,0.14)] backdrop-blur-sm dark:border-white/10 dark:bg-background/45">
-                <div className="relative flex flex-col gap-2">
+              <div className="relative mt-4 max-h-[72vh] overflow-y-auto overscroll-contain rounded-2xl border border-wine/18 bg-secondary/70 px-2 pb-5 pt-4 shadow-[0_18px_60px_rgba(36,20,22,0.14)] backdrop-blur-sm dark:border-white/10 dark:bg-background/45">
+                <div className="pointer-events-none absolute left-2 top-2 z-10">
+                  <div className="h-10 w-10 overflow-visible">
+                    {cuteAnimation ? (
+                      <Lottie
+                        animationData={cuteAnimation}
+                        loop={!reduceMotion}
+                        autoplay={!reduceMotion}
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    ) : (
+                      <div className="h-full w-full" />
+                    )}
+                  </div>
+                </div>
+
+                <div className="relative flex flex-col gap-2 pt-9">
                   {navLinks.map((link) => {
                     const isActive = activeHref === link.href;
                     return (

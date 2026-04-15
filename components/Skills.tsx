@@ -108,7 +108,7 @@ function TechChip({ tech, index }: { tech: Tech; index: number }) {
           '--brandGlow': tech.glow,
         } as React.CSSProperties
       }
-      className="group relative flex items-center gap-3 rounded-2xl border border-wine/14 bg-background/55 px-5 py-4 shadow-[0_14px_50px_rgba(36,20,22,0.06)] ring-1 ring-wine/8 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:ring-wine/18 hover:shadow-[0_22px_80px_var(--brandGlow)]"
+      className="group relative flex w-full min-w-0 items-center gap-3 rounded-2xl border border-wine/14 bg-background/55 px-4 py-4 shadow-[0_14px_50px_rgba(36,20,22,0.06)] ring-1 ring-wine/8 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--brand)] hover:ring-wine/18 hover:shadow-[0_22px_80px_var(--brandGlow)] sm:px-5"
     >
       <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/30 dark:bg-white/5">
         <span
@@ -122,7 +122,7 @@ function TechChip({ tech, index }: { tech: Tech; index: number }) {
         <tech.Logo className="relative h-5 w-5" />
       </span>
 
-      <span className="text-sm font-semibold text-foreground/90">{tech.name}</span>
+      <span className="truncate text-sm font-semibold text-foreground/90">{tech.name}</span>
     </motion.div>
   );
 }
@@ -185,7 +185,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '0px 0px -20% 0px' }}
               transition={{ duration: 0.75, delay: categoryIndex * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="relative overflow-hidden rounded-3xl border border-wine/12 bg-card/45 p-9 shadow-[0_22px_80px_rgba(36,20,22,0.10)] backdrop-blur-sm"
+              className="relative overflow-hidden rounded-3xl border border-wine/12 bg-card/45 p-6 shadow-[0_22px_80px_rgba(36,20,22,0.10)] backdrop-blur-sm sm:p-8 lg:p-9"
             >
               <div className="pointer-events-none absolute inset-0 opacity-60">
                 <div className="absolute inset-0 bg-[radial-gradient(700px_circle_at_18%_18%,rgba(109,0,6,0.12),transparent_55%),radial-gradient(780px_circle_at_85%_35%,rgba(192,129,107,0.10),transparent_60%)]" />
@@ -202,7 +202,7 @@ export default function Skills() {
                   {category.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
                   {category.items.map((tech, idx) => (
                     <div
                       key={`${category.title}-${tech.name}`}

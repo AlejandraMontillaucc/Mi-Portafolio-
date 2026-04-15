@@ -38,7 +38,7 @@ export default function About() {
       <div className="mx-auto max-w-[100rem]">
         <SectionTitle number="01" title={t('title')} />
 
-        <div className="mt-12 grid items-center gap-12 lg:gap-16 xl:gap-20 md:grid-cols-[1fr_1.5fr_1fr] lg:grid-cols-[1fr_2.2fr_1fr]">
+        <div className="mt-12 grid items-center gap-12 lg:gap-16 xl:gap-20 lg:grid-cols-[1fr_2.2fr_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px -20% 0px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto w-full max-w-5xl space-y-8 text-lg leading-relaxed text-foreground/82 text-center md:text-xl lg:text-[1.25rem] xl:text-[1.35rem]"
+            className="mx-auto w-full max-w-5xl space-y-8 text-base leading-relaxed text-foreground/82 text-center sm:text-lg md:text-xl lg:text-[1.25rem] xl:text-[1.35rem]"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}

@@ -96,7 +96,7 @@ export default function NailsGallery() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-[2.25rem] border border-wine/12 bg-card/35 px-6 py-10 shadow-[0_20px_70px_rgba(109,0,6,0.10)] backdrop-blur-sm sm:px-10">
+        <div className="relative overflow-hidden rounded-[2.25rem] border border-wine/12 bg-card/35 px-4 py-8 shadow-[0_20px_70px_rgba(109,0,6,0.10)] backdrop-blur-sm sm:px-8 sm:py-10 lg:px-10">
           <div className="pointer-events-none absolute inset-0 opacity-70">
             <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_18%,rgba(109,0,6,0.12),transparent_55%),radial-gradient(1000px_circle_at_85%_35%,rgba(192,129,107,0.10),transparent_60%)]" />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(109,0,6,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(109,0,6,0.08)_1px,transparent_1px)] bg-[size:46px_46px] [mask-image:radial-gradient(62%_72%_at_50%_40%,black,transparent)]" />
@@ -104,7 +104,7 @@ export default function NailsGallery() {
 
           <div className="relative mx-auto max-w-6xl">
             <div
-              className="relative mx-auto h-[420px] w-full sm:h-[520px] lg:h-[600px]"
+              className="relative mx-auto h-[350px] w-full sm:h-[460px] lg:h-[600px]"
               style={{ perspective: 1200, transformStyle: 'preserve-3d' }}
             >
               <div className="pointer-events-none absolute inset-0">
@@ -221,7 +221,7 @@ export default function NailsGallery() {
             href="https://www.instagram.com/alejandranails05?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] px-8 py-4 font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl active:scale-95"
+            className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl active:scale-95 sm:px-8 sm:py-4 sm:text-base"
           >
             <Instagram className="h-6 w-6 transition-transform group-hover:rotate-12" />
             <span>{t('instagram')}</span>

@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  // Opt out of SWC minification to avoid AppLocker native module execution errors
-  swcMinify: false,
+  // vacío o tus configs válidas
 };
 
 export default withNextIntl(nextConfig);

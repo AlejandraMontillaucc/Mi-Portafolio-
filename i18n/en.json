@@ -13,7 +13,7 @@
     "about": "About me",
     "projects": "Projects",
     "skills": "Skills",
-    "nails": "Creative",
+    "nails": "My Work",
     "experience": "Experience",
     "testimonials": "Testimonials",
     "contact": "Contact"
@@ -135,7 +135,7 @@
     "title": "Featured Projects"
   },
   "nails": {
-    "title": "My Creative Side",
+    "title": "My Work",
     "description": "Besides development, I also dedicate myself to nail design, where I express my creativity and attention to detail.",
     "instagram": "View more on Instagram",
     "view": "View"

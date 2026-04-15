@@ -7,17 +7,31 @@ import { motion } from 'motion/react';
 export default function Hero() {
   const t = useTranslations('hero');
   const descriptionLines = t('description').split('\n');
+  const nameWords = t('name').split(' ').filter(Boolean);
   const textContainer = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.16,
       },
     },
   };
   const textLine = {
     hidden: { opacity: 0, y: 10 },
     show: { opacity: 1, y: 0 },
+  };
+  const nameContainer = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.22,
+        delayChildren: 0.35,
+      },
+    },
+  };
+  const nameWord = {
+    hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
+    show: { opacity: 1, y: 0, filter: 'blur(0px)' },
   };
 
   return (
@@ -71,7 +85,7 @@ export default function Hero() {
                 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1.05, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
                 {t('greeting') ? (
                   <>
@@ -79,12 +93,51 @@ export default function Hero() {
                   </>
                 ) : null}
                 <motion.span
-                  className="block hero-title-gradient bg-gradient-to-r from-wine via-primary to-accent bg-clip-text text-transparent pb-1"
-                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.85, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative block pb-1"
+                  variants={nameContainer}
+                  initial="hidden"
+                  animate="show"
                 >
-                  {t('name')}
+                  <span className="sr-only">{t('name')}</span>
+                  <span aria-hidden="true" className="block">
+                    {nameWords.map((word, idx) => (
+                      <motion.span
+                        key={`${word}-${idx}`}
+                        variants={nameWord}
+                        transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+                        className="inline-block bg-gradient-to-r from-wine via-vino to-wine bg-clip-text text-transparent drop-shadow-[0_18px_46px_rgba(109,0,6,0.38)]"
+                      >
+                        {word}
+                        {idx < nameWords.length - 1 ? '\u00A0' : null}
+                      </motion.span>
+                    ))}
+                  </span>
+                  <motion.span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 -left-24 w-44 bg-gradient-to-r from-transparent via-white/45 to-transparent mix-blend-overlay"
+                    animate={{ x: ['-30%', '160%'], opacity: [0, 0.6, 0] }}
+                    transition={{ duration: 5.6, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
+                  />
+                  <motion.span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 opacity-0 [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]"
+                    style={{
+                      backgroundImage:
+                        'repeating-linear-gradient(to bottom, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 9px)',
+                    }}
+                    animate={{ opacity: [0.05, 0.2, 0.05] }}
+                    transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+                  />
+                  <motion.span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-x-12 -bottom-1 h-[2px] opacity-65"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(to right, transparent, rgba(109,0,6,0.55), rgba(138,28,31,0.5), rgba(109,0,6,0.55), transparent)',
+                    }}
+                    animate={{ opacity: [0.22, 0.55, 0.22], filter: ['blur(0.2px)', 'blur(0.9px)', 'blur(0.2px)'] }}
+                    transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
+                  />
                 </motion.span>
               </motion.h1>
 
@@ -93,14 +146,14 @@ export default function Hero() {
                 variants={textContainer}
                 initial="hidden"
                 animate="show"
-                transition={{ delayChildren: 0.42 }}
+                transition={{ delayChildren: 1.2 }}
               >
                 {descriptionLines.map((line, idx) => (
                   <motion.span
                     key={`${line}-${idx}`}
                     className="block"
                     variants={textLine}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                   >
                     {line}
                   </motion.span>

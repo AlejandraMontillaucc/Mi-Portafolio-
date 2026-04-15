@@ -37,6 +37,13 @@ export default function Projects() {
       github: 'https://github.com/AlejandraMontillaucc/Integraci-n-Calidad.git',
     },
 
+    {
+      title: 'Multiview',
+      description: 'Esta herramienta te permite trabajar con funciones de dos variables y visualizar superficies en 3D de manera sencilla e intuitiva.',
+      image: '/Captura%20de%20pantalla%202026-04-15%20034026.png',
+      tags: ['JavaScript', 'CSS', 'HTML', 'Python'],
+      github: 'https://github.com/AlejandraMontillaucc/proyecto-calculo.git',
+    },
   ];
 
   return (

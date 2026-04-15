@@ -34,7 +34,8 @@
     "title": "Proyectos Destacados",
     "labels": {
       "github": "Ver en GitHub",
-      "demo": "Ver demo"
+      "demo": "Ver demo",
+      "notLive": "No está en ejecución (solo prueba)"
     },
     "items": {
       "legalconnect": {

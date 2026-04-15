@@ -1,5 +1,6 @@
 {
   "hero": {
+
     "role": "Software Engineer",
     "greeting": "",
     "name": "Maria Alejandra Montilla Diaz",
@@ -237,7 +238,8 @@
     "title": "Featured Projects",
     "labels": {
       "github": "View on GitHub",
-      "demo": "View demo"
+      "demo": "View demo",
+      "notLive": "Not deployed (testing only)"
     },
     "items": {
       "legalconnect": {

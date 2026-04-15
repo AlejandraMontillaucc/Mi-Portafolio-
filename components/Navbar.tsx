@@ -225,7 +225,7 @@ export default function Navbar() {
             : "shadow-[0_10px_40px_rgba(36,20,22,0.10)]"
         )}
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent/18 via-transparent to-primary/14 opacity-55" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-wine/14 via-transparent to-wine/10 opacity-70 dark:from-accent/18 dark:to-primary/14 dark:opacity-55" />
         <div className="pointer-events-none absolute left-3 top-1/2 z-10 hidden -translate-y-1/2 md:left-4 md:flex">
           <div className="h-11 w-11 origin-left scale-[1.15] overflow-visible transform-gpu md:h-12 md:w-12 md:scale-[1.25]">
             {cuteAnimation ? (
@@ -263,7 +263,7 @@ export default function Navbar() {
                       "group relative rounded-full px-3.5 py-2 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                       isActive
                         ? "text-wine bg-wine/10 ring-1 ring-wine/25 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
-                        : "text-foreground/90 hover:text-vino hover:bg-wine/5 hover:scale-105"
+                        : "text-foreground/90 hover:text-wine hover:bg-wine/5 hover:scale-105 dark:hover:text-vino"
                     )}
                   >
                     <span className="relative z-10">{link.label}</span>
@@ -309,7 +309,7 @@ export default function Navbar() {
                             "flex w-full items-center gap-3 px-5 py-3 text-left text-sm transition-colors",
                             locale === lang.code
                               ? "bg-wine/10 text-wine dark:bg-vino/15 dark:text-foreground"
-                              : "text-foreground/90 hover:bg-wine/5 hover:text-vino"
+                              : "text-foreground/90 hover:bg-wine/5 hover:text-wine dark:hover:text-vino"
                           )}
                         >
                           <span className="text-lg">{lang.flag}</span>
@@ -389,7 +389,7 @@ export default function Navbar() {
                           "flex items-center justify-between rounded-xl px-4 py-3 font-sans text-[13px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ease-in-out",
                           isActive
                             ? "bg-wine/10 text-wine ring-1 ring-wine/22 dark:bg-vino/15 dark:text-wine dark:ring-white/10"
-                            : "text-foreground/90 hover:bg-wine/5 hover:text-vino"
+                            : "text-foreground/90 hover:bg-wine/5 hover:text-wine dark:hover:text-vino"
                         )}
                       >
                         {link.label}

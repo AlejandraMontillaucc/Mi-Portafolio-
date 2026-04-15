@@ -38,6 +38,14 @@ function JavaScriptLogo({ className }: { className?: string }) {
   );
 }
 
+function TypeScriptLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M1.5 1.5h21v21h-21v-21zm11.7 10.2v1.8h-3v8.1H8.1v-8.1H5.1v-1.8h8.1zm3.12 10.98c-1.8 0-3.12-.9-3.6-2.34l1.8-.96c.3.78.78 1.32 1.74 1.32.84 0 1.38-.42 1.38-1.02 0-.72-.6-.96-1.62-1.38l-.54-.24c-1.56-.66-2.58-1.5-2.58-3.3 0-1.62 1.26-2.88 3.24-2.88 1.41 0 2.43.48 3.15 1.77l-1.68 1.08c-.36-.66-.78-.96-1.47-.96-.69 0-1.14.42-1.14.96 0 .66.45.9 1.5 1.32l.54.24c1.83.78 2.85 1.56 2.85 3.42 0 1.95-1.53 3-3.57 3z" />
+    </svg>
+  );
+}
+
 function HtmlLogo({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
@@ -135,6 +143,7 @@ export default function Skills() {
       { name: 'HTML', brand: '#E34F26', glow: 'rgba(227,79,38,0.34)', Logo: HtmlLogo },
       { name: 'CSS', brand: '#1572B6', glow: 'rgba(21,114,182,0.30)', Logo: CssLogo },
       { name: 'JavaScript', brand: '#F7DF1E', glow: 'rgba(247,223,30,0.28)', Logo: JavaScriptLogo },
+      { name: 'TypeScript', brand: '#3178C6', glow: 'rgba(49,120,198,0.28)', Logo: TypeScriptLogo },
     ];
 
     const frameworks: Tech[] = [

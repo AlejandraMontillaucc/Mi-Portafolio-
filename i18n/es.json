@@ -1,6 +1,6 @@
 {
   "hero": {
-    "role": "Estudiante de Ingeniería de Software",
+    "role": "Ingeniera de Software",
     "greeting": "",
     "name": "Maria Alejandra Montilla Diaz",
     "description": "Estudiante de Ingeniería de Software,\naprendiendo, creando y mejorando cada día\nen el mundo del desarrollo.",
@@ -277,6 +277,8 @@
     "ui": "Estilos y UI",
     "uiDesc": "Sistema de estilos, diseño consistente y rapidez al crear interfaces.",
     "tools": "Herramientas",
-    "toolsDesc": "Control de versiones, colaboración y flujo de trabajo para desarrollo, entrega y despliegue con orden."
+    "toolsDesc": "Control de versiones, colaboración y flujo de trabajo para desarrollo, entrega y despliegue con orden.",
+    "aiTools": "Herramientas de IA y Desarrollo",
+    "aiToolsDesc": "Asistentes y herramientas modernas para programar, prototipar y mejorar productividad."
   }
 }

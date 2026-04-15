@@ -278,6 +278,8 @@
     "ui": "Styling & UI",
     "uiDesc": "Design consistency and speed when building polished interfaces.",
     "tools": "Tools",
-    "toolsDesc": "Version control, collaboration and workflow to develop, ship and deploy with confidence."
+    "toolsDesc": "Version control, collaboration and workflow to develop, ship and deploy with confidence.",
+    "aiTools": "AI & Development Tools",
+    "aiToolsDesc": "Modern assistants and tools for coding, prototyping and boosting productivity."
   }
 }

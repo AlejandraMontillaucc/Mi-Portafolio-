@@ -29,30 +29,82 @@
     "experience_title": "Professional Experience",
     "education_title": "Education",
     "complementary_title": "Complementary Training",
+    "filters": {
+      "all": "All",
+      "experience": "Experience",
+      "education": "Education"
+    },
+    "details": {
+      "responsibilities": "Responsibilities",
+      "tools": "Technologies & tools",
+      "highlights": "Highlights",
+      "expand": "View details",
+      "collapse": "Hide details"
+    },
+    "list": {
+      "showAll": "Show all",
+      "showLess": "Show less"
+    },
     "jobs": {
       "manicurist": {
         "title": "Independent Manicurist",
         "company": "Home service",
         "date": "2022 - Present",
-        "desc": "I provide personalized nail care and aesthetic services at home. Customer management, appointment scheduling, loyalty and independent business management. Development of responsibility, discipline and attention to detail skills."
+        "desc": "I provide personalized nail care and aesthetic services at home. Customer management, appointment scheduling, loyalty and independent business management. Development of responsibility, discipline and attention to detail skills.",
+        "responsibilities": [
+          "Personalized nail care and aesthetic services at home."
+        ],
+        "tools": [
+          "Customer management",
+          "Appointment scheduling",
+          "Customer loyalty",
+          "Independent business management"
+        ],
+        "highlights": [
+          "Responsibility, discipline and attention to detail."
+        ]
       },
       "admin_assistant": {
         "title": "Administrative Assistance Assistant (Internship)",
         "company": "Educational institutions and EPS (CONVIDA)",
         "date": "2021 - 2022",
-        "desc": "Performed 880 hours of practice. Support in document management, customer service, file organization and general administrative tasks."
+        "desc": "Performed 880 hours of practice. Support in document management, customer service, file organization and general administrative tasks.",
+        "responsibilities": [
+          "Support in document management.",
+          "Customer service.",
+          "File organization.",
+          "General administrative tasks."
+        ],
+        "highlights": [
+          "880 hours of practice."
+        ]
       },
       "customer_service": {
         "title": "Customer Service Experience",
         "company": "Various environments",
         "date": "Various",
-        "desc": "I have developed effective communication, empathy and problem solving skills through direct interaction with customers."
+        "desc": "I have developed effective communication, empathy and problem solving skills through direct interaction with customers.",
+        "responsibilities": [
+          "Direct interaction with customers."
+        ],
+        "highlights": [
+          "Effective communication.",
+          "Empathy.",
+          "Problem solving."
+        ]
       },
       "nail_tech": {
         "title": "Nail Aesthetic Experience",
         "company": "Aesthetic Center",
         "date": "2021",
-        "desc": "Work for half a year in nail aesthetic services, strengthening technical and service skills."
+        "desc": "Work for half a year in nail aesthetic services, strengthening technical and service skills.",
+        "responsibilities": [
+          "Nail aesthetic services for half a year."
+        ],
+        "highlights": [
+          "Strengthened technical skills.",
+          "Strengthened service skills."
+        ]
       }
     },
     "education": {
@@ -60,7 +112,13 @@
         "title": "Software Engineering",
         "institution": "Universidad Cooperativa de Colombia",
         "date": "2022 - Present",
-        "desc": "Training in programming, software development, databases and design of technological solutions."
+        "desc": "Training in programming, software development, databases and design of technological solutions.",
+        "responsibilities": [
+          "Programming.",
+          "Software development.",
+          "Databases.",
+          "Design of technological solutions."
+        ]
       },
       "sena": {
         "title": "Technician in Administrative Assistance",

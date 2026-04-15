@@ -12,7 +12,7 @@ interface Project {
   image: string;
   tags: string[];
   github: string;
-  demo: string;
+  demo?: string;
 }
 
 export default function Projects() {
@@ -27,6 +27,14 @@ export default function Projects() {
       tags: ['TypeScript', 'JavaScript'],
       github: 'https://github.com/AndresMira21/analyzer-contract-frontend.git',
       demo: 'https://analyzer-contract-frontend-kohl.vercel.app/',
+    },
+
+    {
+      title: 'Aplicativo React con Vite',
+      description: 'Este proyecto es un aplicativo desarrollado en React con Vite para aprender y aplicar pruebas unitarias con Jest más la integración continua con GitHub Actions.',
+      image: '/WhatsApp%20Image%202026-04-15%20at%202.36.20%20AM.jpeg',
+      tags: ['TypeScript', 'JavaScript', 'CSS', 'HTML'],
+      github: 'https://github.com/AlejandraMontillaucc/Integraci-n-Calidad.git',
     },
 
   ];
@@ -63,15 +71,17 @@ export default function Projects() {
                     >
                       <Github className="h-5 w-5" />
                     </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
-                      aria-label="Ver demo"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
+                    {project.demo ? (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-wine p-3 text-white transition-transform hover:scale-110 hover:bg-vino"
+                        aria-label="Ver demo"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 

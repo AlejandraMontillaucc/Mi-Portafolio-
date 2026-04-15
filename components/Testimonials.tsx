@@ -62,13 +62,13 @@ export default function Testimonials() {
                 className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
                   background:
-                    'conic-gradient(from 180deg, rgba(109,0,6,0) 0deg, rgba(109,0,6,0.55) 55deg, rgba(201,132,122,0.38) 95deg, rgba(109,0,6,0) 140deg, rgba(109,0,6,0.55) 220deg, rgba(201,132,122,0.36) 260deg, rgba(109,0,6,0) 360deg)',
-                  filter: 'blur(10px)',
+                    'conic-gradient(from 180deg, rgba(109,0,6,0) 0deg, rgba(109,0,6,0.32) 55deg, rgba(201,132,122,0.22) 95deg, rgba(109,0,6,0) 140deg, rgba(109,0,6,0.32) 220deg, rgba(201,132,122,0.20) 260deg, rgba(109,0,6,0) 360deg)',
+                  filter: 'blur(14px)',
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
               />
-              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-wine/10 group-hover:ring-wine/18 transition-[box-shadow,ring] duration-500" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-wine/8 group-hover:ring-wine/14 transition-[box-shadow,ring] duration-500" />
 
               {item.text ? (
                 <>

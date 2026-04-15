@@ -38,30 +38,82 @@
     "experience_title": "Experiencia Profesional",
     "education_title": "Educación",
     "complementary_title": "Formación Complementaria",
+    "filters": {
+      "all": "Todo",
+      "experience": "Experiencia",
+      "education": "Educación"
+    },
+    "details": {
+      "responsibilities": "Responsabilidades",
+      "tools": "Tecnologías y herramientas",
+      "highlights": "Logros y detalles",
+      "expand": "Ver detalles",
+      "collapse": "Ocultar detalles"
+    },
+    "list": {
+      "showAll": "Ver todo",
+      "showLess": "Ver menos"
+    },
     "jobs": {
       "manicurist": {
         "title": "Manicurista Independiente",
         "company": "Servicio a domicilio",
         "date": "2022 - Presente",
-        "desc": "Brindo servicios personalizados de cuidado y estética de uñas a domicilio. Gestión de clientes, agendamiento de citas, fidelización y manejo independiente del negocio. Desarrollo habilidades de responsabilidad, disciplina y atención al detalle."
+        "desc": "Brindo servicios personalizados de cuidado y estética de uñas a domicilio. Gestión de clientes, agendamiento de citas, fidelización y manejo independiente del negocio. Desarrollo habilidades de responsabilidad, disciplina y atención al detalle.",
+        "responsibilities": [
+          "Servicios personalizados de cuidado y estética de uñas a domicilio."
+        ],
+        "tools": [
+          "Gestión de clientes",
+          "Agendamiento de citas",
+          "Fidelización",
+          "Manejo independiente del negocio"
+        ],
+        "highlights": [
+          "Responsabilidad, disciplina y atención al detalle."
+        ]
       },
       "admin_assistant": {
         "title": "Auxiliar en Asistencia Administrativa (Prácticas)",
         "company": "Instituciones educativas y EPS (CONVIDA)",
         "date": "2021 - 2022",
-        "desc": "Realicé 880 horas de prácticas. Apoyo en gestión documental, atención al cliente, organización de archivos y tareas administrativas generales."
+        "desc": "Realicé 880 horas de prácticas. Apoyo en gestión documental, atención al cliente, organización de archivos y tareas administrativas generales.",
+        "responsibilities": [
+          "Apoyo en gestión documental.",
+          "Atención al cliente.",
+          "Organización de archivos.",
+          "Tareas administrativas generales."
+        ],
+        "highlights": [
+          "880 horas de prácticas."
+        ]
       },
       "customer_service": {
         "title": "Experiencia en Atención al Cliente",
         "company": "Varios entornos",
         "date": "Varios",
-        "desc": "He desarrollado habilidades de comunicación efectiva, empatía y resolución de problemas a través de la interacción directa con clientes."
+        "desc": "He desarrollado habilidades de comunicación efectiva, empatía y resolución de problemas a través de la interacción directa con clientes.",
+        "responsibilities": [
+          "Interacción directa con clientes."
+        ],
+        "highlights": [
+          "Comunicación efectiva.",
+          "Empatía.",
+          "Resolución de problemas."
+        ]
       },
       "nail_tech": {
         "title": "Experiencia en Estética de Uñas",
         "company": "Centro de Estética",
         "date": "2021",
-        "desc": "Trabajo durante medio año en servicios de estética de uñas, fortaleciendo habilidades técnicas y de servicio."
+        "desc": "Trabajo durante medio año en servicios de estética de uñas, fortaleciendo habilidades técnicas y de servicio.",
+        "responsibilities": [
+          "Servicios de estética de uñas durante medio año."
+        ],
+        "highlights": [
+          "Fortalecimiento de habilidades técnicas.",
+          "Fortalecimiento de habilidades de servicio."
+        ]
       }
     },
     "education": {
@@ -69,7 +121,13 @@
         "title": "Ingeniería de Software",
         "institution": "Universidad Cooperativa de Colombia",
         "date": "2022 - Presente",
-        "desc": "Formación en programación, desarrollo de software, bases de datos y diseño de soluciones tecnológicas."
+        "desc": "Formación en programación, desarrollo de software, bases de datos y diseño de soluciones tecnológicas.",
+        "responsibilities": [
+          "Programación.",
+          "Desarrollo de software.",
+          "Bases de datos.",
+          "Diseño de soluciones tecnológicas."
+        ]
       },
       "sena": {
         "title": "Técnico en Asistencia Administrativa",
